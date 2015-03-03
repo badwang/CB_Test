@@ -62,6 +62,8 @@ void FreeRTOS1_vApplicationStackOverflowHook(xTaskHandle pxTask, char *pcTaskNam
   (void)pcTaskName;
   taskDISABLE_INTERRUPTS();
   /* Write your code here ... */
+  debug_printf("\r\nFreeRTOS detected stack overflow!!\r\n")
+
   for(;;) {}
 }
 
@@ -123,24 +125,15 @@ void FreeRTOS1_vApplicationMallocFailedHook(void)
      configTOTAL_HEAP_SIZE configuration constant in FreeRTOSConfig.h. */
   taskDISABLE_INTERRUPTS();
   /* Write your code here ... */
+  debug_printf("\r\nFreeRTOS detected Malloc() Failure!!\r\n")
+
   for(;;) {}
 }
 
 
-/*
-** ===================================================================
-**     Event       :  RTOSTRC1_OnTraceWrap (module Events)
-**
-**     Component   :  RTOSTRC1 [PercepioTrace]
-**     Description :
-**         Called for trace ring buffer wrap around. This gives the
-**         application a chance to dump the trace buffer.
-**     Parameters  : None
-**     Returns     : Nothing
-** ===================================================================
-*/
-void RTOSTRC1_OnTraceWrap(void)
+void FTM0_IRQHandler(void)
 {
+  FTM_DRV_IRQHandler(FSL_TIMER1);
   /* Write your code here ... */
 }
 

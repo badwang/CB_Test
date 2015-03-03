@@ -2212,5 +2212,225 @@ PE_DEBUGHALT();
       </list>
     </Events>
   </Bean>
+  <Bean name="ADC0" type="fsl_adc16">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="ADC0" />
+      <Device v="ADC0" />
+      <Component_version v="1.1.0-GA" />
+      <list name="VersionSpecificItem" v="1">
+        <group name="Settings">
+          <list name="LinkItem" v="1">
+            <group name="Shared components">
+              <Interrupt_manager v="intMan1" />
+              <Clock_manager v="clockMan1" />
+            </group>
+          </list>
+          <boolgroup name="Channel configurations" v="Enabled">
+            <list name="Channel configurations" v="3">
+              <boolgroup name="Channel configuration 0" v="Enabled">
+                <Configuration_Name v="ADC0_ChnConfig0" />
+                <Interrupt v="Enabled" />
+                <enumgroup name="Differential mode" v="Single ended">
+                  <A_D_channel__pin_ v="ADC0_DP0/ADC1_DP3" />
+                </enumgroup>
+                <Channel v="0" />
+                <Mux_select v="Channel A" />
+              </boolgroup>
+              <boolgroup name="Channel configuration 1" v="Enabled">
+                <Configuration_Name v="ADC0_ChnConfig1" />
+                <Interrupt v="Enabled" />
+                <enumgroup name="Differential mode" v="Single ended">
+                  <A_D_channel__pin_ v="ADC0_DM0/ADC1_DM3" />
+                </enumgroup>
+                <Channel v="19" />
+                <Mux_select v="Channel A" />
+              </boolgroup>
+              <boolgroup name="Channel configuration 2" v="Enabled">
+                <Configuration_Name v="ADC0_ChnConfig2" />
+                <Interrupt v="Enabled" />
+                <enumgroup name="Differential mode" v="Single ended">
+                  <A_D_channel__pin_ v="ADC1_DP0/ADC0_DP3" />
+                </enumgroup>
+                <Channel v="3" />
+                <Mux_select v="Channel A" />
+              </boolgroup>
+            </list>
+          </boolgroup>
+          <list name="ADC configurations" v="1">
+            <boolgroup name="Configuration 0" v="Enabled">
+              <Configuration_name v="ADC0_InitConfig0" />
+              <Interrupts v="Enabled" />
+              <Low_power_mode v="Disabled" />
+              <Resolution v="16 bit" />
+              <Clock_source v="Asynchrounous" />
+              <Clock_divider v="1" />
+              <Internal_async_clock v="Enabled" />
+              <High_speed_mode v="Enabled" />
+              <Hardware_trigger v="Disabled" />
+              <Reference_voltage v="Vref" />
+              <Continuous_mode v="Disabled" />
+              <DMA_support v="Disabled" />
+            </boolgroup>
+          </list>
+          <list name="InhrItem" v="1">
+            <EmptySection_DummyValue />
+          </list>
+          <list name="HiddenItem" v="1">
+            <group name="Initialization">
+              <boolgroup name="Auto initialization" v="Enabled">
+                <Driver_init__configuration v="ADC0_InitConfig0" />
+                <list name="Conversion initialization" v="2">
+                  <group name="Control group 0">
+                    <boolgroup name="Control group initialization" v="Enabled">
+                      <Configuration v="ADC0_ChnConfig0" />
+                    </boolgroup>
+                  </group>
+                  <group name="Control group 1">
+                    <boolgroup name="Control group initialization" v="Disabled" />
+                  </group>
+                </list>
+                <list name="InterruptsHiddenItem" v="1">
+                  <group name="Interrupts">
+                    <A_D_interrupt v="INT_ADC0" />
+                    <boolgroup name="Configure A/D interrupt priority" v="Disabled" />
+                    <Install_interrupts v="Disabled" />
+                  </group>
+                </list>
+              </boolgroup>
+            </group>
+          </list>
+        </group>
+      </list>
+    </Properties>
+    <Methods>
+      <list name="SdkSpecificMethods" v="1">
+        <ADC16_DRV_GetAutoCalibrationParam v="generate code" />
+        <ADC16_DRV_SetCalibrationParam v="generate code" />
+        <ADC16_DRV_StructInitUserConfigDefault v="generate code" />
+        <ADC16_DRV_Init v="generate code" />
+        <ADC16_DRV_Deinit v="generate code" />
+        <ADC16_DRV_EnableLongSample v="generate code" />
+        <ADC16_DRV_DisableLongSample v="generate code" />
+        <ADC16_DRV_EnableHwCmp v="generate code" />
+        <ADC16_DRV_DisableHwCmp v="generate code" />
+        <ADC16_DRV_EnableHwAverage v="generate code" />
+        <ADC16_DRV_DisableHwAverage v="generate code" />
+        <ADC16_DRV_ConfigConvChn v="generate code" />
+        <ADC16_DRV_WaitConvDone v="generate code" />
+        <ADC16_DRV_PauseConv v="generate code" />
+        <ADC16_DRV_GetConvValueRAW v="generate code" />
+        <ADC16_DRV_ConvRAWData v="generate code" />
+        <ADC16_DRV_GetFlag v="generate code" />
+        <ADC16_DRV_GetChnFlag v="generate code" />
+      </list>
+    </Methods>
+    <Events>
+      <list name="SdkSpecificEvents" v="1">
+        <Event_module_name v="Events" />
+        <event name="ADC IRQ handler" v="generate code">
+          <ISR_name v="ADC0_IRQHandler" />
+        </event>
+      </list>
+    </Events>
+  </Bean>
+  <Bean name="Timer1" type="fsl_ftm">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="Timer1" />
+      <Device v="FTM0" />
+      <Component_version v="1.1.0-GA" />
+      <list name="VersionSpecificItem" v="1">
+        <group name="Settings">
+          <Counter v="FTM0_CNT" />
+          <list name="Shared components" v="1">
+            <group name="Shared components">
+              <fsl_interrupt_manager v="intMan1" />
+              <fsl_clock_manager v="clockMan1" />
+            </group>
+          </list>
+          <list name="Basic configurations" v="1">
+            <boolgroup name="Configuration 0" v="Enabled">
+              <Name v="Timer1_InitConfig0" />
+              <Overflow_frequency v="0" />
+              <Write_protection v="Disabled" />
+              <BDM_mode v="Mode 0" />
+              <group name="Triggers">
+                <Software_trigger v="Enabled" />
+                <Hardware_trigger_0 v="Disabled" />
+                <Hardware_trigger_1 v="Disabled" />
+                <Hardware_trigger_2 v="Disabled" />
+              </group>
+            </boolgroup>
+          </list>
+          <list name="PWM channels configurations" v="0">
+            <EmptySection_DummyValue />
+          </list>
+          <list name="Quadrature decode configurations" v="0">
+            <EmptySection_DummyValue />
+          </list>
+          <group name="Pins">
+            <group name="Fault pins">
+              <boolgroup name="Fault pin 0" v="Disabled" />
+              <boolgroup name="Fault pin 1" v="Disabled" />
+              <boolgroup name="Fault pin 2" v="Disabled" />
+              <boolgroup name="Fault pin 3" v="Disabled" />
+            </group>
+            <boolgroup name="External clock pin" v="Disabled" />
+            <group name="HW Synchronization triggers">
+              <boolgroup name="Hardware Trigger 0" v="Disabled" />
+              <boolgroup name="Hardware Trigger 1" v="Disabled" />
+              <boolgroup name="Hardware Trigger 2" v="Disabled" />
+            </group>
+          </group>
+          <list name="HiddenItem" v="1">
+            <group name="Initialization">
+              <boolgroup name="Auto initialization" v="Enabled">
+                <Init_configuration v="Timer1_InitConfig0" />
+                <Timer_overflow_interrupt v="Enabled" />
+                <Fault_interrupt v="Disabled" />
+                <boolgroup name="PWM channel initialization" v="Disabled" />
+                <boolgroup name="Quadrature decode initialization" v="Disabled" />
+                <list name="InterruptsHiddenItem" v="1">
+                  <group name="Interrupts">
+                    <FTM_interrupt v="INT_FTM0" />
+                    <boolgroup name="Configure FTM interrupt priority" v="Disabled" />
+                    <Install_interrupts v="Disabled" />
+                  </group>
+                </list>
+              </boolgroup>
+            </group>
+          </list>
+          <list name="InhrItem" v="1">
+            <EmptySection_DummyValue />
+          </list>
+        </group>
+      </list>
+    </Properties>
+    <Methods>
+      <list name="SdkSpecificMethods" v="1">
+        <FTM_DRV_Init v="generate code" />
+        <FTM_DRV_Deinit v="generate code" />
+        <FTM_DRV_PwmStop v="generate code" />
+        <FTM_DRV_PwmStart v="generate code" />
+        <FTM_DRV_QuadDecodeStart v="generate code" />
+        <FTM_DRV_QuadDecodeStop v="generate code" />
+        <FTM_DRV_CounterStart v="generate code" />
+        <FTM_DRV_CounterStop v="generate code" />
+        <FTM_DRV_CounterRead v="generate code" />
+        <FTM_DRV_SetTimeOverflowIntCmd v="generate code" />
+        <FTM_DRV_SetFaultIntCmd v="generate code" />
+        <FTM_DRV_IRQHandler v="generate code" />
+      </list>
+    </Methods>
+    <Events>
+      <list name="SdkSpecificEvents" v="1">
+        <Event_module_name v="Events" />
+        <event name="FTM IRQ handler" v="generate code">
+          <ISR_name v="FTM0_IRQHandler" />
+        </event>
+      </list>
+    </Events>
+  </Bean>
 </PE_PROJECT_SETTINGS_DOCUMENTATION>
 

@@ -20,23 +20,35 @@
               <boolgroup name="Initialize fast trim value" v="no" />
             </group>
             <boolgroup name="RTC oscillator" v="Disabled" />
-            <boolgroup name="System oscillator 0" v="Disabled" />
+            <boolgroup name="System oscillator 0" v="Enabled">
+              <enumgroup name="Clock source" v="External crystal">
+                <group name="Clock input pin">
+                  <Pin_name v="EXTAL0/PTA18/FTM0_FLT2/FTM_CLKIN0" />
+                </group>
+                <group name="Clock output pin">
+                  <Pin_name v="XTAL0/PTA19/FTM1_FLT0/FTM_CLKIN1/LPTMR0_ALT1" />
+                </group>
+                <Clock_frequency__MHz_ v="8" />
+                <Capacitor_load v="0pF" />
+                <Oscillator_operating_mode v="Low power" />
+              </enumgroup>
+            </boolgroup>
           </group>
-          <list name="Clock configurations" v="1">
+          <list name="Clock configurations" v="2">
             <group name="Clock configuration 0">
               <Configuration_description v="Default  part configuration" />
               <group name="Internal reference clock">
                 <MCGIRCLK_clock v="Enabled" />
                 <MCGIRCLK_in_stop v="Disabled" />
                 <enumgroup name="MCGIRCLK source" v="Fast">
-                  <Reference_divider v="2" />
+                  <Reference_divider v="1" />
                 </enumgroup>
-                <MCGIRCLK_clock__MHz_ v="2" />
+                <MCGIRCLK_clock__MHz_ v="4" />
               </group>
               <group name="External reference clock">
                 <OSC0ERCLK_clock v="Enabled" />
                 <OSC0ERCLK_in_stop v="Disabled" />
-                <OSC0ERCLK_clock__MHz_ v="0" />
+                <OSC0ERCLK_clock__MHz_ v="8" />
                 <ERCLK32K_clock_source v="Auto select" />
                 <ERCLK32K__clock__kHz_ v="0.001000000000" />
               </group>
@@ -47,7 +59,7 @@
                 <MCG_output_clock v="FLL clock" />
                 <MCG_output__MHz_ v="95.977472000000" />
                 <MCG_external_ref__clock_source v="System oscillator 0" />
-                <MCG_external_ref__clock__MHz_ v="0" />
+                <MCG_external_ref__clock__MHz_ v="8" />
                 <Clock_monitor v="Disabled" />
                 <group name="FLL settings">
                   <FLL_module v="Enabled" />
@@ -71,16 +83,78 @@
               </group>
               <boolgroup name="Very low power mode" v="Disabled" />
               <group name="System clocks">
-                <Core_clock_prescaler v="Auto select" />
+                <Core_clock_prescaler v="1" />
                 <Core_clock v="95.977472000000" />
-                <Bus_clock_prescaler v="Auto select" />
+                <Bus_clock_prescaler v="2" />
                 <Bus_clock v="47.988736000000" />
-                <External_clock_prescaler v="Auto select" />
+                <External_clock_prescaler v="4" />
                 <External_bus_clock v="23.994368000000" />
-                <Flash_clock_prescaler v="Auto select" />
+                <Flash_clock_prescaler v="4" />
                 <Flash_clock v="23.994368000000" />
-                <enumgroup name="PLL/FLL clock selection" v="Auto select">
+                <enumgroup name="PLL/FLL clock selection" v="FLL clock">
                   <Clock_frequency__MHz_ v="95.977472000000" />
+                  <boolgroup name="USB clock settings" v="Disabled" />
+                </enumgroup>
+              </group>
+            </group>
+            <group name="Clock configuration 1">
+              <Configuration_description v="Default  part configuration" />
+              <group name="Internal reference clock">
+                <MCGIRCLK_clock v="Enabled" />
+                <MCGIRCLK_in_stop v="Disabled" />
+                <enumgroup name="MCGIRCLK source" v="Slow">
+                  <EmptySection_DummyValue />
+                </enumgroup>
+                <MCGIRCLK_clock__MHz_ v="0.032768000000" />
+              </group>
+              <group name="External reference clock">
+                <OSC0ERCLK_clock v="Enabled" />
+                <OSC0ERCLK_in_stop v="Disabled" />
+                <OSC0ERCLK_clock__MHz_ v="8" />
+                <ERCLK32K_clock_source v="Auto select" />
+                <ERCLK32K__clock__kHz_ v="0.001000000000" />
+              </group>
+              <group name="MCG settings">
+                <enumgroup name="MCG mode" v="FBE">
+                  <EmptySection_DummyValue />
+                </enumgroup>
+                <MCG_output_clock v="External clock" />
+                <MCG_output__MHz_ v="8" />
+                <MCG_external_ref__clock_source v="System oscillator 0" />
+                <MCG_external_ref__clock__MHz_ v="8" />
+                <Clock_monitor v="Disabled" />
+                <group name="FLL settings">
+                  <FLL_module v="Enabled" />
+                  <FLL_output__MHz_ v="20" />
+                  <MCGFFCLK_clock__kHz_ v="31.250000000000" />
+                  <enumgroup name="Reference clock source" v="External clock">
+                    <Reference_clock_divider v="Auto select" />
+                  </enumgroup>
+                  <FLL_reference_clock__kHz_ v="31.250000000000" />
+                  <Multiplication_factor v="640" />
+                </group>
+                <group name="PLL 0 settings">
+                  <PLL_module v="Disabled" />
+                  <PLL_module_in_Stop v="Disabled" />
+                  <PLL_output__MHz_ v="0" />
+                  <Reference_clock_divider v="Auto select" />
+                  <PLL_reference_clock__MHz_ v="1" />
+                  <Multiplication_factor v="Auto select" />
+                  <Loss_of_lock_interrupt v="Disabled" />
+                </group>
+              </group>
+              <boolgroup name="Very low power mode" v="Disabled" />
+              <group name="System clocks">
+                <Core_clock_prescaler v="1" />
+                <Core_clock v="8" />
+                <Bus_clock_prescaler v="1" />
+                <Bus_clock v="8" />
+                <External_clock_prescaler v="1" />
+                <External_bus_clock v="8" />
+                <Flash_clock_prescaler v="1" />
+                <Flash_clock v="8" />
+                <enumgroup name="PLL/FLL clock selection" v="Auto select">
+                  <Clock_frequency__MHz_ v="20" />
                   <boolgroup name="USB clock settings" v="Disabled" />
                 </enumgroup>
               </group>
@@ -1278,7 +1352,7 @@ PE_DEBUGHALT();
         <configure_llwu_pins v="don&amp;apos;t generate code" />
         <configure_lptmr_pins v="don&amp;apos;t generate code" />
         <configure_lpuart_pins v="don&amp;apos;t generate code" />
-        <configure_osc_pins v="don&amp;apos;t generate code" />
+        <configure_osc_pins v="generate code" />
         <configure_pdb_pins v="don&amp;apos;t generate code" />
         <configure_rcm_pins v="don&amp;apos;t generate code" />
         <configure_rtc_pins v="don&amp;apos;t generate code" />
@@ -2212,127 +2286,203 @@ PE_DEBUGHALT();
       </list>
     </Events>
   </Bean>
-  <Bean name="flexTimer2" type="fsl_ftm_hal">
+  <Bean name="ADC0" type="fsl_adc16">
     <Enabled v="Y" />
     <Properties>
-      <Component_name v="flexTimer2" />
-      <Device v="FTM0" />
+      <Component_name v="ADC0" />
+      <Device v="ADC0" />
       <Component_version v="1.1.0-GA" />
-      <list name="HiddenItem" v="1">
-        <EmptySection_DummyValue />
+      <list name="VersionSpecificItem" v="1">
+        <group name="Settings">
+          <list name="LinkItem" v="1">
+            <group name="Shared components">
+              <Interrupt_manager v="intMan1" />
+              <Clock_manager v="clockMan1" />
+            </group>
+          </list>
+          <boolgroup name="Channel configurations" v="Enabled">
+            <list name="Channel configurations" v="3">
+              <boolgroup name="Channel configuration 0" v="Enabled">
+                <Configuration_Name v="ADC0_ChnConfig0" />
+                <Interrupt v="Enabled" />
+                <enumgroup name="Differential mode" v="Single ended">
+                  <A_D_channel__pin_ v="ADC0_DP0/ADC1_DP3" />
+                </enumgroup>
+                <Channel v="0" />
+                <Mux_select v="Channel A" />
+              </boolgroup>
+              <boolgroup name="Channel configuration 1" v="Enabled">
+                <Configuration_Name v="ADC0_ChnConfig1" />
+                <Interrupt v="Enabled" />
+                <enumgroup name="Differential mode" v="Single ended">
+                  <A_D_channel__pin_ v="ADC0_DM0/ADC1_DM3" />
+                </enumgroup>
+                <Channel v="19" />
+                <Mux_select v="Channel A" />
+              </boolgroup>
+              <boolgroup name="Channel configuration 2" v="Enabled">
+                <Configuration_Name v="ADC0_ChnConfig2" />
+                <Interrupt v="Enabled" />
+                <enumgroup name="Differential mode" v="Single ended">
+                  <A_D_channel__pin_ v="ADC1_DP0/ADC0_DP3" />
+                </enumgroup>
+                <Channel v="3" />
+                <Mux_select v="Channel A" />
+              </boolgroup>
+            </list>
+          </boolgroup>
+          <list name="ADC configurations" v="1">
+            <boolgroup name="Configuration 0" v="Enabled">
+              <Configuration_name v="ADC0_InitConfig0" />
+              <Interrupts v="Enabled" />
+              <Low_power_mode v="Disabled" />
+              <Resolution v="16 bit" />
+              <Clock_source v="Asynchrounous" />
+              <Clock_divider v="1" />
+              <Internal_async_clock v="Enabled" />
+              <High_speed_mode v="Enabled" />
+              <Hardware_trigger v="Disabled" />
+              <Reference_voltage v="Vref" />
+              <Continuous_mode v="Disabled" />
+              <DMA_support v="Disabled" />
+            </boolgroup>
+          </list>
+          <list name="InhrItem" v="1">
+            <EmptySection_DummyValue />
+          </list>
+          <list name="HiddenItem" v="1">
+            <group name="Initialization">
+              <boolgroup name="Auto initialization" v="Disabled" />
+            </group>
+          </list>
+        </group>
       </list>
     </Properties>
     <Methods>
       <list name="SdkSpecificMethods" v="1">
-        <FTM_HAL_SetClockSource v="generate code" />
-        <FTM_HAL_GetClockSource v="generate code" />
-        <FTM_HAL_SetClockPs v="generate code" />
-        <FTM_HAL_GetClockPs v="generate code" />
-        <FTM_HAL_EnableTimerOverflowInt v="generate code" />
-        <FTM_HAL_DisableTimerOverflowInt v="generate code" />
-        <FTM_HAL_IsOverflowIntEnabled v="generate code" />
-        <FTM_HAL_ClearTimerOverflow v="generate code" />
-        <FTM_HAL_HasTimerOverflowed v="generate code" />
-        <FTM_HAL_SetCpwms v="generate code" />
-        <FTM_HAL_SetCounter v="generate code" />
-        <FTM_HAL_GetCounter v="generate code" />
-        <FTM_HAL_SetMod v="generate code" />
-        <FTM_HAL_GetMod v="generate code" />
-        <FTM_HAL_SetCounterInitVal v="generate code" />
-        <FTM_HAL_GetCounterInitVal v="generate code" />
-        <FTM_HAL_SetChnMSnBAMode v="generate code" />
-        <FTM_HAL_SetChnEdgeLevel v="generate code" />
-        <FTM_HAL_GetChnMode v="generate code" />
-        <FTM_HAL_GetChnEdgeLevel v="generate code" />
-        <FTM_HAL_SetChnDmaCmd v="generate code" />
-        <FTM_HAL_IsChnDma v="generate code" />
-        <FTM_HAL_EnableChnInt v="generate code" />
-        <FTM_HAL_DisableChnInt v="generate code" />
-        <FTM_HAL_HasChnEventOccurred v="generate code" />
-        <FTM_HAL_ClearChnEventFlag v="generate code" />
-        <FTM_HAL_SetChnCountVal v="generate code" />
-        <FTM_HAL_GetChnCountVal v="generate code" />
-        <FTM_HAL_GetChnEventStatus v="generate code" />
-        <FTM_HAL_ClearChnEventStatus v="generate code" />
-        <FTM_HAL_SetOutmaskReg v="generate code" />
-        <FTM_HAL_SetChnOutputMask v="generate code" />
-        <FTM_HAL_SetChnOutputInitState v="generate code" />
-        <FTM_HAL_SetChnOutputPolarity v="generate code" />
-        <FTM_HAL_SetChnFaultInputPolarity v="generate code" />
-        <FTM_HAL_EnableFaultInt v="generate code" />
-        <FTM_HAL_DisableFaultInt v="generate code" />
-        <FTM_HAL_SetFaultControlMode v="generate code" />
-        <FTM_HAL_SetCaptureTestCmd v="generate code" />
-        <FTM_HAL_SetWriteProtectionCmd v="generate code" />
-        <FTM_HAL_Enable v="generate code" />
-        <FTM_HAL_SetInitChnOutputCmd v="generate code" />
-        <FTM_HAL_SetPwmSyncMode v="generate code" />
-        <FTM_HAL_SetSoftwareTriggerCmd v="generate code" />
-        <FTM_HAL_SetHardwareSyncTriggerSrc v="generate code" />
-        <FTM_HAL_SetOutmaskPwmSyncModeCmd v="generate code" />
-        <FTM_HAL_SetCountReinitSyncCmd v="generate code" />
-        <FTM_HAL_SetMaxLoadingCmd v="generate code" />
-        <FTM_HAL_SetMinLoadingCmd v="generate code" />
-        <FTM_HAL_GetChnPairIndex v="generate code" />
-        <FTM_HAL_SetDualChnFaultCmd v="generate code" />
-        <FTM_HAL_SetDualChnPwmSyncCmd v="generate code" />
-        <FTM_HAL_SetDualChnDeadtimeCmd v="generate code" />
-        <FTM_HAL_SetDualChnDecapCmd v="generate code" />
-        <FTM_HAL_SetDualEdgeCaptureCmd v="generate code" />
-        <FTM_HAL_SetDualChnCompCmd v="generate code" />
-        <FTM_HAL_SetDualChnCombineCmd v="generate code" />
-        <FTM_HAL_SetDeadtimePrescale v="generate code" />
-        <FTM_HAL_SetDeadtimeCount v="generate code" />
-        <FTM_HAL_SetInitTriggerCmd v="generate code" />
-        <FTM_HAL_SetChnTriggerCmd v="generate code" />
-        <FTM_HAL_IsChnTriggerGenerated v="generate code" />
-        <FTM_HAL_GetDetectedFaultInput v="generate code" />
-        <FTM_HAL_IsWriteProtectionEnabled v="generate code" />
-        <FTM_HAL_SetQuadDecoderCmd v="generate code" />
-        <FTM_HAL_SetQuadPhaseAFilterCmd v="generate code" />
-        <FTM_HAL_SetQuadPhaseBFilterCmd v="generate code" />
-        <FTM_HAL_SetQuadPhaseAPolarity v="generate code" />
-        <FTM_HAL_SetQuadPhaseBPolarity v="generate code" />
-        <FTM_HAL_SetQuadMode v="generate code" />
-        <FTM_HAL_GetQuadDir v="generate code" />
-        <FTM_HAL_GetQuadTimerOverflowDir v="generate code" />
-        <FTM_HAL_SetChnInputCaptureFilter v="generate code" />
-        <FTM_HAL_SetFaultInputFilterVal v="generate code" />
-        <FTM_HAL_SetFaultInputFilterCmd v="generate code" />
-        <FTM_HAL_SetFaultInputCmd v="generate code" />
-        <FTM_HAL_SetDualChnInvertCmd v="generate code" />
-        <FTM_HAL_SetInvctrlReg v="generate code" />
-        <FTM_HAL_SetChnSoftwareCtrlCmd v="generate code" />
-        <FTM_HAL_SetChnSoftwareCtrlVal v="generate code" />
-        <FTM_HAL_SetPwmLoadCmd v="generate code" />
-        <FTM_HAL_SetPwmLoadChnSelCmd v="generate code" />
-        <FTM_HAL_SetGlobalTimeBaseOutputCmd v="generate code" />
-        <FTM_HAL_SetGlobalTimeBaseCmd v="generate code" />
-        <FTM_HAL_SetBdmMode v="generate code" />
-        <FTM_HAL_SetTofFreq v="generate code" />
-        <FTM_HAL_SetSyncMode v="generate code" />
-        <FTM_HAL_SetSwoctrlHardwareSyncModeCmd v="generate code" />
-        <FTM_HAL_SetInvctrlHardwareSyncModeCmd v="generate code" />
-        <FTM_HAL_SetOutmaskHardwareSyncModeCmd v="generate code" />
-        <FTM_HAL_SetModCntinCvHardwareSyncModeCmd v="generate code" />
-        <FTM_HAL_SetCounterHardwareSyncModeCmd v="generate code" />
-        <FTM_HAL_SetSwoctrlSoftwareSyncModeCmd v="generate code" />
-        <FTM_HAL_SetInvctrlSoftwareSyncModeCmd v="generate code" />
-        <FTM_HAL_SetOutmaskSoftwareSyncModeCmd v="generate code" />
-        <FTM_HAL_SetModCntinCvSoftwareSyncModeCmd v="generate code" />
-        <FTM_HAL_SetCounterSoftwareSyncModeCmd v="generate code" />
-        <FTM_HAL_SetPwmSyncModeCmd v="generate code" />
-        <FTM_HAL_SetSwoctrlPwmSyncModeCmd v="generate code" />
-        <FTM_HAL_SetInvctrlPwmSyncModeCmd v="generate code" />
-        <FTM_HAL_SetCntinPwmSyncModeCmd v="generate code" />
-        <FTM_HAL_Reset v="generate code" />
-        <FTM_HAL_Init v="generate code" />
-        <FTM_HAL_EnablePwmMode v="generate code" />
-        <FTM_HAL_DisablePwmMode v="generate code" />
+        <ADC16_DRV_GetAutoCalibrationParam v="generate code" />
+        <ADC16_DRV_SetCalibrationParam v="generate code" />
+        <ADC16_DRV_StructInitUserConfigDefault v="generate code" />
+        <ADC16_DRV_Init v="generate code" />
+        <ADC16_DRV_Deinit v="generate code" />
+        <ADC16_DRV_EnableLongSample v="generate code" />
+        <ADC16_DRV_DisableLongSample v="generate code" />
+        <ADC16_DRV_EnableHwCmp v="generate code" />
+        <ADC16_DRV_DisableHwCmp v="generate code" />
+        <ADC16_DRV_EnableHwAverage v="generate code" />
+        <ADC16_DRV_DisableHwAverage v="generate code" />
+        <ADC16_DRV_ConfigConvChn v="generate code" />
+        <ADC16_DRV_WaitConvDone v="generate code" />
+        <ADC16_DRV_PauseConv v="generate code" />
+        <ADC16_DRV_GetConvValueRAW v="generate code" />
+        <ADC16_DRV_ConvRAWData v="generate code" />
+        <ADC16_DRV_GetFlag v="generate code" />
+        <ADC16_DRV_GetChnFlag v="generate code" />
       </list>
     </Methods>
     <Events>
-      <EmptySection_DummyValue />
+      <list name="SdkSpecificEvents" v="1">
+        <Event_module_name v="Events" />
+        <event name="ADC IRQ handler" v="don&amp;apos;t generate code" />
+      </list>
+    </Events>
+  </Bean>
+  <Bean name="Timer1" type="fsl_ftm">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="Timer1" />
+      <Device v="FTM0" />
+      <Component_version v="1.1.0-GA" />
+      <list name="VersionSpecificItem" v="1">
+        <group name="Settings">
+          <Counter v="FTM0_CNT" />
+          <list name="Shared components" v="1">
+            <group name="Shared components">
+              <fsl_interrupt_manager v="intMan1" />
+              <fsl_clock_manager v="clockMan1" />
+            </group>
+          </list>
+          <list name="Basic configurations" v="1">
+            <boolgroup name="Configuration 0" v="Enabled">
+              <Name v="Timer1_InitConfig0" />
+              <Overflow_frequency v="0" />
+              <Write_protection v="Disabled" />
+              <BDM_mode v="Mode 0" />
+              <group name="Triggers">
+                <Software_trigger v="Enabled" />
+                <Hardware_trigger_0 v="Disabled" />
+                <Hardware_trigger_1 v="Disabled" />
+                <Hardware_trigger_2 v="Disabled" />
+              </group>
+            </boolgroup>
+          </list>
+          <list name="PWM channels configurations" v="0">
+            <EmptySection_DummyValue />
+          </list>
+          <list name="Quadrature decode configurations" v="0">
+            <EmptySection_DummyValue />
+          </list>
+          <group name="Pins">
+            <group name="Fault pins">
+              <boolgroup name="Fault pin 0" v="Disabled" />
+              <boolgroup name="Fault pin 1" v="Disabled" />
+              <boolgroup name="Fault pin 2" v="Disabled" />
+              <boolgroup name="Fault pin 3" v="Disabled" />
+            </group>
+            <boolgroup name="External clock pin" v="Disabled" />
+            <group name="HW Synchronization triggers">
+              <boolgroup name="Hardware Trigger 0" v="Disabled" />
+              <boolgroup name="Hardware Trigger 1" v="Disabled" />
+              <boolgroup name="Hardware Trigger 2" v="Disabled" />
+            </group>
+          </group>
+          <list name="HiddenItem" v="1">
+            <group name="Initialization">
+              <boolgroup name="Auto initialization" v="Enabled">
+                <Init_configuration v="Timer1_InitConfig0" />
+                <Timer_overflow_interrupt v="Enabled" />
+                <Fault_interrupt v="Disabled" />
+                <boolgroup name="PWM channel initialization" v="Disabled" />
+                <boolgroup name="Quadrature decode initialization" v="Disabled" />
+                <list name="InterruptsHiddenItem" v="1">
+                  <group name="Interrupts">
+                    <FTM_interrupt v="INT_FTM0" />
+                    <boolgroup name="Configure FTM interrupt priority" v="Disabled" />
+                    <Install_interrupts v="Disabled" />
+                  </group>
+                </list>
+              </boolgroup>
+            </group>
+          </list>
+          <list name="InhrItem" v="1">
+            <EmptySection_DummyValue />
+          </list>
+        </group>
+      </list>
+    </Properties>
+    <Methods>
+      <list name="SdkSpecificMethods" v="1">
+        <FTM_DRV_Init v="generate code" />
+        <FTM_DRV_Deinit v="generate code" />
+        <FTM_DRV_PwmStop v="generate code" />
+        <FTM_DRV_PwmStart v="generate code" />
+        <FTM_DRV_QuadDecodeStart v="generate code" />
+        <FTM_DRV_QuadDecodeStop v="generate code" />
+        <FTM_DRV_CounterStart v="generate code" />
+        <FTM_DRV_CounterStop v="generate code" />
+        <FTM_DRV_CounterRead v="generate code" />
+        <FTM_DRV_SetTimeOverflowIntCmd v="generate code" />
+        <FTM_DRV_SetFaultIntCmd v="generate code" />
+        <FTM_DRV_IRQHandler v="generate code" />
+      </list>
+    </Methods>
+    <Events>
+      <list name="SdkSpecificEvents" v="1">
+        <Event_module_name v="Events" />
+        <event name="FTM IRQ handler" v="generate code">
+          <ISR_name v="FTM0_IRQHandler" />
+        </event>
+      </list>
     </Events>
   </Bean>
 </PE_PROJECT_SETTINGS_DOCUMENTATION>

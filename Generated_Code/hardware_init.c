@@ -6,7 +6,7 @@
 **     Component   : PinSettings
 **     Version     : Component 01.007, Driver 1.3, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-02-11, 22:50, # CodeGen: 10
+**     Date/Time   : 2015-03-03, 17:22, # CodeGen: 34
 **     Abstract    :
 **
 **     Settings    :
@@ -66,11 +66,12 @@ void hardware_init(void) {
   CLOCK_SYS_EnablePortClock(HW_PORTE);
 
   /* Setup board clock source. */
-  g_xtal0ClkFreq = 0U;                  /* System oscillator 0 is not enabled */
+  g_xtal0ClkFreq = 8000000U;            /* Value of the external crystal or oscillator clock frequency of the system oscillator (OSC) in Hz */
   g_xtalRtcClkFreq = 32768U;            /* Value of the external 32k crystal or oscillator clock frequency of the RTC in Hz */
 
   configure_gpio_pins(HW_PORTA);
   configure_jtag_pins(HW_JTAG);
+  configure_osc_pins(HW_OSC);
   configure_uart_pins(HW_UART1);
 }
 

@@ -39,25 +39,29 @@
 #include "DbgCs1.h"
 #include "WAIT1.h"
 #include "CS1.h"
+#include "ADC0.h"
+#include "Timer1.h"
 #if CPU_INIT_CONFIG
   #include "Init_Config.h"
 #endif
 /* User includes (#include below this line is not maintained by Processor Expert) */
 
-const uint8_t String1[30]="Test for UART transmitting   \n";
-
 #define mainDummy1_PRIORITY				( tskIDLE_PRIORITY + 2 )
 #define mainDummy2_PRIORITY				( tskIDLE_PRIORITY + 3 )
 #define mainvMonitorTasks_PRIORITY				( tskIDLE_PRIORITY + 1 )
+#define mainADC_PRIORITY				( tskIDLE_PRIORITY + 4 )
 
 static void vDummy1( void *pvParameters );
 static void vDummy2( void *pvParameters );
 static void vMonitorTasks( void *pvParameters );
+static void vADC( void *pvParameters );
+
+void System_Init(void);
 
 //Define a buffer for tasks info, 40bytes/task, so 25 tasks max.
 char TaskInfo[1000];
 
-float TestData[1000];
+//float TestData[1000];
 
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void)
@@ -74,13 +78,12 @@ int main(void)
   /* Write your code here */
   /* For example: for(;;) { } */
 
-  for(i=0;i<1000;i++){
-	  TestData[i]+=3.1415926;
-  }
+  System_Init();				//Initialize and enable peripherals before RTOS starts.
 
   xTaskCreate( vDummy1, "Dummy1", configMINIMAL_STACK_SIZE, NULL, mainDummy1_PRIORITY, NULL );
   xTaskCreate( vDummy2, "Dummy2", configMINIMAL_STACK_SIZE, NULL, mainDummy2_PRIORITY, NULL );
   xTaskCreate( vMonitorTasks, "TaskMonitor", configMINIMAL_STACK_SIZE, NULL, mainvMonitorTasks_PRIORITY, NULL );
+  xTaskCreate( vADC, "ADC", 1024, NULL, mainADC_PRIORITY, NULL );
 
   /*** Don't write any code pass this line, or it will be deleted during code generation. ***/
   /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/
@@ -96,17 +99,43 @@ int main(void)
 /* END main */
 
 
+void System_Init(void)
+{
+
+	//Configure ADC converter.
+//	ADC16_DRV_Init(FSL_ADC0, &ADC0_InitConfig0);
+	ADC16_DRV_EnableHwAverage(FSL_ADC0, kAdcHwAverageCountOf8);
+	ADC16_DRV_EnableLongSample(FSL_ADC0, kAdcLongSampleCycleOf4);
+//	ADC16_DRV_ConfigConvChn(FSL_ADC0, 0U, &ADC0_ChnConfig0);
+//	ADC16_DRV_ConfigConvChn(FSL_ADC0, 0U, &ADC0_ChnConfig1);
+//	ADC16_DRV_ConfigConvChn(FSL_ADC0, 0U, &ADC0_ChnConfig2);
+
+	//Configure FTM0 as periodical timer for ADC trigger.
+//	FTM_DRV_Init(FSL_TIMER1,&Timer1_InitConfig0);
+//	FTM_DRV_SetTimeOverflowIntCmd(FSL_TIMER1,true);
+//	FTM_DRV_SetFaultIntCmd(FSL_TIMER1,false);
+	FTM_HAL_SetClockPs();
+	FTM_DRV_CounterStart(FSL_TIMER1, kCounting_FTM_UP, 0, 65500, TRUE);
+
+}
+
+void vADC( void *pvParameters )
+{
+
+
+
+}
+
+
 void vDummy1( void *pvParameters )
 {
 	uint8_t i=0;
 	uint16_t j;
 
-//	printf("\r\n************* Test TaskMonitor *****************\r\n");
-
 	for(;;){
 		i++;
 		vTaskDelay(200);
-		debug_printf("Task Dummy1 i = %d\n\r", i);
+/*		debug_printf("Task Dummy1 i = %d\n\r", i);
 		debug_printf("Calculating 1000 datas start...");
 		for(j=0;j<1000;j++){
 			TestData[j]=TestData[j]*2.5;
@@ -114,7 +143,7 @@ void vDummy1( void *pvParameters )
 		for(j=0;j<1000;j++){
 			TestData[j]=TestData[j]/2.5;
 		}
-		debug_printf("Done!\r\n");
+		debug_printf("Done!\r\n");*/
 		GPIO_DRV_TogglePinOutput(LED_RED);
 	}
 }
@@ -126,7 +155,7 @@ void vDummy2( void *pvParameters )
 	for(;;){
 		j++;
 		vTaskDelay(400);
-		debug_printf("Task Dummy2 j = %d\n\r", j);
+//		debug_printf("Task Dummy2 j = %d\n\r", j);
 		GPIO_DRV_TogglePinOutput(LED_GREEN);
 	}
 }

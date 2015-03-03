@@ -40,6 +40,8 @@
 #include "DbgCs1.h"
 #include "WAIT1.h"
 #include "CS1.h"
+#include "ADC0.h"
+#include "Timer1.h"
 
 #ifdef __cplusplus
 extern "C" {

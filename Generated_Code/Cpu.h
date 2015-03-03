@@ -7,7 +7,7 @@
 **     Version     : Component 01.065, Driver 01.00, CPU db: 3.00.000
 **     Datasheet   : K22P121M120SF7RM, Rev. 1, March 24, 2014
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-02-20, 20:36, # CodeGen: 31
+**     Date/Time   : 2015-03-03, 14:46, # CodeGen: 32
 **     Abstract    :
 **
 **     Settings    :
@@ -82,7 +82,10 @@
 #include "fsl_uart_hal.h"
 #include "fsl_lpuart_hal.h"
 #include "fsl_debug_console.h"
+#include "fsl_adc16_hal.h"
+#include "fsl_adc16_driver.h"
 #include "fsl_ftm_hal.h"
+#include "fsl_ftm_driver.h"
 #include <assert.h>
 
 #ifdef __cplusplus

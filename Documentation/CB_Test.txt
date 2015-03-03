@@ -17,6 +17,10 @@ Module "pin_init"  (component PinSettings)
                 This method is enabled only if any pin of corresponding peripheral type is selected. Selected pins are either 
                 user selected pins or pins selected in pin items in components. Call this method code to route desired pins 
                 into JTAG peripheral.
+   - pin_init_configure_osc_pins -OSC method configures registers according to settings  of routing and electrical features. 
+                This method is enabled only if any pin of corresponding peripheral type is selected. Selected pins are either 
+                user selected pins or pins selected in pin items in components. Call this method code to route desired pins 
+                into OSC peripheral.
    - pin_init_configure_uart_pins -UART method configures registers according to settings  of routing and electrical features. 
                 This method is enabled only if any pin of corresponding peripheral type is selected. Selected pins are either 
                 user selected pins or pins selected in pin items in components. Call this method code to route desired pins 
@@ -305,118 +309,39 @@ Module "clockMan1" (component fsl_clock_manager)
    - clockMan1_CLOCK_SYS_GetFlashClockFreq -Get flash clock frequency.
    - clockMan1_CLOCK_SYS_GetLpoClockFreq -Get LPO clock frequency.
 
-Module "flexTimer2" (component fsl_ftm_hal)
-   - flexTimer2_FTM_HAL_SetClockSource -Sets the FTM clock source.
-   - flexTimer2_FTM_HAL_GetClockSource -Reads the FTM clock source.
-   - flexTimer2_FTM_HAL_SetClockPs -Sets the FTM clock divider.
-   - flexTimer2_FTM_HAL_GetClockPs -Reads the FTM clock divider.
-   - flexTimer2_FTM_HAL_EnableTimerOverflowInt -Enables the FTM peripheral timer overflow interrupt.
-   - flexTimer2_FTM_HAL_DisableTimerOverflowInt -Disables the FTM peripheral timer overflow interrupt.
-   - flexTimer2_FTM_HAL_IsOverflowIntEnabled -Reads the bit that controls enabling the FTM timer overflow interrupt.
-   - flexTimer2_FTM_HAL_ClearTimerOverflow -Clears the timer overflow interrupt flag.
-   - flexTimer2_FTM_HAL_HasTimerOverflowed -Returns the FTM peripheral timer overflow interrupt flag.
-   - flexTimer2_FTM_HAL_SetCpwms -Sets the FTM center-aligned PWM select.
-   - flexTimer2_FTM_HAL_SetCounter -Sets the FTM peripheral current counter value.
-   - flexTimer2_FTM_HAL_GetCounter -Returns the FTM peripheral current counter value.
-   - flexTimer2_FTM_HAL_SetMod -Sets the FTM peripheral timer modulo value.
-   - flexTimer2_FTM_HAL_GetMod -Returns the FTM peripheral counter modulo value.
-   - flexTimer2_FTM_HAL_SetCounterInitVal -Sets the FTM peripheral timer counter initial value.
-   - flexTimer2_FTM_HAL_GetCounterInitVal -Returns the FTM peripheral counter initial value.
-   - flexTimer2_FTM_HAL_SetChnMSnBAMode -Sets the FTM peripheral timer channel mode.
-   - flexTimer2_FTM_HAL_SetChnEdgeLevel -Sets the FTM peripheral timer channel edge level.
-   - flexTimer2_FTM_HAL_GetChnMode -Gets the FTM peripheral timer channel mode.
-   - flexTimer2_FTM_HAL_GetChnEdgeLevel -Gets the FTM peripheral timer channel edge level.
-   - flexTimer2_FTM_HAL_SetChnDmaCmd -Enables or disables the FTM peripheral timer channel DMA.
-   - flexTimer2_FTM_HAL_IsChnDma -Returns whether the FTM peripheral timer channel DMA is enabled.
-   - flexTimer2_FTM_HAL_EnableChnInt -Enables the FTM peripheral timer channel(n) interrupt.
-   - flexTimer2_FTM_HAL_DisableChnInt -Disables the FTM peripheral timer channel(n) interrupt.
-   - flexTimer2_FTM_HAL_HasChnEventOccurred -Returns whether any event for the FTM peripheral timer channel has occurred.
-   - flexTimer2_FTM_HAL_ClearChnEventFlag -Clear the channel flag by writing a 0 to the CHF bit.
-   - flexTimer2_FTM_HAL_SetChnCountVal -Sets the FTM peripheral timer channel counter value.
-   - flexTimer2_FTM_HAL_GetChnCountVal -Gets the FTM peripheral timer channel counter value.
-   - flexTimer2_FTM_HAL_GetChnEventStatus -Gets the FTM peripheral timer channel event status.
-   - flexTimer2_FTM_HAL_ClearChnEventStatus -Clears the FTM peripheral timer all channel event status.
-   - flexTimer2_FTM_HAL_SetOutmaskReg -Writes the provided value to the OUTMASK register.
-   - flexTimer2_FTM_HAL_SetChnOutputMask -Sets the FTM peripheral timer channel output mask.
-   - flexTimer2_FTM_HAL_SetChnOutputInitState -Sets the FTM peripheral timer channel output initial state 0 or 1.
-   - flexTimer2_FTM_HAL_SetChnOutputPolarity -Sets the FTM peripheral timer channel output polarity.
-   - flexTimer2_FTM_HAL_SetChnFaultInputPolarity -Sets the FTM peripheral timer channel input polarity.
-   - flexTimer2_FTM_HAL_EnableFaultInt -Enables the FTM peripheral timer fault interrupt.
-   - flexTimer2_FTM_HAL_DisableFaultInt -Disables the FTM peripheral timer fault interrupt.
-   - flexTimer2_FTM_HAL_SetFaultControlMode -Defines the FTM fault control mode.
-   - flexTimer2_FTM_HAL_SetCaptureTestCmd -Enables or disables the FTM peripheral timer capture test mode.
-   - flexTimer2_FTM_HAL_SetWriteProtectionCmd -Enables or disables the FTM write protection.
-   - flexTimer2_FTM_HAL_Enable -Enables the FTM peripheral timer group.
-   - flexTimer2_FTM_HAL_SetInitChnOutputCmd -Initializes the channels output.
-   - flexTimer2_FTM_HAL_SetPwmSyncMode -Sets the FTM peripheral timer sync mode.
-   - flexTimer2_FTM_HAL_SetSoftwareTriggerCmd -Enables or disables the FTM peripheral timer software trigger.
-   - flexTimer2_FTM_HAL_SetHardwareSyncTriggerSrc -Sets the FTM peripheral timer hardware trigger.
-   - flexTimer2_FTM_HAL_SetOutmaskPwmSyncModeCmd -Determines when the OUTMASK register is updated with the value of its buffer.
-   - flexTimer2_FTM_HAL_SetCountReinitSyncCmd -Determines if the FTM counter is re-initialized when the selected trigger for 
-                synchronization is detected.
-   - flexTimer2_FTM_HAL_SetMaxLoadingCmd -Enables or disables the FTM peripheral timer maximum loading points.
-   - flexTimer2_FTM_HAL_SetMinLoadingCmd -Enables or disables the FTM peripheral timer minimum loading points.
-   - flexTimer2_FTM_HAL_GetChnPairIndex -Combines the channel control.
-   - flexTimer2_FTM_HAL_SetDualChnFaultCmd -Enables the FTM peripheral timer channel pair fault control.
-   - flexTimer2_FTM_HAL_SetDualChnPwmSyncCmd -Enables or disables the FTM peripheral timer channel pair counter PWM sync.
-   - flexTimer2_FTM_HAL_SetDualChnDeadtimeCmd -Enables or disabled the FTM peripheral timer channel pair deadtime insertion.
-   - flexTimer2_FTM_HAL_SetDualChnDecapCmd -Enables or disables the FTM peripheral timer channel dual edge capture decap.
-   - flexTimer2_FTM_HAL_SetDualEdgeCaptureCmd -Enables the FTM peripheral timer dual edge capture mode.
-   - flexTimer2_FTM_HAL_SetDualChnCompCmd -Enables or disables the FTM peripheral timer channel pair output complement mode.
-   - flexTimer2_FTM_HAL_SetDualChnCombineCmd -Enables or disables the FTM peripheral timer channel pair output combine mode.
-   - flexTimer2_FTM_HAL_SetDeadtimePrescale -Sets the FTM deadtime divider.
-   - flexTimer2_FTM_HAL_SetDeadtimeCount -Sets the FTM deadtime value.
-   - flexTimer2_FTM_HAL_SetInitTriggerCmd -Enables or disables the generation of the trigger when the FTM counter is equal to 
-                the CNTIN register.
-   - flexTimer2_FTM_HAL_SetChnTriggerCmd -Enables or disables the generation of the FTM peripheral timer channel trigger.
-   - flexTimer2_FTM_HAL_IsChnTriggerGenerated -Checks whether any channel trigger event has occurred.
-   - flexTimer2_FTM_HAL_GetDetectedFaultInput -Gets the FTM detected fault input.
-   - flexTimer2_FTM_HAL_IsWriteProtectionEnabled -Checks whether the write protection is enabled.
-   - flexTimer2_FTM_HAL_SetQuadDecoderCmd -Enables the channel quadrature decoder.
-   - flexTimer2_FTM_HAL_SetQuadPhaseAFilterCmd -Enables or disables the phase A input filter.
-   - flexTimer2_FTM_HAL_SetQuadPhaseBFilterCmd -Enables or disables the phase B input filter.
-   - flexTimer2_FTM_HAL_SetQuadPhaseAPolarity -Selects polarity for the quadrature decode phase A input.
-   - flexTimer2_FTM_HAL_SetQuadPhaseBPolarity -Selects polarity for the quadrature decode phase B input.
-   - flexTimer2_FTM_HAL_SetQuadMode -Sets the encoding mode used in quadrature decoding mode.
-   - flexTimer2_FTM_HAL_GetQuadDir -Gets the FTM counter direction in quadrature mode.
-   - flexTimer2_FTM_HAL_GetQuadTimerOverflowDir -Gets the Timer overflow direction in quadrature mode.
-   - flexTimer2_FTM_HAL_SetChnInputCaptureFilter -Sets the FTM peripheral timer channel input capture filter value.
-   - flexTimer2_FTM_HAL_SetFaultInputFilterVal -Sets the fault input filter value.
-   - flexTimer2_FTM_HAL_SetFaultInputFilterCmd -Enables or disables the fault input filter.
-   - flexTimer2_FTM_HAL_SetFaultInputCmd -Enables or disables the fault input.
-   - flexTimer2_FTM_HAL_SetDualChnInvertCmd -Enables or disables the channel invert for a channel pair.
-   - flexTimer2_FTM_HAL_SetInvctrlReg -Writes the provided value to the Inverting control register.
-   - flexTimer2_FTM_HAL_SetChnSoftwareCtrlCmd -Enables or disables the channel software output control.
-   - flexTimer2_FTM_HAL_SetChnSoftwareCtrlVal -Sets the channel software output control value.
-   - flexTimer2_FTM_HAL_SetPwmLoadCmd -Enables or disables the loading of MOD, CNTIN and CV with values of their write buffer.
-   - flexTimer2_FTM_HAL_SetPwmLoadChnSelCmd -Includes or excludes the channel in the matching process.
-   - flexTimer2_FTM_HAL_SetGlobalTimeBaseOutputCmd -Enables or disables the FTM global time base signal generation to other 
-                FTM's.
-   - flexTimer2_FTM_HAL_SetGlobalTimeBaseCmd -Enables or disables the FTM timer global time base.
-   - flexTimer2_FTM_HAL_SetBdmMode -Sets the BDM mode..
-   - flexTimer2_FTM_HAL_SetTofFreq -Sets the FTM timer TOF Frequency.
-   - flexTimer2_FTM_HAL_SetSyncMode -Sets the FTM register synchronization method.
-   - flexTimer2_FTM_HAL_SetSwoctrlHardwareSyncModeCmd -Sets the sync mode for the FTM SWOCTRL register when using a hardware 
-                trigger.
-   - flexTimer2_FTM_HAL_SetInvctrlHardwareSyncModeCmd -Sets sync mode for FTM INVCTRL register when using a hardware trigger.
-   - flexTimer2_FTM_HAL_SetOutmaskHardwareSyncModeCmd -Sets sync mode for FTM OUTMASK register when using a hardware trigger.
-   - flexTimer2_FTM_HAL_SetModCntinCvHardwareSyncModeCmd -Sets sync mode for FTM MOD, CNTIN and CV registers when using a 
-                hardware trigger.
-   - flexTimer2_FTM_HAL_SetCounterHardwareSyncModeCmd -Sets sync mode for FTM counter register when using a hardware trigger.
-   - flexTimer2_FTM_HAL_SetSwoctrlSoftwareSyncModeCmd -Sets sync mode for FTM SWOCTRL register when using a software trigger.
-   - flexTimer2_FTM_HAL_SetInvctrlSoftwareSyncModeCmd -Sets sync mode for FTM INVCTRL register when using a software trigger.
-   - flexTimer2_FTM_HAL_SetOutmaskSoftwareSyncModeCmd -Sets sync mode for FTM OUTMASK register when using a software trigger.
-   - flexTimer2_FTM_HAL_SetModCntinCvSoftwareSyncModeCmd -Sets synch mode for FTM MOD, CNTIN and CV registers when using a 
-                software trigger.
-   - flexTimer2_FTM_HAL_SetCounterSoftwareSyncModeCmd -Sets sync mode for FTM counter register when using a software trigger.
-   - flexTimer2_FTM_HAL_SetPwmSyncModeCmd -Sets the PWM synchronization mode to enhanced or legacy.
-   - flexTimer2_FTM_HAL_SetSwoctrlPwmSyncModeCmd -Sets the SWOCTRL register PWM synchronization mode.
-   - flexTimer2_FTM_HAL_SetInvctrlPwmSyncModeCmd -Sets the INVCTRL register PWM synchronization mode.
-   - flexTimer2_FTM_HAL_SetCntinPwmSyncModeCmd -Sets the CNTIN register PWM synchronization mode.
-   - flexTimer2_FTM_HAL_Reset -Resets the FTM registers.
-   - flexTimer2_FTM_HAL_Init -Initializes the FTM.
-   - flexTimer2_FTM_HAL_EnablePwmMode -Enables the FTM timer when it is PWM output mode.
-   - flexTimer2_FTM_HAL_DisablePwmMode -Disables the PWM output mode.
+Module "ADC0"      (component fsl_adc16)
+   - ADC0_ADC16_DRV_GetAutoCalibrationParam -Gets the calibration parameters by auto calibration.
+   - ADC0_ADC16_DRV_SetCalibrationParam -Sets the calibration parameters.
+   - ADC0_ADC16_DRV_StructInitUserConfigDefault -Fills the initial user configuration by default for a one-time trigger mode.
+   - ADC0_ADC16_DRV_Init -Initializes the ADC module converter.
+   - ADC0_ADC16_DRV_Deinit -De-initializes the ADC module converter.
+   - ADC0_ADC16_DRV_EnableLongSample -Enables the long sample mode feature.
+   - ADC0_ADC16_DRV_DisableLongSample -Disables the long sample mode feature.
+   - ADC0_ADC16_DRV_EnableHwCmp -Enables the hardware compare feature.
+   - ADC0_ADC16_DRV_DisableHwCmp -Disables the hardware compare feature.
+   - ADC0_ADC16_DRV_EnableHwAverage -Enables the hardware averaging feature.
+   - ADC0_ADC16_DRV_DisableHwAverage -Disables the hardware averaging feature.
+   - ADC0_ADC16_DRV_ConfigConvChn -Configures the conversion channel by software.
+   - ADC0_ADC16_DRV_WaitConvDone -Waits for the latest conversion to be complete.
+   - ADC0_ADC16_DRV_PauseConv -Pauses the current conversion by software.
+   - ADC0_ADC16_DRV_GetConvValueRAW -Gets the latest conversion value.
+   - ADC0_ADC16_DRV_ConvRAWData -Formats the initial value fetched from the ADC16 module.
+   - ADC0_ADC16_DRV_GetFlag -Gets the event status of the ADC16 module.
+   - ADC0_ADC16_DRV_GetChnFlag -Gets the event status of each channel group.
+
+Module "Timer1"    (component fsl_ftm)
+   - Timer1_FTM_DRV_Init -Initializes the FTM driver.
+   - Timer1_FTM_DRV_Deinit -Shuts down the FTM driver.
+   - Timer1_FTM_DRV_PwmStop -Stops channel PWM.
+   - Timer1_FTM_DRV_PwmStart -Configures duty cycle and frequency and starts outputting PWM on specified channel .
+   - Timer1_FTM_DRV_QuadDecodeStart -Configures the parameters needed and activates quadrature decode mode.
+   - Timer1_FTM_DRV_QuadDecodeStop -De-activates quadrature decode mode.
+   - Timer1_FTM_DRV_CounterStart -Starts the FTM counter.
+   - Timer1_FTM_DRV_CounterStop -Stops the FTM counter.
+   - Timer1_FTM_DRV_CounterRead -Reads back the current value of the FTM counter.
+   - Timer1_FTM_DRV_SetTimeOverflowIntCmd -Enables or disables the timer overflow interrupt.
+   - Timer1_FTM_DRV_SetFaultIntCmd -Enables or disables the fault interrupt.
+   - Timer1_FTM_DRV_IRQHandler -Action to take when an FTM interrupt is triggered.
 
 Module "Cpu"       (component MK22FN512LH12_4SDK)
    - Cpu_SystemInit -This method configures the oscillator (PLL) that is part of the microcontroller device. SystemInit is 

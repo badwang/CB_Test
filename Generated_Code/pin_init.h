@@ -6,7 +6,7 @@
 **     Component   : PinSettings
 **     Version     : Component 01.007, Driver 1.3, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-02-11, 22:50, # CodeGen: 10
+**     Date/Time   : 2015-03-03, 17:22, # CodeGen: 34
 **     Abstract    :
 **
 **     Settings    :
@@ -15,6 +15,7 @@
 **         hardware_init       - void hardware_init(void);
 **         configure_gpio_pins - void configure_gpio_pins(uint32_t instance);
 **         configure_jtag_pins - void configure_jtag_pins(uint32_t instance);
+**         configure_osc_pins  - void configure_osc_pins(uint32_t instance);
 **         configure_uart_pins - void configure_uart_pins(uint32_t instance);
 **
 **     Copyright : 1997 - 2014 Freescale Semiconductor, Inc. 
@@ -106,6 +107,19 @@ void configure_gpio_pins(uint32_t instance);
 */
 /* ===================================================================*/
 void configure_jtag_pins(uint32_t instance);
+/*
+** ===================================================================
+**     Method      :  pin_init_OSC (component PinSettings)
+*/
+/*!
+**     @brief
+**         OSC method sets registers according routing settings. Call
+**         this method code to route desired pins into OSC periphery.
+**     @param
+**         uint32_t instance - OSC instance number (0 is expected)
+*/
+/* ===================================================================*/
+void configure_osc_pins(uint32_t instance);
 /*
 ** ===================================================================
 **     Method      :  pin_init_UART (component PinSettings)
