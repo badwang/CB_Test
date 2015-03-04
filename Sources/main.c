@@ -61,6 +61,8 @@ void System_Init(void);
 //Define a buffer for tasks info, 40bytes/task, so 25 tasks max.
 char TaskInfo[1000];
 
+TaskHandle_t hADC;
+
 //float TestData[1000];
 
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
@@ -83,7 +85,7 @@ int main(void)
   xTaskCreate( vDummy1, "Dummy1", configMINIMAL_STACK_SIZE, NULL, mainDummy1_PRIORITY, NULL );
   xTaskCreate( vDummy2, "Dummy2", configMINIMAL_STACK_SIZE, NULL, mainDummy2_PRIORITY, NULL );
   xTaskCreate( vMonitorTasks, "TaskMonitor", configMINIMAL_STACK_SIZE, NULL, mainvMonitorTasks_PRIORITY, NULL );
-  xTaskCreate( vADC, "ADC", 1024, NULL, mainADC_PRIORITY, NULL );
+  xTaskCreate( vADC, "ADC", 1024, NULL, mainADC_PRIORITY, hADC );
 
   /*** Don't write any code pass this line, or it will be deleted during code generation. ***/
   /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/
@@ -114,15 +116,28 @@ void System_Init(void)
 //	FTM_DRV_Init(FSL_TIMER1,&Timer1_InitConfig0);
 //	FTM_DRV_SetTimeOverflowIntCmd(FSL_TIMER1,true);
 //	FTM_DRV_SetFaultIntCmd(FSL_TIMER1,false);
-	FTM_HAL_SetClockPs();
-	FTM_DRV_CounterStart(FSL_TIMER1, kCounting_FTM_UP, 0, 65500, TRUE);
+	FTM_HAL_SetClockPs(FSL_TIMER1, kFtmDividedBy128);
+	FTM_DRV_CounterStart(FSL_TIMER1, kCounting_FTM_UP, 1, 375, TRUE);		//Set FTM overflow period to 500uS.
 
 }
 
 void vADC( void *pvParameters )
 {
+	BaseType_t rtn;
+	uint32_t NotifyValue;
+
+	for(;;)
+	{
+		//Wait for trigger notification from Timer1.
+		while(xTaskNotifyWait(0, 0, &NotifyValue, pdMS_TO_TICKS(10))==pdFALSE){
+			debug_printf("\r\nADC trigger time out!\r\n");
+		}
+
+		ADC16_DRV_ConfigConvChn(FSL_ADC0, 0U, &ADC0_ChnConfig0);			//Start ADC on channel1
 
 
+
+	}
 
 }
 

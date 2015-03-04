@@ -123,6 +123,8 @@ void RTOSTRC1_OnTraceWrap(void);
 ** ===================================================================
 */
 
+void ADC0_IRQHandler(void);
+
 /* END Events */
 
 #ifdef __cplusplus

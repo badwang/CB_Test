@@ -2352,7 +2352,26 @@ PE_DEBUGHALT();
           </list>
           <list name="HiddenItem" v="1">
             <group name="Initialization">
-              <boolgroup name="Auto initialization" v="Disabled" />
+              <boolgroup name="Auto initialization" v="Enabled">
+                <Driver_init__configuration v="ADC0_InitConfig0" />
+                <list name="Conversion initialization" v="2">
+                  <group name="Control group 0">
+                    <boolgroup name="Control group initialization" v="Enabled">
+                      <Configuration v="ADC0_ChnConfig0" />
+                    </boolgroup>
+                  </group>
+                  <group name="Control group 1">
+                    <boolgroup name="Control group initialization" v="Disabled" />
+                  </group>
+                </list>
+                <list name="InterruptsHiddenItem" v="1">
+                  <group name="Interrupts">
+                    <A_D_interrupt v="INT_ADC0" />
+                    <boolgroup name="Configure A/D interrupt priority" v="Disabled" />
+                    <Install_interrupts v="Disabled" />
+                  </group>
+                </list>
+              </boolgroup>
             </group>
           </list>
         </group>
@@ -2383,7 +2402,9 @@ PE_DEBUGHALT();
     <Events>
       <list name="SdkSpecificEvents" v="1">
         <Event_module_name v="Events" />
-        <event name="ADC IRQ handler" v="don&amp;apos;t generate code" />
+        <event name="ADC IRQ handler" v="generate code">
+          <ISR_name v="ADC0_IRQHandler" />
+        </event>
       </list>
     </Events>
   </Bean>

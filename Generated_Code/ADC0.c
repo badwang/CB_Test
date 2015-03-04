@@ -6,7 +6,7 @@
 **     Component   : fsl_adc16
 **     Version     : Component 01.000, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-03, 17:22, # CodeGen: 34
+**     Date/Time   : 2015-03-04, 11:48, # CodeGen: 35
 **
 **     Copyright : 1997 - 2014 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -50,6 +50,7 @@
 
 /* MODULE ADC0. */
 
+#include "Events.h"
 #include "ADC0.h"
 
 adc16_user_config_t ADC0_InitConfig0 = {

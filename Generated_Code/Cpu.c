@@ -7,7 +7,7 @@
 **     Version     : Component 01.065, Driver 01.00, CPU db: 3.00.000
 **     Datasheet   : K22P121M120SF7RM, Rev. 1, March 24, 2014
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-03, 17:22, # CodeGen: 34
+**     Date/Time   : 2015-03-04, 11:48, # CodeGen: 35
 **     Abstract    :
 **
 **     Settings    :
@@ -120,6 +120,10 @@ void Components_Init(void)
     /* Debug console initialization */
     DbgConsole_Init(BOARD_DEBUG_UART_INSTANCE, DEBUG_UART_BAUD, DEBUG_UART_TYPE);
   /* ### CriticalSection "CS1" init code ... */
+  /*! ADC0 Auto initialization start */
+  ADC16_DRV_Init(FSL_ADC0, &ADC0_InitConfig0);
+  ADC16_DRV_ConfigConvChn(FSL_ADC0, 0U, &ADC0_ChnConfig0);
+  /*! ADC0 Auto initialization end */
   /*! Timer1 Auto initialization start */
   FTM_DRV_Init(FSL_TIMER1,&Timer1_InitConfig0);
   FTM_DRV_SetTimeOverflowIntCmd(FSL_TIMER1,true);

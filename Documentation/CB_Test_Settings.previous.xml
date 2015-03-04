@@ -20,23 +20,35 @@
               <boolgroup name="Initialize fast trim value" v="no" />
             </group>
             <boolgroup name="RTC oscillator" v="Disabled" />
-            <boolgroup name="System oscillator 0" v="Disabled" />
+            <boolgroup name="System oscillator 0" v="Enabled">
+              <enumgroup name="Clock source" v="External crystal">
+                <group name="Clock input pin">
+                  <Pin_name v="EXTAL0/PTA18/FTM0_FLT2/FTM_CLKIN0" />
+                </group>
+                <group name="Clock output pin">
+                  <Pin_name v="XTAL0/PTA19/FTM1_FLT0/FTM_CLKIN1/LPTMR0_ALT1" />
+                </group>
+                <Clock_frequency__MHz_ v="8" />
+                <Capacitor_load v="0pF" />
+                <Oscillator_operating_mode v="Low power" />
+              </enumgroup>
+            </boolgroup>
           </group>
-          <list name="Clock configurations" v="1">
+          <list name="Clock configurations" v="2">
             <group name="Clock configuration 0">
               <Configuration_description v="Default  part configuration" />
               <group name="Internal reference clock">
                 <MCGIRCLK_clock v="Enabled" />
                 <MCGIRCLK_in_stop v="Disabled" />
                 <enumgroup name="MCGIRCLK source" v="Fast">
-                  <Reference_divider v="2" />
+                  <Reference_divider v="1" />
                 </enumgroup>
-                <MCGIRCLK_clock__MHz_ v="2" />
+                <MCGIRCLK_clock__MHz_ v="4" />
               </group>
               <group name="External reference clock">
                 <OSC0ERCLK_clock v="Enabled" />
                 <OSC0ERCLK_in_stop v="Disabled" />
-                <OSC0ERCLK_clock__MHz_ v="0" />
+                <OSC0ERCLK_clock__MHz_ v="8" />
                 <ERCLK32K_clock_source v="Auto select" />
                 <ERCLK32K__clock__kHz_ v="0.001000000000" />
               </group>
@@ -47,7 +59,7 @@
                 <MCG_output_clock v="FLL clock" />
                 <MCG_output__MHz_ v="95.977472000000" />
                 <MCG_external_ref__clock_source v="System oscillator 0" />
-                <MCG_external_ref__clock__MHz_ v="0" />
+                <MCG_external_ref__clock__MHz_ v="8" />
                 <Clock_monitor v="Disabled" />
                 <group name="FLL settings">
                   <FLL_module v="Enabled" />
@@ -71,16 +83,78 @@
               </group>
               <boolgroup name="Very low power mode" v="Disabled" />
               <group name="System clocks">
-                <Core_clock_prescaler v="Auto select" />
+                <Core_clock_prescaler v="1" />
                 <Core_clock v="95.977472000000" />
-                <Bus_clock_prescaler v="Auto select" />
+                <Bus_clock_prescaler v="2" />
                 <Bus_clock v="47.988736000000" />
-                <External_clock_prescaler v="Auto select" />
+                <External_clock_prescaler v="4" />
                 <External_bus_clock v="23.994368000000" />
-                <Flash_clock_prescaler v="Auto select" />
+                <Flash_clock_prescaler v="4" />
                 <Flash_clock v="23.994368000000" />
-                <enumgroup name="PLL/FLL clock selection" v="Auto select">
+                <enumgroup name="PLL/FLL clock selection" v="FLL clock">
                   <Clock_frequency__MHz_ v="95.977472000000" />
+                  <boolgroup name="USB clock settings" v="Disabled" />
+                </enumgroup>
+              </group>
+            </group>
+            <group name="Clock configuration 1">
+              <Configuration_description v="Default  part configuration" />
+              <group name="Internal reference clock">
+                <MCGIRCLK_clock v="Enabled" />
+                <MCGIRCLK_in_stop v="Disabled" />
+                <enumgroup name="MCGIRCLK source" v="Slow">
+                  <EmptySection_DummyValue />
+                </enumgroup>
+                <MCGIRCLK_clock__MHz_ v="0.032768000000" />
+              </group>
+              <group name="External reference clock">
+                <OSC0ERCLK_clock v="Enabled" />
+                <OSC0ERCLK_in_stop v="Disabled" />
+                <OSC0ERCLK_clock__MHz_ v="8" />
+                <ERCLK32K_clock_source v="Auto select" />
+                <ERCLK32K__clock__kHz_ v="0.001000000000" />
+              </group>
+              <group name="MCG settings">
+                <enumgroup name="MCG mode" v="FBE">
+                  <EmptySection_DummyValue />
+                </enumgroup>
+                <MCG_output_clock v="External clock" />
+                <MCG_output__MHz_ v="8" />
+                <MCG_external_ref__clock_source v="System oscillator 0" />
+                <MCG_external_ref__clock__MHz_ v="8" />
+                <Clock_monitor v="Disabled" />
+                <group name="FLL settings">
+                  <FLL_module v="Enabled" />
+                  <FLL_output__MHz_ v="20" />
+                  <MCGFFCLK_clock__kHz_ v="31.250000000000" />
+                  <enumgroup name="Reference clock source" v="External clock">
+                    <Reference_clock_divider v="Auto select" />
+                  </enumgroup>
+                  <FLL_reference_clock__kHz_ v="31.250000000000" />
+                  <Multiplication_factor v="640" />
+                </group>
+                <group name="PLL 0 settings">
+                  <PLL_module v="Disabled" />
+                  <PLL_module_in_Stop v="Disabled" />
+                  <PLL_output__MHz_ v="0" />
+                  <Reference_clock_divider v="Auto select" />
+                  <PLL_reference_clock__MHz_ v="1" />
+                  <Multiplication_factor v="Auto select" />
+                  <Loss_of_lock_interrupt v="Disabled" />
+                </group>
+              </group>
+              <boolgroup name="Very low power mode" v="Disabled" />
+              <group name="System clocks">
+                <Core_clock_prescaler v="1" />
+                <Core_clock v="8" />
+                <Bus_clock_prescaler v="1" />
+                <Bus_clock v="8" />
+                <External_clock_prescaler v="1" />
+                <External_bus_clock v="8" />
+                <Flash_clock_prescaler v="1" />
+                <Flash_clock v="8" />
+                <enumgroup name="PLL/FLL clock selection" v="Auto select">
+                  <Clock_frequency__MHz_ v="20" />
                   <boolgroup name="USB clock settings" v="Disabled" />
                 </enumgroup>
               </group>
@@ -1278,7 +1352,7 @@ PE_DEBUGHALT();
         <configure_llwu_pins v="don&amp;apos;t generate code" />
         <configure_lptmr_pins v="don&amp;apos;t generate code" />
         <configure_lpuart_pins v="don&amp;apos;t generate code" />
-        <configure_osc_pins v="don&amp;apos;t generate code" />
+        <configure_osc_pins v="generate code" />
         <configure_pdb_pins v="don&amp;apos;t generate code" />
         <configure_rcm_pins v="don&amp;apos;t generate code" />
         <configure_rtc_pins v="don&amp;apos;t generate code" />
@@ -2278,26 +2352,7 @@ PE_DEBUGHALT();
           </list>
           <list name="HiddenItem" v="1">
             <group name="Initialization">
-              <boolgroup name="Auto initialization" v="Enabled">
-                <Driver_init__configuration v="ADC0_InitConfig0" />
-                <list name="Conversion initialization" v="2">
-                  <group name="Control group 0">
-                    <boolgroup name="Control group initialization" v="Enabled">
-                      <Configuration v="ADC0_ChnConfig0" />
-                    </boolgroup>
-                  </group>
-                  <group name="Control group 1">
-                    <boolgroup name="Control group initialization" v="Disabled" />
-                  </group>
-                </list>
-                <list name="InterruptsHiddenItem" v="1">
-                  <group name="Interrupts">
-                    <A_D_interrupt v="INT_ADC0" />
-                    <boolgroup name="Configure A/D interrupt priority" v="Disabled" />
-                    <Install_interrupts v="Disabled" />
-                  </group>
-                </list>
-              </boolgroup>
+              <boolgroup name="Auto initialization" v="Disabled" />
             </group>
           </list>
         </group>
@@ -2328,9 +2383,7 @@ PE_DEBUGHALT();
     <Events>
       <list name="SdkSpecificEvents" v="1">
         <Event_module_name v="Events" />
-        <event name="ADC IRQ handler" v="generate code">
-          <ISR_name v="ADC0_IRQHandler" />
-        </event>
+        <event name="ADC IRQ handler" v="don&amp;apos;t generate code" />
       </list>
     </Events>
   </Bean>

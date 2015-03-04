@@ -703,8 +703,9 @@
       <GenEventModules lines_count="1">
         <Line>Events</Line>
       </GenEventModules>
-      <GenMethodsInEvents lines_count="5">
+      <GenMethodsInEvents lines_count="6">
         <Line>FTM0_IRQHandler</Line>
+        <Line>ADC0_IRQHandler</Line>
         <Line>FreeRTOS1_vApplicationStackOverflowHook</Line>
         <Line>FreeRTOS1_vApplicationTickHook</Line>
         <Line>FreeRTOS1_vApplicationIdleHook</Line>
@@ -742,7 +743,7 @@
     </GenFiles>
     <SignalListFile />
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>29</ProjectModificationStamp>
+    <ProjectModificationStamp>30</ProjectModificationStamp>
   </Options>
   <CpuID_20>
     <Generated>true</Generated>
@@ -751,7 +752,7 @@
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1180923336</HeaderAge>
-    <CodeAge>1180928728</CodeAge>
+    <CodeAge>1180982808</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>2</GenNumMethods>
     <SystemInit>true</SystemInit>
@@ -4805,7 +4806,7 @@
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1180923336</HeaderAge>
-    <CodeAge>1180928728</CodeAge>
+    <CodeAge>1180982808</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>18</GenNumMethods>
     <ADC16_DRV_GetAutoCalibrationParam>true</ADC16_DRV_GetAutoCalibrationParam>
@@ -4827,7 +4828,7 @@
     <ADC16_DRV_GetFlag>true</ADC16_DRV_GetFlag>
     <ADC16_DRV_GetChnFlag>true</ADC16_DRV_GetChnFlag>
     <GenNumEvents>1</GenNumEvents>
-    <IrqHandler_Selected>0</IrqHandler_Selected>
+    <IrqHandler_Selected>3</IrqHandler_Selected>
     <IrqHandler_Name>ADC0_IRQHandler</IrqHandler_Name>
     <IrqHandler_Priority>interrupts disabled</IrqHandler_Priority>
     <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>

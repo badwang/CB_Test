@@ -3,8 +3,8 @@
   <Header>
     <Name>CB_Test</Name>
     <SavedBy>zhengdw</SavedBy>
-    <ModificationStamp>29</ModificationStamp>
-    <Date>2015-03-03</Date>
+    <ModificationStamp>30</ModificationStamp>
+    <Date>2015-03-04</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.10.1.RT6_b1444-1070</PEversion>
   </Header>
@@ -28962,8 +28962,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>false</Value>
-        <Expanded>false</Expanded>
+        <Value>true</Value>
+        <Expanded>true</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>InitConfig</ItemSymbol>
@@ -29301,7 +29301,7 @@
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Value>true</Value>
-        <Expanded>false</Expanded>
+        <Expanded>true</Expanded>
         <LastSelection>false</LastSelection>
         <LastUserSel>yes</LastUserSel>
       </ItemState>
