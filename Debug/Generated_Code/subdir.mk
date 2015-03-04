@@ -4,11 +4,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Generated_Code/ADC0.c \
 ../Generated_Code/CS1.c \
 ../Generated_Code/Cpu.c \
 ../Generated_Code/DbgCs1.c \
 ../Generated_Code/FreeRTOS1.c \
 ../Generated_Code/KSDK1.c \
+../Generated_Code/Timer1.c \
 ../Generated_Code/UTIL1.c \
 ../Generated_Code/WAIT1.c \
 ../Generated_Code/croutine.c \
@@ -29,11 +31,13 @@ C_SRCS += \
 ../Generated_Code/timers.c 
 
 OBJS += \
+./Generated_Code/ADC0.o \
 ./Generated_Code/CS1.o \
 ./Generated_Code/Cpu.o \
 ./Generated_Code/DbgCs1.o \
 ./Generated_Code/FreeRTOS1.o \
 ./Generated_Code/KSDK1.o \
+./Generated_Code/Timer1.o \
 ./Generated_Code/UTIL1.o \
 ./Generated_Code/WAIT1.o \
 ./Generated_Code/croutine.o \
@@ -54,11 +58,13 @@ OBJS += \
 ./Generated_Code/timers.o 
 
 C_DEPS += \
+./Generated_Code/ADC0.d \
 ./Generated_Code/CS1.d \
 ./Generated_Code/Cpu.d \
 ./Generated_Code/DbgCs1.d \
 ./Generated_Code/FreeRTOS1.d \
 ./Generated_Code/KSDK1.d \
+./Generated_Code/Timer1.d \
 ./Generated_Code/UTIL1.d \
 ./Generated_Code/WAIT1.d \
 ./Generated_Code/croutine.d \
@@ -83,7 +89,7 @@ C_DEPS += \
 Generated_Code/%.o: ../Generated_Code/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross ARM C Compiler'
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -D"CPU_MK22FN512VLH12" -DPEX_USE_RTOS -DFSL_RTOS_FREE_RTOS -I"Z:/WZ/Kinetis_Projects/CB_Test/SDK/platform/system/inc" -I"Z:/WZ/Kinetis_Projects/CB_Test/SDK/platform/hal/inc" -I"Z:/WZ/Kinetis_Projects/CB_Test/SDK/platform/osa/inc" -I"Z:/WZ/Kinetis_Projects/CB_Test/SDK/platform/hal/src/sim/MK22F51212" -I"Z:/WZ/Kinetis_Projects/CB_Test/SDK/platform/system/src/clock/MK22F51212" -I"Z:/WZ/Kinetis_Projects/CB_Test/SDK/platform/CMSIS/Include" -I"Z:/WZ/Kinetis_Projects/CB_Test/SDK/platform/CMSIS/Include/device" -I"Z:/WZ/Kinetis_Projects/CB_Test/SDK/platform/CMSIS/Include/device/MK22F51212" -I"Z:/WZ/Kinetis_Projects/CB_Test/SDK/platform/startup" -I"Z:/WZ/Kinetis_Projects/CB_Test/Generated_Code/SDK/platform/startup/MK22F51212" -I"Z:/WZ/Kinetis_Projects/CB_Test/Sources" -I"Z:/WZ/Kinetis_Projects/CB_Test/Generated_Code" -I"Z:/WZ/Kinetis_Projects/CB_Test/SDK/platform/drivers/inc" -I"Z:/WZ/Kinetis_Projects/CB_Test/SDK/platform/utilities/src" -I"Z:/WZ/Kinetis_Projects/CB_Test/SDK/platform/utilities/inc" -std=c99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -D"CPU_MK22FN512VLH12" -DPEX_USE_RTOS -DFSL_RTOS_FREE_RTOS -I"D:/WZ/Kinetis_Projects/CB_Test/SDK/platform/system/inc" -I"D:/WZ/Kinetis_Projects/CB_Test/SDK/platform/hal/inc" -I"D:/WZ/Kinetis_Projects/CB_Test/SDK/platform/osa/inc" -I"D:/WZ/Kinetis_Projects/CB_Test/SDK/platform/hal/src/sim/MK22F51212" -I"D:/WZ/Kinetis_Projects/CB_Test/SDK/platform/system/src/clock/MK22F51212" -I"D:/WZ/Kinetis_Projects/CB_Test/SDK/platform/CMSIS/Include" -I"D:/WZ/Kinetis_Projects/CB_Test/SDK/platform/CMSIS/Include/device" -I"D:/WZ/Kinetis_Projects/CB_Test/SDK/platform/CMSIS/Include/device/MK22F51212" -I"D:/WZ/Kinetis_Projects/CB_Test/SDK/platform/startup" -I"D:/WZ/Kinetis_Projects/CB_Test/Generated_Code/SDK/platform/startup/MK22F51212" -I"D:/WZ/Kinetis_Projects/CB_Test/Sources" -I"D:/WZ/Kinetis_Projects/CB_Test/Generated_Code" -I"D:/WZ/Kinetis_Projects/CB_Test/SDK/platform/drivers/inc" -I"D:/WZ/Kinetis_Projects/CB_Test/SDK/platform/utilities/src" -I"D:/WZ/Kinetis_Projects/CB_Test/SDK/platform/utilities/inc" -std=c99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

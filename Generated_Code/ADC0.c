@@ -6,7 +6,7 @@
 **     Component   : fsl_adc16
 **     Version     : Component 01.000, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-04, 11:48, # CodeGen: 35
+**     Date/Time   : 2015-03-04, 17:52, # CodeGen: 36
 **
 **     Copyright : 1997 - 2014 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -54,7 +54,7 @@
 #include "ADC0.h"
 
 adc16_user_config_t ADC0_InitConfig0 = {
-  .intEnable            = true,
+  .intEnable            = false,
   .lowPowerEnable       = false,
   .resolutionMode       = kAdcResolutionBitOf16,
   .clkSrcMode           = kAdcClkSrcOfAsynClk,
@@ -71,21 +71,21 @@ adc16_user_config_t ADC0_InitConfig0 = {
 adc16_chn_config_t ADC0_ChnConfig0 = {
   .chnNum     = 0U,
   .diffEnable = false,
-  .intEnable  = true,
+  .intEnable  = false,
   .chnMux     = kAdcChnMuxOfA
 };
       
 adc16_chn_config_t ADC0_ChnConfig1 = {
   .chnNum     = 19U,
   .diffEnable = false,
-  .intEnable  = true,
+  .intEnable  = false,
   .chnMux     = kAdcChnMuxOfA
 };
       
 adc16_chn_config_t ADC0_ChnConfig2 = {
   .chnNum     = 3U,
   .diffEnable = false,
-  .intEnable  = true,
+  .intEnable  = false,
   .chnMux     = kAdcChnMuxOfA
 };
       

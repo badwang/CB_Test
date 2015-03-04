@@ -44,6 +44,10 @@ SDK/platform/hal/src/mcg \
 SDK/platform/hal/src/lpuart \
 SDK/platform/hal/src/lptmr \
 SDK/platform/hal/src/gpio \
+SDK/platform/hal/src/ftm \
+SDK/platform/hal/src/adc16 \
 SDK/platform/drivers/src/gpio \
+SDK/platform/drivers/src/ftm \
+SDK/platform/drivers/src/adc16 \
 Generated_Code \
 

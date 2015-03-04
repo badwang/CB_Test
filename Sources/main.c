@@ -63,6 +63,9 @@ char TaskInfo[1000];
 
 TaskHandle_t hADC;
 
+uint16_t V_A[128];
+uint16_t V_B[128];
+uint16_t V_C[128];
 //float TestData[1000];
 
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
@@ -106,7 +109,7 @@ void System_Init(void)
 
 	//Configure ADC converter.
 //	ADC16_DRV_Init(FSL_ADC0, &ADC0_InitConfig0);
-	ADC16_DRV_EnableHwAverage(FSL_ADC0, kAdcHwAverageCountOf8);
+	ADC16_DRV_EnableHwAverage(FSL_ADC0, kAdcHwAverageCountOf4);
 	ADC16_DRV_EnableLongSample(FSL_ADC0, kAdcLongSampleCycleOf4);
 //	ADC16_DRV_ConfigConvChn(FSL_ADC0, 0U, &ADC0_ChnConfig0);
 //	ADC16_DRV_ConfigConvChn(FSL_ADC0, 0U, &ADC0_ChnConfig1);
@@ -117,7 +120,7 @@ void System_Init(void)
 //	FTM_DRV_SetTimeOverflowIntCmd(FSL_TIMER1,true);
 //	FTM_DRV_SetFaultIntCmd(FSL_TIMER1,false);
 	FTM_HAL_SetClockPs(FSL_TIMER1, kFtmDividedBy128);
-	FTM_DRV_CounterStart(FSL_TIMER1, kCounting_FTM_UP, 1, 375, TRUE);		//Set FTM overflow period to 500uS.
+	FTM_DRV_CounterStart(FSL_TIMER1, kCounting_FTM_UP, 1, 375, TRUE);		//Set FTM overflow period to 500uS when core clock is 96MHz.
 
 }
 
@@ -125,20 +128,42 @@ void vADC( void *pvParameters )
 {
 	BaseType_t rtn;
 	uint32_t NotifyValue;
+	uint16_t Result, ptr;
+
+	ptr=0;
 
 	for(;;)
 	{
 		//Wait for trigger notification from Timer1.
-		while(xTaskNotifyWait(0, 0, &NotifyValue, pdMS_TO_TICKS(10))==pdFALSE){
+		while(xTaskNotifyWait(0, 0, &NotifyValue, pdMS_TO_TICKS(100))==pdFALSE){
 			debug_printf("\r\nADC trigger time out!\r\n");
 		}
 
 		ADC16_DRV_ConfigConvChn(FSL_ADC0, 0U, &ADC0_ChnConfig0);			//Start ADC on channel1
+		ADC16_DRV_WaitConvDone(FSL_ADC0, 0U);								//Wait until ADC complete.
+		Result = ADC16_DRV_GetConvValueRAW(FSL_ADC0, 0U);					//Get ADC result.
+		V_A[ptr]=Result;
 
+		ADC16_DRV_ConfigConvChn(FSL_ADC0, 0U, &ADC0_ChnConfig1);			//Start ADC on channel2
+		ADC16_DRV_WaitConvDone(FSL_ADC0, 0U);								//Wait until ADC complete.
+		Result = ADC16_DRV_GetConvValueRAW(FSL_ADC0, 0U);					//Get ADC result.
+		V_B[ptr]=Result;
 
+		ADC16_DRV_ConfigConvChn(FSL_ADC0, 0U, &ADC0_ChnConfig2);			//Start ADC on channel3
+		ADC16_DRV_WaitConvDone(FSL_ADC0, 0U);								//Wait until ADC complete.
+		Result = ADC16_DRV_GetConvValueRAW(FSL_ADC0, 0U);					//Get ADC result.
+		V_C[ptr]=Result;
+
+		Result=FTM_DRV_CounterRead(FSL_TIMER1);									//Read Timer1 to see how long time passed.
+
+		ptr++;
+		if(ptr==100){
+			debug_printf("\r\nV_In: %05d, %05d, %05d, N:%X, C:%d\r\n", V_A[0], V_B[0], V_C[0], NotifyValue, Result);
+			ptr=0;
+			GPIO_DRV_TogglePinOutput(LED_RED);
+		}
 
 	}
-
 }
 
 
@@ -159,7 +184,7 @@ void vDummy1( void *pvParameters )
 			TestData[j]=TestData[j]/2.5;
 		}
 		debug_printf("Done!\r\n");*/
-		GPIO_DRV_TogglePinOutput(LED_RED);
+//		GPIO_DRV_TogglePinOutput(LED_RED);
 	}
 }
 
@@ -171,7 +196,7 @@ void vDummy2( void *pvParameters )
 		j++;
 		vTaskDelay(400);
 //		debug_printf("Task Dummy2 j = %d\n\r", j);
-		GPIO_DRV_TogglePinOutput(LED_GREEN);
+//		GPIO_DRV_TogglePinOutput(LED_GREEN);
 	}
 }
 

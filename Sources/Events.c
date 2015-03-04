@@ -37,6 +37,9 @@ extern "C" {
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
 
+uint32_t MainTimer=0;
+extern TaskHandle_t hADC;
+
 /*
 ** ===================================================================
 **     Event       :  FreeRTOS1_vApplicationStackOverflowHook (module Events)
@@ -62,7 +65,7 @@ void FreeRTOS1_vApplicationStackOverflowHook(xTaskHandle pxTask, char *pcTaskNam
   (void)pcTaskName;
   taskDISABLE_INTERRUPTS();
   /* Write your code here ... */
-  debug_printf("\r\nFreeRTOS detected stack overflow!!\r\n")
+  debug_printf("\r\nFreeRTOS detected stack overflow!!\r\n");
 
   for(;;) {}
 }
@@ -136,8 +139,9 @@ void FTM0_IRQHandler(void)
   FTM_DRV_IRQHandler(FSL_TIMER1);
   /* Write your code here ... */
 
+  MainTimer++;
   //Send notification to task vADC to trigger ADC conversion.
-  xTaskNotifyFromISR(hADC, 0, eIncrement);
+  xTaskNotifyFromISR(hADC, 0, eIncrement, pdTRUE);
 
   //Force a context switch.
   taskYIELD();
