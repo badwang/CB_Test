@@ -30,28 +30,27 @@
 /* Including needed modules to compile this module/procedure */
 #include "Cpu.h"
 #include "Events.h"
-#include "pin_init.h"
 #include "osa1.h"
 #include "FreeRTOS1.h"
 #include "UTIL1.h"
 #include "KSDK1.h"
-#include "gpio1.h"
 #include "DbgCs1.h"
 #include "WAIT1.h"
 #include "CS1.h"
 #include "ADC0.h"
 #include "Timer1.h"
+#include "gpio.h"
 #if CPU_INIT_CONFIG
   #include "Init_Config.h"
 #endif
 /* User includes (#include below this line is not maintained by Processor Expert) */
 
-#define mainDummy1_PRIORITY				( tskIDLE_PRIORITY + 2 )
+#define mainUI_PRIORITY				( tskIDLE_PRIORITY + 2 )
 #define mainDummy2_PRIORITY				( tskIDLE_PRIORITY + 3 )
 #define mainvMonitorTasks_PRIORITY				( tskIDLE_PRIORITY + 1 )
 #define mainADC_PRIORITY				( tskIDLE_PRIORITY + 4 )
 
-static void vDummy1( void *pvParameters );
+static void vUI( void *pvParameters );
 static void vDummy2( void *pvParameters );
 static void vMonitorTasks( void *pvParameters );
 static void vADC( void *pvParameters );
@@ -67,6 +66,8 @@ uint16_t V_A[128];
 uint16_t V_B[128];
 uint16_t V_C[128];
 //float TestData[1000];
+
+extern uint32_t MainTimer;
 
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void)
@@ -85,7 +86,7 @@ int main(void)
 
   System_Init();				//Initialize and enable peripherals before RTOS starts.
 
-  xTaskCreate( vDummy1, "Dummy1", configMINIMAL_STACK_SIZE, NULL, mainDummy1_PRIORITY, NULL );
+  xTaskCreate( vUI, "UserIF", 1024, NULL, mainUI_PRIORITY, NULL );
   xTaskCreate( vDummy2, "Dummy2", configMINIMAL_STACK_SIZE, NULL, mainDummy2_PRIORITY, NULL );
   xTaskCreate( vMonitorTasks, "TaskMonitor", configMINIMAL_STACK_SIZE, NULL, mainvMonitorTasks_PRIORITY, NULL );
   xTaskCreate( vADC, "ADC", 1024, NULL, mainADC_PRIORITY, hADC );
@@ -158,33 +159,28 @@ void vADC( void *pvParameters )
 
 		ptr++;
 		if(ptr==100){
-			debug_printf("\r\nV_In: %05d, %05d, %05d, N:%X, C:%d\r\n", V_A[0], V_B[0], V_C[0], NotifyValue, Result);
 			ptr=0;
 			GPIO_DRV_TogglePinOutput(LED_RED);
 		}
 
+		if(MainTimer%2000 == 0){
+			debug_printf("\r\nV_In: %05d, %05d, %05d, N:%X, C:%d\r\n", V_A[0], V_B[0], V_C[0], NotifyValue, Result);
+		}
 	}
 }
 
 
-void vDummy1( void *pvParameters )
+void vUI( void *pvParameters )
 {
 	uint8_t i=0;
 	uint16_t j;
 
 	for(;;){
-		i++;
 		vTaskDelay(200);
-/*		debug_printf("Task Dummy1 i = %d\n\r", i);
-		debug_printf("Calculating 1000 datas start...");
-		for(j=0;j<1000;j++){
-			TestData[j]=TestData[j]*2.5;
-		}
-		for(j=0;j<1000;j++){
-			TestData[j]=TestData[j]/2.5;
-		}
-		debug_printf("Done!\r\n");*/
-//		GPIO_DRV_TogglePinOutput(LED_RED);
+
+
+
+
 	}
 }
 

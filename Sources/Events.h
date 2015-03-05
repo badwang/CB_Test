@@ -31,17 +31,16 @@
 /* MODULE Events */
 
 #include "fsl_device_registers.h"
-#include "pin_init.h"
 #include "osa1.h"
 #include "FreeRTOS1.h"
 #include "UTIL1.h"
 #include "KSDK1.h"
-#include "gpio1.h"
 #include "DbgCs1.h"
 #include "WAIT1.h"
 #include "CS1.h"
 #include "ADC0.h"
 #include "Timer1.h"
+#include "gpio.h"
 
 #ifdef __cplusplus
 extern "C" {

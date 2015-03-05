@@ -7,7 +7,7 @@
 **     Version     : Component 01.065, Driver 01.00, CPU db: 3.00.000
 **     Datasheet   : K22P121M120SF7RM, Rev. 1, March 24, 2014
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-03, 14:46, # CodeGen: 32
+**     Date/Time   : 2015-03-05, 13:19, # CodeGen: 38
 **     Abstract    :
 **
 **     Settings    :
@@ -76,16 +76,16 @@
 #include "fsl_osc_hal.h"
 #include "fsl_lptmr_hal.h"
 #include "fsl_clock_manager.h"
-#include "fsl_port_hal.h"
-#include "fsl_gpio_hal.h"
-#include "fsl_gpio_driver.h"
 #include "fsl_uart_hal.h"
 #include "fsl_lpuart_hal.h"
 #include "fsl_debug_console.h"
+#include "fsl_port_hal.h"
 #include "fsl_adc16_hal.h"
 #include "fsl_adc16_driver.h"
 #include "fsl_ftm_hal.h"
 #include "fsl_ftm_driver.h"
+#include "fsl_gpio_hal.h"
+#include "fsl_gpio_driver.h"
 #include <assert.h>
 
 #ifdef __cplusplus
@@ -95,7 +95,7 @@ extern "C" {
 #define CPU_PERIPHERALS_INIT                               0x00U     /* Peripherals_Init() method is not called in PE_low_level_init() */ 
 #define CPU_COMPONENTS_INIT                                0x01U     /* Call Components_Init() method in PE_low_level_init() */ 
 #define CPU_INIT_CONFIG                                    0x00U     /* Do not include Init_Config.h in the main.c file */ 
-#define CPU_HARDWARE_INIT                                  0x01U     /* Call hardware_init() method in PE_low_level_init() */ 
+#define CPU_HARDWARE_INIT                                  0x00U     /* hardware_init() method is not called in PE_low_level_init() */ 
 
 /*
 ** ===================================================================

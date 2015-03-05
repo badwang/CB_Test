@@ -2304,7 +2304,7 @@ PE_DEBUGHALT();
             <list name="Channel configurations" v="3">
               <boolgroup name="Channel configuration 0" v="Enabled">
                 <Configuration_Name v="ADC0_ChnConfig0" />
-                <Interrupt v="Enabled" />
+                <Interrupt v="Disabled" />
                 <enumgroup name="Differential mode" v="Single ended">
                   <A_D_channel__pin_ v="ADC0_DP0/ADC1_DP3" />
                 </enumgroup>
@@ -2313,7 +2313,7 @@ PE_DEBUGHALT();
               </boolgroup>
               <boolgroup name="Channel configuration 1" v="Enabled">
                 <Configuration_Name v="ADC0_ChnConfig1" />
-                <Interrupt v="Enabled" />
+                <Interrupt v="Disabled" />
                 <enumgroup name="Differential mode" v="Single ended">
                   <A_D_channel__pin_ v="ADC0_DM0/ADC1_DM3" />
                 </enumgroup>
@@ -2322,7 +2322,7 @@ PE_DEBUGHALT();
               </boolgroup>
               <boolgroup name="Channel configuration 2" v="Enabled">
                 <Configuration_Name v="ADC0_ChnConfig2" />
-                <Interrupt v="Enabled" />
+                <Interrupt v="Disabled" />
                 <enumgroup name="Differential mode" v="Single ended">
                   <A_D_channel__pin_ v="ADC1_DP0/ADC0_DP3" />
                 </enumgroup>
@@ -2334,7 +2334,7 @@ PE_DEBUGHALT();
           <list name="ADC configurations" v="1">
             <boolgroup name="Configuration 0" v="Enabled">
               <Configuration_name v="ADC0_InitConfig0" />
-              <Interrupts v="Enabled" />
+              <Interrupts v="Disabled" />
               <Low_power_mode v="Disabled" />
               <Resolution v="16 bit" />
               <Clock_source v="Asynchrounous" />

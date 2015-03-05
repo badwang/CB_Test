@@ -42,9 +42,9 @@
       <Path>D:\WZ\Kinetis_Projects\CB_Test\SDK\platform\hal\inc\</Path>
       <Path>D:\WZ\Kinetis_Projects\CB_Test\SDK\platform\hal\src\sim\MK22F51212\</Path>
       <Path>D:\WZ\Kinetis_Projects\CB_Test\SDK\platform\system\src\clock\MK22F51212\</Path>
-      <Path>D:\WZ\Kinetis_Projects\CB_Test\SDK\platform\drivers\inc\</Path>
       <Path>D:\WZ\Kinetis_Projects\CB_Test\SDK\platform\utilities\src\</Path>
       <Path>D:\WZ\Kinetis_Projects\CB_Test\SDK\platform\utilities\inc\</Path>
+      <Path>D:\WZ\Kinetis_Projects\CB_Test\SDK\platform\drivers\inc\</Path>
       <Path>D:\WZ\Kinetis_Projects\CB_Test\SDK\platform\CMSIS\Include\</Path>
       <Path>D:\WZ\Kinetis_Projects\CB_Test\SDK\platform\CMSIS\Include\device\</Path>
       <Path>D:\WZ\Kinetis_Projects\CB_Test\SDK\platform\CMSIS\Include\device\MK22F51212\</Path>
@@ -93,8 +93,7 @@
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\WAIT1.c</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\croutine.c</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\event_groups.c</PathName>
-      <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\gpio1.c</PathName>
-      <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\hardware_init.c</PathName>
+      <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\gpio.c</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\heap_1.c</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\heap_2.c</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\heap_3.c</PathName>
@@ -102,7 +101,6 @@
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\heap_5.c</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\list.c</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\osa1.c</PathName>
-      <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\pin_init.c</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\port.c</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\queue.c</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\tasks.c</PathName>
@@ -134,6 +132,7 @@
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\SDK\platform\utilities\src\fsl_debug_console.c</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\SDK\platform\utilities\src\print_scan.c</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Sources\Events.c</PathName>
+      <PathName>D:\WZ\Kinetis_Projects\CB_Test\Sources\LQ_SGP18T.c</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Sources\main.c</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Static_Code\System\PE_low_level_init.c</PathName>
     </GeneratedCs>
@@ -153,15 +152,13 @@
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\Timer1.h</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\UTIL1.h</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\WAIT1.h</PathName>
-      <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\board.h</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\croutine.h</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\deprecated_definitions.h</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\event_groups.h</PathName>
-      <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\gpio1.h</PathName>
+      <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\gpio.h</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\list.h</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\mpu_wrappers.h</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\osa1.h</PathName>
-      <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\pin_init.h</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\portTicks.h</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\portable.h</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\portmacro.h</PathName>
@@ -206,6 +203,8 @@
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\SDK\platform\utilities\inc\fsl_debug_console.h</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\SDK\platform\utilities\src\print_scan.h</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Sources\Events.h</PathName>
+      <PathName>D:\WZ\Kinetis_Projects\CB_Test\Sources\LQ_SGP18T.h</PathName>
+      <PathName>D:\WZ\Kinetis_Projects\CB_Test\Sources\Mytype.h</PathName>
     </GeneratedHs>
     <GeneratedASMs>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\portasm.s</PathName>

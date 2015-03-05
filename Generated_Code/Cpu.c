@@ -7,7 +7,7 @@
 **     Version     : Component 01.065, Driver 01.00, CPU db: 3.00.000
 **     Datasheet   : K22P121M120SF7RM, Rev. 1, March 24, 2014
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-04, 11:48, # CodeGen: 35
+**     Date/Time   : 2015-03-05, 13:19, # CodeGen: 38
 **     Abstract    :
 **
 **     Settings    :
@@ -111,12 +111,8 @@ void Components_Init(void)
   SIM_PDD_SetClockGate(SIM_BASE_PTR, SIM_PDD_CLOCK_GATE_LPTMR0, PDD_ENABLE);
 #endif
   vPortStopTickTimer(); /* tick timer shall not run until the RTOS scheduler is started */
-
   /* ### KinetisSDK "KSDK1" init code ... */
   /* Write code here ... */
-  /*! gpio1 Auto initialization start */
-  GPIO_DRV_Init(NULL,gpio1_OutConfig0);
-  /*! gpio1 Auto initialization end */
     /* Debug console initialization */
     DbgConsole_Init(BOARD_DEBUG_UART_INSTANCE, DEBUG_UART_BAUD, DEBUG_UART_TYPE);
   /* ### CriticalSection "CS1" init code ... */
@@ -129,6 +125,9 @@ void Components_Init(void)
   FTM_DRV_SetTimeOverflowIntCmd(FSL_TIMER1,true);
   FTM_DRV_SetFaultIntCmd(FSL_TIMER1,false);
   /*! Timer1 Auto initialization end */
+  /*! gpio Auto initialization start */
+  GPIO_DRV_Init(NULL,gpio_OutConfig0);
+  /*! gpio Auto initialization end */
 }
 #endif /* CPU_COMPONENTS_INIT */
 
