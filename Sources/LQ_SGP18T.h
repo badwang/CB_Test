@@ -25,7 +25,7 @@
 #ifndef __SGP18T_ILI9163B_BASE_H__
 #define __SGP18T_ILI9163B_BASE_H__	 
 
-#include "MyType.h"	 
+#include "PE_KSDK_Types.h"
 
 #define		RED			0xf800
 #define		GREEN		0x07e0
@@ -50,8 +50,6 @@ void ILI9163B_write_para16(uint16 dat);						//发送像素显示参数
 void ILI9163B_address_rst(void);							//DDRAM地址重置
 
 void ILI9163B_SetPos(uint8 xs,uint8 ys,uint8 xe,uint8 ye);	//定位显示像素位置
-
-void delay(uint16 t);									   	//延时函数
 
 void ILI9163B_display_full(uint16 color);					//全屏显示某种颜色
 

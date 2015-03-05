@@ -1345,14 +1345,14 @@ PE_DEBUGHALT();
         <configure_ewm_pins v="don&amp;apos;t generate code" />
         <configure_fb_pins v="don&amp;apos;t generate code" />
         <configure_ftm_pins v="don&amp;apos;t generate code" />
-        <configure_gpio_pins v="generate code" />
+        <configure_gpio_pins v="don&amp;apos;t generate code" />
         <configure_i2c_pins v="don&amp;apos;t generate code" />
         <configure_i2s_pins v="don&amp;apos;t generate code" />
-        <configure_jtag_pins v="generate code" />
+        <configure_jtag_pins v="don&amp;apos;t generate code" />
         <configure_llwu_pins v="don&amp;apos;t generate code" />
         <configure_lptmr_pins v="don&amp;apos;t generate code" />
         <configure_lpuart_pins v="don&amp;apos;t generate code" />
-        <configure_osc_pins v="generate code" />
+        <configure_osc_pins v="don&amp;apos;t generate code" />
         <configure_pdb_pins v="don&amp;apos;t generate code" />
         <configure_rcm_pins v="don&amp;apos;t generate code" />
         <configure_rtc_pins v="don&amp;apos;t generate code" />
@@ -1361,7 +1361,7 @@ PE_DEBUGHALT();
         <configure_spi_pins v="don&amp;apos;t generate code" />
         <configure_supply_pins v="don&amp;apos;t generate code" />
         <configure_tpiu_pins v="don&amp;apos;t generate code" />
-        <configure_uart_pins v="generate code" />
+        <configure_uart_pins v="don&amp;apos;t generate code" />
         <configure_usb_pins v="don&amp;apos;t generate code" />
         <configure_vref_pins v="don&amp;apos;t generate code" />
       </list>

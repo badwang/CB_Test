@@ -788,8 +788,8 @@
     <GenComponentVersion>01.007</GenComponentVersion>
     <GenDriverVersion>1.3</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1180928728</HeaderAge>
-    <CodeAge>1180928728</CodeAge>
+    <HeaderAge>-1</HeaderAge>
+    <CodeAge>-1</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>26</GenNumMethods>
     <hardware_init>true</hardware_init>
@@ -849,18 +849,8 @@
       <HeaderAge>-1</HeaderAge>
       <CodeAge>-1</CodeAge>
       <AsemblAge>-1</AsemblAge>
-      <GenNumMethods>19</GenNumMethods>
-      <PORT_HAL_SetPullMode>true</PORT_HAL_SetPullMode>
-      <PORT_HAL_SetPullCmd>true</PORT_HAL_SetPullCmd>
-      <PORT_HAL_SetSlewRateMode>true</PORT_HAL_SetSlewRateMode>
-      <PORT_HAL_SetPassiveFilterCmd>true</PORT_HAL_SetPassiveFilterCmd>
-      <PORT_HAL_SetOpenDrainCmd>true</PORT_HAL_SetOpenDrainCmd>
-      <PORT_HAL_SetDriveStrengthMode>true</PORT_HAL_SetDriveStrengthMode>
+      <GenNumMethods>9</GenNumMethods>
       <PORT_HAL_SetMuxMode>true</PORT_HAL_SetMuxMode>
-      <PORT_HAL_SetPinCtrlLockCmd>true</PORT_HAL_SetPinCtrlLockCmd>
-      <PORT_HAL_SetDigitalFilterCmd>true</PORT_HAL_SetDigitalFilterCmd>
-      <PORT_HAL_SetDigitalFilterClock>true</PORT_HAL_SetDigitalFilterClock>
-      <PORT_HAL_SetDigitalFilterWidth>true</PORT_HAL_SetDigitalFilterWidth>
       <PORT_HAL_SetLowGlobalPinCtrl>true</PORT_HAL_SetLowGlobalPinCtrl>
       <PORT_HAL_SetHighGlobalPinCtrl>true</PORT_HAL_SetHighGlobalPinCtrl>
       <PORT_HAL_SetPinIntMode>true</PORT_HAL_SetPinIntMode>

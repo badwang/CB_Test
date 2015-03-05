@@ -44,6 +44,8 @@
   #include "Init_Config.h"
 #endif
 /* User includes (#include below this line is not maintained by Processor Expert) */
+#include "LQ_SGP18T.h"
+
 
 #define mainUI_PRIORITY				( tskIDLE_PRIORITY + 2 )
 #define mainDummy2_PRIORITY				( tskIDLE_PRIORITY + 3 )
@@ -175,12 +177,20 @@ void vUI( void *pvParameters )
 	uint8_t i=0;
 	uint16_t j;
 
+	ILI9163B_init();				//Initialize LCD module
+
 	for(;;){
-		vTaskDelay(200);
+		vTaskDelay(pdMS_TO_TICKS(1000));
+		LCD_prints16(0, 0, "Welcome to Shanghai!", RED, BLACK);
 
+		vTaskDelay(pdMS_TO_TICKS(1000));
+		LCD_prints16(0, 0, "Welcome to Shanghai!", GREEN, BLACK);
 
+		vTaskDelay(pdMS_TO_TICKS(1000));
+		LCD_prints16(0, 0, "Welcome to Shanghai!", BLUE, BLACK);
 
-
+		vTaskDelay(pdMS_TO_TICKS(1000));
+		LCD_prints16(0, 0, "Welcome to Shanghai!", YELLOW, BLACK);
 	}
 }
 

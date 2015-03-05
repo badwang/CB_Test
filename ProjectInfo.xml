@@ -204,7 +204,6 @@
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\SDK\platform\utilities\src\print_scan.h</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Sources\Events.h</PathName>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Sources\LQ_SGP18T.h</PathName>
-      <PathName>D:\WZ\Kinetis_Projects\CB_Test\Sources\Mytype.h</PathName>
     </GeneratedHs>
     <GeneratedASMs>
       <PathName>D:\WZ\Kinetis_Projects\CB_Test\Generated_Code\portasm.s</PathName>

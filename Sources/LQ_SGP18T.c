@@ -21,8 +21,9 @@
 	CS   =  P1^4;
 （5V的单片机需要在信号线上串接1K电阻，电源必须保证3.3V）
 ********************************************************/
-#include "MyType.h"
-#include "LQ_SGP18T.h"	  
+#include "LQ_SGP18T.h"
+#include "PE_KSDK_Types.h"
+#include "gpio.h"
 
 /**********************************************************
 函数名称：ILI9163B_init()
@@ -35,7 +36,7 @@
 void ILI9163B_init(void)
 { 	
     ILI9163B_write_command(0x11);       		  	//关闭睡眠，振荡器工作
-    delay(100);
+    vTaskDelay(20);									//Delay 100mS
     
     ILI9163B_write_command(0x3a);       		  	//每次传送16位数据(VIPF3-0=0101)，每个像素16位(IFPF2-0=101)
     ILI9163B_write_para8(0x55);						
@@ -131,21 +132,21 @@ void ILI9163B_write_command(uint8 cmd)
 {
 	uint8 i;
 
-	ILI9163_A0=0;	 						//A0=0发送命令
-	ILI9163_CS=0;
+	GPIO_DRV_WritePinOutput(ILI9163_A0, 0);	 						//A0=0发送命令
+	GPIO_DRV_WritePinOutput(ILI9163_CS, 0);
 	for(i=0;i<8;i++)
 	{
-		ILI9163_SCK=0;
+		GPIO_DRV_WritePinOutput(ILI9163_SCK, 0);
 //		if((addr1&0x80)==0x80)	  	//高位先发送
 //			ILI9163_SDA=1;
 //		else		
 //			ILI9163_SDA=0;
-		ILI9163_SDA = (bit)(0x80&cmd);
-		ILI9163_SCK = 1;
+		GPIO_DRV_WritePinOutput(ILI9163_SDA, (0x80&cmd));
+		GPIO_DRV_WritePinOutput(ILI9163_SCK, 1);
 		cmd = (cmd<<1);
 
 	}
-    ILI9163_CS=1;
+	GPIO_DRV_WritePinOutput(ILI9163_CS, 1);
 }
 
 /*****************DRIVE IC寄存器写数据 8080 SERIES******************************/
@@ -153,59 +154,60 @@ void ILI9163B_write_para8(uint8 dat)
 {  
 	uint8 i;
 
-	ILI9163_A0=1;			   				//A0=1发送数据
-	ILI9163_CS=0;				
+	GPIO_DRV_WritePinOutput(ILI9163_A0, 1);			   				//A0=1发送数据
+	GPIO_DRV_WritePinOutput(ILI9163_CS, 0);
 	for(i=0;i<8;i++)
 	{
-		ILI9163_SCK=0;
+		GPIO_DRV_WritePinOutput(ILI9163_SCK, 0);
 //		if((para&0x80)==0x80)
 //			ILI9163_SDA=1;
 //		else
 //			ILI9163_SDA=0;
-		ILI9163_SDA = (bit)(0x80&dat);
-		ILI9163_SCK = 1;
+		GPIO_DRV_WritePinOutput(ILI9163_SDA, (0x80&dat));
+		GPIO_DRV_WritePinOutput(ILI9163_SCK, 1);
 		dat = (dat<<1);
 
 	}
-	ILI9163_CS=1;
+	GPIO_DRV_WritePinOutput(ILI9163_CS, 1);
 }
  
 /****************DRIVE IC GDRAM 写数据 16BITS 8080 SERIES*****************************/
 void ILI9163B_write_para16(uint16 dat)
 {  		 
 	uint8 i,buf;
-	ILI9163_A0=1;
-	ILI9163_CS=0;				
+
+	GPIO_DRV_WritePinOutput(ILI9163_A0, 1);
+	GPIO_DRV_WritePinOutput(ILI9163_CS, 0);
 
 	buf = (uint8)(0xFF&(dat>>8));
 	for(i=0;i<8;i++)
 	{
-		ILI9163_SCK=0;
+		GPIO_DRV_WritePinOutput(ILI9163_SCK, 0);
 //		if((buf&0x80)==0x80)
 //			ILI9163_SDA=1;
 //		else
 //			ILI9163_SDA=0;
-		ILI9163_SDA = (bit)(0x80&buf);
-		ILI9163_SCK=1;
+		GPIO_DRV_WritePinOutput(ILI9163_SDA, (0x80&buf));
+		GPIO_DRV_WritePinOutput(ILI9163_SCK, 1);
 		buf=(buf<<1);
 
 	}
-	ILI9163_CS=1;
+	GPIO_DRV_WritePinOutput(ILI9163_CS, 1);
 
 	buf = (uint8)(0xFF&dat);
-	ILI9163_CS=0;
+	GPIO_DRV_WritePinOutput(ILI9163_CS, 0);
 	for(i=0;i<8;i++)
 	{
-		ILI9163_SCK=0;
+		GPIO_DRV_WritePinOutput(ILI9163_SCK, 0);
 //		if((buf&0x80)==0x80)
 //			ILI9163_SDA=1;
 //		else
 //			ILI9163_SDA=0;
-		ILI9163_SDA = (bit)(0x80&buf);
-		ILI9163_SCK =1;
+		GPIO_DRV_WritePinOutput(ILI9163_SDA, (0x80&buf));
+		GPIO_DRV_WritePinOutput(ILI9163_SCK, 1);
 		buf=(buf<<1);
 	}
-	ILI9163_CS=1; 
+	GPIO_DRV_WritePinOutput(ILI9163_CS, 1);
 }
 
 
@@ -261,15 +263,6 @@ void ILI9163B_address_rst(void)
 }
 
 
-/*********************************************************/
-//延时函数
-void delay(uint16 t)
-{
-	uint16 i,j;
-
-	for(j=0;j<t;j++)
-		for(i=0;i<250;i++);
-}
 
 /**********************************************************
 函数名称：ILI9163B_display_full()
