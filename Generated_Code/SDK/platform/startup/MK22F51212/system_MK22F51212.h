@@ -87,7 +87,7 @@ extern "C" {
 /* Predefined clock setups
    0 ... Default  part configuration
          Multipurpose Clock Generator (MCG) in FEI mode.
-         Reference clock source for MCG module: Fast internal reference clock
+         Reference clock source for MCG module: Slow internal reference clock
          Core clock = 95.977472MHz
          Bus clock  = 47.988736MHz
    1 ... Default  part configuration
@@ -123,8 +123,8 @@ extern "C" {
   #define MCG_MODE                     MCG_MODE_FEI /* Clock generator mode */
   /* MCG_C1: CLKS=0,FRDIV=0,IREFS=1,IRCLKEN=1,IREFSTEN=0 */
   #define SYSTEM_MCG_C1_VALUE          0x06U               /* MCG_C1 */
-  /* MCG_C2: LOCRE0=0,FCFTRIM=0,RANGE=2,HGO=0,EREFS=1,LP=0,IRCS=1 */
-  #define SYSTEM_MCG_C2_VALUE          0x25U               /* MCG_C2 */
+  /* MCG_C2: LOCRE0=0,FCFTRIM=0,RANGE=2,HGO=0,EREFS=1,LP=0,IRCS=0 */
+  #define SYSTEM_MCG_C2_VALUE          0x24U               /* MCG_C2 */
   /* MCG_C4: DMX32=1,DRST_DRS=3,FCTRIM=0,SCFTRIM=0 */
   #define SYSTEM_MCG_C4_VALUE          0xE0U               /* MCG_C4 */
   /* MCG_SC: ATME=0,ATMS=0,ATMF=0,FLTPRSRV=0,FCRDIV=0,LOCS0=0 */

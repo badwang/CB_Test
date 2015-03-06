@@ -216,8 +216,8 @@ PE_DEBUGHALT();
       </enumgroup>
       <boolgroup name="Generate debugger files" v="no" />
       <boolgroup name="Generate linker file" v="yes">
-        <Stack_size v="4096" />
-        <Heap_size v="4096" />
+        <Stack_size v="16384" />
+        <Heap_size v="16384" />
         <Set_memory_segments_to_default v="Click to set default &amp;gt;" />
         <Default_memory_for_interrupts v="INTERNAL FLASH" />
         <Default_memory_for_code v="INTERNAL FLASH" />

@@ -7,7 +7,7 @@
 **     Version     : Component 01.065, Driver 01.00, CPU db: 3.00.000
 **     Datasheet   : K22P121M120SF7RM, Rev. 1, March 24, 2014
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-05, 23:48, # CodeGen: 42
+**     Date/Time   : 2015-03-06, 14:56, # CodeGen: 46
 **     Abstract    :
 **
 **     Settings    :
@@ -111,6 +111,7 @@ void Components_Init(void)
   SIM_PDD_SetClockGate(SIM_BASE_PTR, SIM_PDD_CLOCK_GATE_LPTMR0, PDD_ENABLE);
 #endif
   vPortStopTickTimer(); /* tick timer shall not run until the RTOS scheduler is started */
+
   /* ### KinetisSDK "KSDK1" init code ... */
   /* Write code here ... */
     /* Debug console initialization */

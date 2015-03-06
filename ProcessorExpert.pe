@@ -2,8 +2,8 @@
 <PEproject>
   <Header>
     <Name>CB_Test</Name>
-    <SavedBy>BaD</SavedBy>
-    <ModificationStamp>36</ModificationStamp>
+    <SavedBy>zhengdw</SavedBy>
+    <ModificationStamp>37</ModificationStamp>
     <Date>2015-03-06</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.10.1.RT6_b1444-1070</PEversion>
@@ -357,7 +357,7 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>IRC_4MHz</Value>
+        <Value>IRC_32kHz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>MCG_ERCLKSelSpeedMode0</ItemSymbol>
@@ -448,7 +448,7 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>1</Index>
+        <Index>0</Index>
         <Expanded>true</Expanded>
       </ItemState>
       <ItemState>
@@ -462,7 +462,7 @@
       <ItemState>
         <ItemSymbol>IRCLKClkCLKMode0</ItemSymbol>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>4</Value>
+        <Value>0.032768</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>ERCLKGrp0</ItemSymbol>
@@ -2798,7 +2798,7 @@
           <ReadOnly>false</ReadOnly>
           <ListItemCount>5</ListItemCount>
           <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
-          <Expanded>false</Expanded>
+          <Expanded>true</Expanded>
         </ItemState>
         <ItemState>
           <ItemSymbol>C_MemoryArea0</ItemSymbol>
@@ -3472,7 +3472,7 @@
     <BeanType>PinSettings</BeanType>
     <Name>pin_init</Name>
     <CompNumb>11</CompNumb>
-    <CompEnabled>false</CompEnabled>
+    <CompEnabled>true</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
     <IconName>PERIPHINSP</IconName>
     <UserFolderName />
@@ -9305,15 +9305,15 @@
         <ItemSymbol>ADC1_SE6b_PTC10_I2C1_SCL_FTM3_CH6_I2S0_RX_FS_FBa_AD5_pull_select</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>&lt;Automatic&gt;</Value>
-        <PinFuncPropStateId>&lt;Automatic&gt;</PinFuncPropStateId>
+        <Value>Pullup</Value>
+        <PinFuncPropStateId>up</PinFuncPropStateId>
       </ItemState>
       <ItemState>
         <ItemSymbol>ADC1_SE6b_PTC10_I2C1_SCL_FTM3_CH6_I2S0_RX_FS_FBa_AD5_pull_enable</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>&lt;Automatic&gt;</Value>
-        <PinFuncPropStateId>&lt;Automatic&gt;</PinFuncPropStateId>
+        <Value>Enabled</Value>
+        <PinFuncPropStateId>enable</PinFuncPropStateId>
       </ItemState>
       <ItemState>
         <ItemSymbol>CMP0_IN0_PTC6_LLWU_P10_SPI0_SOUT_PDB0_EXTRG_I2S0_RX_BCLK_FBa_AD9_I2S0_MCLK</ItemSymbol>

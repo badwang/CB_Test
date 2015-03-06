@@ -30,6 +30,7 @@
 /* Including needed modules to compile this module/procedure */
 #include "Cpu.h"
 #include "Events.h"
+#include "pin_init.h"
 #include "osa1.h"
 #include "FreeRTOS1.h"
 #include "UTIL1.h"
@@ -124,8 +125,8 @@ void System_Init(void)
 //	FTM_DRV_Init(FSL_TIMER1,&Timer1_InitConfig0);
 //	FTM_DRV_SetTimeOverflowIntCmd(FSL_TIMER1,true);
 //	FTM_DRV_SetFaultIntCmd(FSL_TIMER1,false);
-//	FTM_HAL_SetClockPs(FSL_TIMER1, kFtmDividedBy128);
-	FTM_DRV_CounterStart(FSL_TIMER1, kCounting_FTM_UP, 1, 48000, TRUE);		//Set FTM overflow period to 500uS when core clock is 96MHz.
+	FTM_DRV_CounterStart(FSL_TIMER1, kCounting_FTM_UP, 1, 375, TRUE);		//Set FTM overflow period to 500uS when core clock is 96MHz.
+	FTM_HAL_SetClockPs(FSL_TIMER1, kFtmDividedBy128);
 
 }
 

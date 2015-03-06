@@ -31,6 +31,7 @@
 /* MODULE Events */
 
 #include "fsl_device_registers.h"
+#include "pin_init.h"
 #include "osa1.h"
 #include "FreeRTOS1.h"
 #include "UTIL1.h"
