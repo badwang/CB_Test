@@ -6,7 +6,7 @@
 **     Component   : fsl_debug_console
 **     Version     : Component 01.000, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-03, 14:46, # CodeGen: 32
+**     Date/Time   : 2015-03-06, 00:13, # CodeGen: 44
 **     Abstract    :
 **
 **     Contents    :
@@ -64,7 +64,7 @@
 #include "fsl_debug_console.h"
   
 /** Device instance number */
-#define BOARD_DEBUG_UART_INSTANCE 2
+#define BOARD_DEBUG_UART_INSTANCE 1
 /** Baud rate in bits per second. */
 #define DEBUG_UART_BAUD 115219
 /** Low level device type */

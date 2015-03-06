@@ -139,9 +139,12 @@ void FTM0_IRQHandler(void)
   FTM_DRV_IRQHandler(FSL_TIMER1);
   /* Write your code here ... */
 
+  BaseType_t tmp;
+
   MainTimer++;
   //Send notification to task vADC to trigger ADC conversion.
-  xTaskNotifyFromISR(hADC, 0, eIncrement, pdTRUE);
+  tmp=pdTRUE;
+  xTaskNotifyFromISR(hADC, 0, eIncrement, &tmp);
 
   //Force a context switch.
   taskYIELD();

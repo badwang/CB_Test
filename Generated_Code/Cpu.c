@@ -7,7 +7,7 @@
 **     Version     : Component 01.065, Driver 01.00, CPU db: 3.00.000
 **     Datasheet   : K22P121M120SF7RM, Rev. 1, March 24, 2014
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-05, 13:19, # CodeGen: 38
+**     Date/Time   : 2015-03-05, 23:48, # CodeGen: 42
 **     Abstract    :
 **
 **     Settings    :
@@ -124,6 +124,7 @@ void Components_Init(void)
   FTM_DRV_Init(FSL_TIMER1,&Timer1_InitConfig0);
   FTM_DRV_SetTimeOverflowIntCmd(FSL_TIMER1,true);
   FTM_DRV_SetFaultIntCmd(FSL_TIMER1,false);
+  NVIC_SetPriority(FTM0_IRQn, 160U);
   /*! Timer1 Auto initialization end */
   /*! gpio Auto initialization start */
   GPIO_DRV_Init(NULL,gpio_OutConfig0);

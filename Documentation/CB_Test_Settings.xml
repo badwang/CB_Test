@@ -216,8 +216,8 @@ PE_DEBUGHALT();
       </enumgroup>
       <boolgroup name="Generate debugger files" v="no" />
       <boolgroup name="Generate linker file" v="yes">
-        <Stack_size v="4096" />
-        <Heap_size v="4096" />
+        <Stack_size v="16384" />
+        <Heap_size v="16384" />
         <Set_memory_segments_to_default v="Click to set default &amp;gt;" />
         <Default_memory_for_interrupts v="INTERNAL FLASH" />
         <Default_memory_for_code v="INTERNAL FLASH" />
@@ -2336,7 +2336,7 @@ PE_DEBUGHALT();
             <boolgroup name="Configuration 0" v="Enabled">
               <Name v="Timer1_InitConfig0" />
               <Overflow_frequency v="0" />
-              <Write_protection v="Disabled" />
+              <Write_protection v="Enabled" />
               <BDM_mode v="Mode 0" />
               <group name="Triggers">
                 <Software_trigger v="Enabled" />
@@ -2377,7 +2377,9 @@ PE_DEBUGHALT();
                 <list name="InterruptsHiddenItem" v="1">
                   <group name="Interrupts">
                     <FTM_interrupt v="INT_FTM0" />
-                    <boolgroup name="Configure FTM interrupt priority" v="Disabled" />
+                    <boolgroup name="Configure FTM interrupt priority" v="Enabled">
+                      <FTM_interrupt_priority v="low priority" />
+                    </boolgroup>
                     <Install_interrupts v="Disabled" />
                   </group>
                 </list>
@@ -2460,8 +2462,8 @@ PE_DEBUGHALT();
                     <Output_logic v="0" />
                     <group name="Electrical features">
                       <Slew_rate v="Fast" />
-                      <Drive_strength v="Low" />
-                      <Open_drain v="Disabled" />
+                      <Drive_strength v="High" />
+                      <Open_drain v="Enabled" />
                     </group>
                   </boolgroup>
                   <boolgroup name="Pin 3" v="Enabled">

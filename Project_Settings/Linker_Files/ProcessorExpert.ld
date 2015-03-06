@@ -10,7 +10,7 @@
 /*##                                                                         */
 /*##     Compiler  : GNU C Compiler                                          */
 /*##                                                                         */
-/*##     Date/Time : 2015-02-10, 22:27, # CodeGen: 7                         */
+/*##     Date/Time : 2015-03-06, 00:02, # CodeGen: 43                        */
 /*##                                                                         */
 /*##     Abstract  :                                                         */
 /*##                                                                         */
@@ -26,8 +26,8 @@
 /* Entry Point */
 ENTRY(Reset_Handler)
 
-HEAP_SIZE  = DEFINED(__heap_size__)  ? __heap_size__  : 0x1000;
-STACK_SIZE = DEFINED(__stack_size__) ? __stack_size__ : 0x1000;
+HEAP_SIZE  = DEFINED(__heap_size__)  ? __heap_size__  : 0x4000;
+STACK_SIZE = DEFINED(__stack_size__) ? __stack_size__ : 0x4000;
 /* Specify the memory areas */
 MEMORY {
   m_interrupts          (RX)  : ORIGIN = 0x00000000, LENGTH = 0x00000400

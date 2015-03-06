@@ -24,6 +24,7 @@
 #include "LQ_SGP18T.h"
 #include "PE_KSDK_Types.h"
 #include "gpio.h"
+#include "FreeRTOS1.h"
 
 /**********************************************************
 º¯ÊýÃû³Æ£ºILI9163B_init()
