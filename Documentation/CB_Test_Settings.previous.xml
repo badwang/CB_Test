@@ -40,10 +40,10 @@
               <group name="Internal reference clock">
                 <MCGIRCLK_clock v="Enabled" />
                 <MCGIRCLK_in_stop v="Disabled" />
-                <enumgroup name="MCGIRCLK source" v="Fast">
-                  <Reference_divider v="1" />
+                <enumgroup name="MCGIRCLK source" v="Slow">
+                  <EmptySection_DummyValue />
                 </enumgroup>
-                <MCGIRCLK_clock__MHz_ v="4" />
+                <MCGIRCLK_clock__MHz_ v="0.032768000000" />
               </group>
               <group name="External reference clock">
                 <OSC0ERCLK_clock v="Enabled" />
@@ -268,7 +268,7 @@ PE_DEBUGHALT();
     </CompilerProperties>
   </CPU_Bean>
   <Bean name="pin_init" type="PinSettings">
-    <Enabled v="N" />
+    <Enabled v="Y" />
     <Properties>
       <Component_name v="pin_init" />
       <PinSettings_IP_Block v="PinSettings" />
@@ -1240,8 +1240,8 @@ PE_DEBUGHALT();
               <Open_drain v="&amp;lt;Automatic&amp;gt;" />
               <Drive_strength v="&amp;lt;Automatic&amp;gt;" />
               <Passive_filter v="&amp;lt;Automatic&amp;gt;" />
-              <Pull_select v="&amp;lt;Automatic&amp;gt;" />
-              <Pull_enable v="&amp;lt;Automatic&amp;gt;" />
+              <Pull_select v="Pullup" />
+              <Pull_enable v="Enabled" />
             </group>
             <group name="Pin 56: ADC1_SE7b/PTC11/LLWU_P11/I2C1_SDA/FTM3_CH7/FBa_RW_b">
               <Custom_name__Signal_name v="ADC1_SE7b/PTC11/LLWU_P11/I2C1_SDA/FTM3_CH7/FBa_RW_b" />
@@ -1345,14 +1345,14 @@ PE_DEBUGHALT();
         <configure_ewm_pins v="don&amp;apos;t generate code" />
         <configure_fb_pins v="don&amp;apos;t generate code" />
         <configure_ftm_pins v="don&amp;apos;t generate code" />
-        <configure_gpio_pins v="don&amp;apos;t generate code" />
+        <configure_gpio_pins v="generate code" />
         <configure_i2c_pins v="don&amp;apos;t generate code" />
         <configure_i2s_pins v="don&amp;apos;t generate code" />
-        <configure_jtag_pins v="don&amp;apos;t generate code" />
-        <configure_llwu_pins v="don&amp;apos;t generate code" />
+        <configure_jtag_pins v="generate code" />
+        <configure_llwu_pins v="generate code" />
         <configure_lptmr_pins v="don&amp;apos;t generate code" />
         <configure_lpuart_pins v="don&amp;apos;t generate code" />
-        <configure_osc_pins v="don&amp;apos;t generate code" />
+        <configure_osc_pins v="generate code" />
         <configure_pdb_pins v="don&amp;apos;t generate code" />
         <configure_rcm_pins v="don&amp;apos;t generate code" />
         <configure_rtc_pins v="don&amp;apos;t generate code" />
@@ -1361,7 +1361,7 @@ PE_DEBUGHALT();
         <configure_spi_pins v="don&amp;apos;t generate code" />
         <configure_supply_pins v="don&amp;apos;t generate code" />
         <configure_tpiu_pins v="don&amp;apos;t generate code" />
-        <configure_uart_pins v="don&amp;apos;t generate code" />
+        <configure_uart_pins v="generate code" />
         <configure_usb_pins v="don&amp;apos;t generate code" />
         <configure_vref_pins v="don&amp;apos;t generate code" />
       </list>
@@ -1399,13 +1399,9 @@ PE_DEBUGHALT();
                   <Disabled_Interrupts_in_Startup v="yes" />
                   <configASSERT_defined v="yes" />
                   <Application_Task_Tags v="no" />
-                  <Use_Trace_Facility v="yes" />
+                  <Use_Trace_Facility v="no" />
                   <boolgroup name="Trace Hooks" v="Disabled" />
-                  <boolgroup name="Collect Runtime Statistics" v="Enabled">
-                    <Use_Tick_Counter v="yes" />
-                    <boolgroup name="LDD" v="Disabled" />
-                    <boolgroup name="non-LDD" v="Disabled" />
-                  </boolgroup>
+                  <boolgroup name="Collect Runtime Statistics" v="Disabled" />
                   <group name="Scheduler">
                     <boolgroup name="ColdFire V1" v="Disabled" />
                     <boolgroup name="ColdFire V2" v="Disabled" />
@@ -1502,10 +1498,10 @@ PE_DEBUGHALT();
                   <pcTaskGetTaskName v="don&amp;apos;t generate code" />
                   <eTaskGetState v="don&amp;apos;t generate code" />
                   <xTaskGetSchedulerState v="generate code" />
-                  <vTaskList v="generate code" />
+                  <vTaskList v="don&amp;apos;t generate code" />
                   <uxTaskGetStackHighWaterMark v="generate code" />
                   <uxTaskGetNumberOfTasks v="generate code" />
-                  <vTaskGetRunTimeStats v="generate code" />
+                  <vTaskGetRunTimeStats v="don&amp;apos;t generate code" />
                   <uxQueueMessagesWaiting v="generate code" />
                   <uxQueueMessagesWaitingfromISR v="generate code" />
                   <xQueueCreate v="generate code" />
@@ -2245,7 +2241,7 @@ PE_DEBUGHALT();
               <Configuration_name v="ADC0_InitConfig0" />
               <Interrupts v="Disabled" />
               <Low_power_mode v="Disabled" />
-              <Resolution v="16 bit" />
+              <Resolution v="12 bit in single mode" />
               <Clock_source v="Asynchrounous" />
               <Clock_divider v="1" />
               <Internal_async_clock v="Enabled" />
@@ -2336,11 +2332,11 @@ PE_DEBUGHALT();
             <boolgroup name="Configuration 0" v="Enabled">
               <Name v="Timer1_InitConfig0" />
               <Overflow_frequency v="0" />
-              <Write_protection v="Enabled" />
+              <Write_protection v="Disabled" />
               <BDM_mode v="Mode 0" />
               <group name="Triggers">
-                <Software_trigger v="Enabled" />
-                <Hardware_trigger_0 v="Disabled" />
+                <Software_trigger v="Disabled" />
+                <Hardware_trigger_0 v="Enabled" />
                 <Hardware_trigger_1 v="Disabled" />
                 <Hardware_trigger_2 v="Disabled" />
               </group>
@@ -2489,7 +2485,7 @@ PE_DEBUGHALT();
                   <boolgroup name="Pin 5" v="Enabled">
                     <Pin v="PTA1/UART0_RX/FTM0_CH6/JTAG_TDI/EZP_DI" />
                     <Pin_name v="LED_RED" />
-                    <Output_logic v="0" />
+                    <Output_logic v="1" />
                     <group name="Electrical features">
                       <Slew_rate v="Slow" />
                       <Drive_strength v="Low" />

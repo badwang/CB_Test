@@ -6,7 +6,7 @@
 **     Component   : fsl_ftm
 **     Version     : Component 01.000, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-05, 23:03, # CodeGen: 41
+**     Date/Time   : 2015-03-07, 16:35, # CodeGen: 49
 **
 **     Copyright : 1997 - 2014 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -55,9 +55,9 @@
 
 ftm_user_config_t Timer1_InitConfig0 = {
   .tofFrequency      = 0U,
-  .isWriteProtection = true,
+  .isWriteProtection = false,
   .BDMMode           = kFtmBdmMode_00,
-  .syncMethod        = BM_FTM_SYNC_SWSYNC
+  .syncMethod        = BM_FTM_SYNC_TRIG0
 };
     
 /* END Timer1. */

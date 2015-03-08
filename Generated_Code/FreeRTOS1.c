@@ -6,7 +6,7 @@
 **     Component   : FreeRTOS
 **     Version     : Component 01.406, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-02-19, 21:13, # CodeGen: 30
+**     Date/Time   : 2015-03-07, 22:01, # CodeGen: 51
 **     Abstract    :
 **          This component implements the FreeRTOS Realtime Operating System
 **     Settings    :
@@ -19,11 +19,9 @@
 **          Classic CodeWarrior                            : no
 **          Disabled Interrupts in Startup                 : yes
 **          Application Task Tags                          : no
-**          Use Trace Facility                             : yes
+**          Use Trace Facility                             : no
 **          Trace Hooks                                    : Disabled
-**          Collect Runtime Statistics                     : Enabled
-**            LDD                                          : Disabled
-**            non-LDD                                      : Disabled
+**          Collect Runtime Statistics                     : Disabled
 **          Scheduler                                      : Settings for the scheduler
 **            ColdFire V1                                  : Disabled
 **            ColdFire V2                                  : Disabled
@@ -101,10 +99,8 @@
 **         vPortFree                      - void FreeRTOS1_vPortFree(void *pv);
 **         xPortGetFreeHeapSize           - Tsize_t FreeRTOS1_xPortGetFreeHeapSize(void);
 **         xTaskGetSchedulerState         - portBASE_TYPE FreeRTOS1_xTaskGetSchedulerState(void);
-**         vTaskList                      - void FreeRTOS1_vTaskList(signed portCHAR *pcWriteBuffer, size_t bufSize);
 **         uxTaskGetStackHighWaterMark    - unsigned_portBASE_TYPE FreeRTOS1_uxTaskGetStackHighWaterMark(xTaskHandle xTask);
 **         uxTaskGetNumberOfTasks         - unsigned_portBASE_TYPE FreeRTOS1_uxTaskGetNumberOfTasks(void);
-**         vTaskGetRunTimeStats           - void FreeRTOS1_vTaskGetRunTimeStats(portCHAR *pcWriteBuffer, size_t bufSize);
 **         uxQueueMessagesWaiting         - unsigned_portBASE_TYPE FreeRTOS1_uxQueueMessagesWaiting(xQueueHandle xQueue);
 **         uxQueueMessagesWaitingfromISR  - unsigned_portBASE_TYPE FreeRTOS1_uxQueueMessagesWaitingfromISR(xQueueHandle...
 **         xQueueCreate                   - xQueueHandle FreeRTOS1_xQueueCreate(unsigned_portBASE_TYPE uxQueueLength,...
@@ -1001,40 +997,6 @@ bool FreeRTOS1_xSemaphoreGiveFromISR(xSemaphoreHandle xSemaphore, signed_portBAS
 
 /*
 ** ===================================================================
-**     Method      :  FreeRTOS1_vTaskList (component FreeRTOS)
-**     Description :
-**         configUSE_TRACE_FACILITY, INCLUDE_vTaskDelete and
-**         INCLUDE_vTaskSuspend must all be defined as 1 for this
-**         function to be available. See the configuration section for
-**         more information.
-**         NOTE: This function will disable interrupts for its duration.
-**         It is not intended for normal application runtime use but as
-**         a debug aid. Lists all the current tasks, along with their
-**         current state and stack usage high water mark.
-**         Tasks are reported as blocked ('B'), ready ('R'), deleted
-**         ('D') or suspended ('S').
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**       * pcWriteBuffer   - Pointer to buffer. A
-**                           buffer into which the above mentioned
-**                           details will be written, in ascii form.
-**                           This buffer is assumed to be large enough
-**                           to contain the generated report.
-**                           Approximately 40 bytes per task should be
-**                           sufficient.
-**         bufSize         - size of buffer
-**     Returns     : Nothing
-** ===================================================================
-*/
-/*
-void FreeRTOS1_vTaskList(signed portCHAR *pcWriteBuffer, size_t bufSize)
-{
-  *** Implemented as macro in the header file FreeRTOS1.h
-}
-*/
-
-/*
-** ===================================================================
 **     Method      :  FreeRTOS1_pvPortMalloc (component FreeRTOS)
 **     Description :
 **         Allocates a memory block using the port pvPortMalloc()
@@ -1150,48 +1112,6 @@ unsigned_portBASE_TYPE FreeRTOS1_uxTaskGetStackHighWaterMark(xTaskHandle xTask)
 */
 /*
 unsigned_portBASE_TYPE FreeRTOS1_uxTaskGetNumberOfTasks(void)
-{
-  *** Implemented as macro in the header file FreeRTOS1.h
-}
-*/
-
-/*
-** ===================================================================
-**     Method      :  FreeRTOS1_vTaskGetRunTimeStats (component FreeRTOS)
-**     Description :
-**         configGENERATE_RUN_TIME_STATS must be defined as 1 for this
-**         function to be available. The application must also then
-**         provide definitions for
-**         portCONFIGURE_TIMER_FOR_RUN_TIME_STATS() and
-**         portGET_RUN_TIME_COUNTER_VALUE to configure a peripheral
-**         timer/counter and return the timers current count value
-**         respectively. The counter should be at least 10 times the
-**         frequency of the tick count.
-**         NOTE: This function will disable interrupts for its duration.
-**         It is not intended for normal application runtime use but as
-**         a debug aid.
-**         Setting configGENERATE_RUN_TIME_STATS to 1 will result in a
-**         total accumulated execution time being stored for each task.
-**         The resolution of the accumulated time value depends on the
-**         frequency of the timer configured by the
-**         portCONFIGURE_TIMER_FOR_RUN_TIME_STATS() macro. Calling
-**         vTaskGetRunTimeStats() writes the total execution time of
-**         each task into a buffer, both as an absolute count value and
-**         as a percentage of the total system execution time. 
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**         pcWriteBuffer   - A buffer into which
-**                           the execution times will be written, in
-**                           ascii form. This buffer is assumed to be
-**                           large enough to contain the generated
-**                           report. Approximately 40 bytes per task
-**                           should be sufficient. 
-**         bufSize         - size of buffer
-**     Returns     : Nothing
-** ===================================================================
-*/
-/*
-void FreeRTOS1_vTaskGetRunTimeStats(portCHAR *pcWriteBuffer, size_t bufSize)
 {
   *** Implemented as macro in the header file FreeRTOS1.h
 }

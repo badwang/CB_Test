@@ -2,9 +2,9 @@
 <PEproject>
   <Header>
     <Name>CB_Test</Name>
-    <SavedBy>zhengdw</SavedBy>
-    <ModificationStamp>37</ModificationStamp>
-    <Date>2015-03-06</Date>
+    <SavedBy>BaD</SavedBy>
+    <ModificationStamp>44</ModificationStamp>
+    <Date>2015-03-08</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.10.1.RT6_b1444-1070</PEversion>
   </Header>
@@ -29,7 +29,7 @@
     <UseExistingModules>true</UseExistingModules>
     <RenamePeripheries>false</RenamePeripheries>
     <Autodependency>true</Autodependency>
-    <ProjectCompNumb>101</ProjectCompNumb>
+    <ProjectCompNumb>103</ProjectCompNumb>
     <DelUnusedPreviouslyGenFiles>true</DelUnusedPreviouslyGenFiles>
     <GeneratedCodeFrozen>false</GeneratedCodeFrozen>
     <AssignInitComponentNameToPrph>true</AssignInitComponentNameToPrph>
@@ -14516,8 +14516,8 @@
               <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-              <Index>0</Index>
-              <Value>true</Value>
+              <Index>1</Index>
+              <Value>false</Value>
             </ItemState>
             <ItemState>
               <ItemSymbol>UseTraceHooksGroup</ItemSymbol>
@@ -15185,16 +15185,16 @@
               <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-              <Value>true</Value>
-              <Expanded>true</Expanded>
+              <Value>false</Value>
+              <Expanded>false</Expanded>
             </ItemState>
             <ItemState>
               <ItemSymbol>LDDRuntimeCounterGroup</ItemSymbol>
               <ReadOnly>true</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-              <Value>false</Value>
-              <Expanded>false</Expanded>
+              <Value>true</Value>
+              <Expanded>true</Expanded>
             </ItemState>
             <ItemState>
               <ItemSymbol>RuntimeCntrLDD</ItemSymbol>
@@ -17438,10 +17438,10 @@
               <ReadOnly>true</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-              <Index>0</Index>
-              <Value>true</Value>
+              <Index>1</Index>
+              <Value>false</Value>
               <LastSelection>true</LastSelection>
-              <LastUserSel>always</LastUserSel>
+              <LastUserSel>never</LastUserSel>
               <UsrMethodName>vTaskList</UsrMethodName>
             </ItemState>
             <ItemState>
@@ -17471,10 +17471,10 @@
               <ReadOnly>true</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
               <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-              <Index>0</Index>
-              <Value>true</Value>
+              <Index>1</Index>
+              <Value>false</Value>
               <LastSelection>true</LastSelection>
-              <LastUserSel>always</LastUserSel>
+              <LastUserSel>never</LastUserSel>
               <UsrMethodName>vTaskGetRunTimeStats</UsrMethodName>
             </ItemState>
             <ItemState>
@@ -26454,7 +26454,7 @@
         <ItemSymbol>InputPin_Ch1</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>ADC0_DM0/ADC1_DM3</Value>
+        <Value>TempSensor</Value>
         <SharedPrphMode>false</SharedPrphMode>
       </ItemState>
       <ItemState>
@@ -26468,7 +26468,7 @@
       <ItemState>
         <ItemSymbol>ChannelSelect1</ItemSymbol>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>19</Value>
+        <Value>26</Value>
         <Base>DEC</Base>
       </ItemState>
       <ItemState>
@@ -26513,7 +26513,7 @@
         <ItemSymbol>InputPin_Ch2</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>ADC1_DP0/ADC0_DP3</Value>
+        <Value>Bandgap</Value>
         <SharedPrphMode>false</SharedPrphMode>
       </ItemState>
       <ItemState>
@@ -26527,7 +26527,7 @@
       <ItemState>
         <ItemSymbol>ChannelSelect2</ItemSymbol>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>3</Value>
+        <Value>27</Value>
         <Base>DEC</Base>
       </ItemState>
       <ItemState>
@@ -26580,8 +26580,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>6</Index>
-        <EnumSymbVal>kAdcResolutionBitOf16</EnumSymbVal>
+        <Index>2</Index>
+        <EnumSymbVal>kAdcResolutionBitOfSingleEndAs12</EnumSymbVal>
       </ItemState>
       <ItemState>
         <ItemSymbol>ClockSource0</ItemSymbol>
@@ -27989,8 +27989,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
+        <Index>1</Index>
+        <Value>false</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>BdmMode0</ItemSymbol>
@@ -28011,16 +28011,16 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
+        <Index>1</Index>
+        <Value>false</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>HwTrigger0Mask0</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>1</Index>
-        <Value>false</Value>
+        <Index>0</Index>
+        <Value>true</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>HwTrigger1Mask0</ItemSymbol>
@@ -31269,7 +31269,7 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>0</Value>
+        <Value>1</Value>
         <Base>DEC</Base>
       </ItemState>
       <ItemState>

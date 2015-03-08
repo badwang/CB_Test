@@ -147,7 +147,8 @@ void FTM0_IRQHandler(void)
   xTaskNotifyFromISR(hADC, 0, eIncrement, &tmp);
 
   //Force a context switch.
-  taskYIELD();
+  portYIELD();
+
 }
 
 void ADC0_IRQHandler(void)

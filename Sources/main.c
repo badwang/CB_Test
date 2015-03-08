@@ -50,18 +50,25 @@
 
 #define mainUI_PRIORITY				( tskIDLE_PRIORITY + 2 )
 #define mainDummy2_PRIORITY				( tskIDLE_PRIORITY + 3 )
-#define mainvMonitorTasks_PRIORITY				( tskIDLE_PRIORITY + 1 )
 #define mainADC_PRIORITY				( tskIDLE_PRIORITY + 4 )
+
+#if configGENERATE_RUN_TIME_STATS
+	#define mainvMonitorTasks_PRIORITY				( tskIDLE_PRIORITY + 1 )
+#endif
 
 static void vUI( void *pvParameters );
 static void vDummy2( void *pvParameters );
-static void vMonitorTasks( void *pvParameters );
 static void vADC( void *pvParameters );
+#if configGENERATE_RUN_TIME_STATS
+	static void vMonitorTasks( void *pvParameters );
+#endif
 
 void System_Init(void);
 
 //Define a buffer for tasks info, 40bytes/task, so 25 tasks max.
-char TaskInfo[1000];
+#if configGENERATE_RUN_TIME_STATS
+	char TaskInfo[1000];
+#endif
 
 TaskHandle_t hADC;
 
@@ -69,7 +76,7 @@ uint16_t V_A[128];
 uint16_t V_B[128];
 uint16_t V_C[128];
 //float TestData[1000];
-
+uint32_t ADC_CNT=0;
 extern uint32_t MainTimer;
 
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
@@ -92,9 +99,10 @@ int main(void)
 
   xTaskCreate( vUI, "UserIF", 1024, NULL, mainUI_PRIORITY, NULL );
   xTaskCreate( vDummy2, "Dummy2", configMINIMAL_STACK_SIZE, NULL, mainDummy2_PRIORITY, NULL );
-  xTaskCreate( vMonitorTasks, "TaskMonitor", configMINIMAL_STACK_SIZE, NULL, mainvMonitorTasks_PRIORITY, NULL );
-  xTaskCreate( vADC, "ADC", 1024, NULL, mainADC_PRIORITY, hADC );
-
+  xTaskCreate( vADC, "ADC", 1024, NULL, mainADC_PRIORITY, &hADC );
+	#if configGENERATE_RUN_TIME_STATS
+  	  xTaskCreate( vMonitorTasks, "TaskMonitor", configMINIMAL_STACK_SIZE, NULL, mainvMonitorTasks_PRIORITY, NULL );
+	#endif
 
   /*** Don't write any code pass this line, or it will be deleted during code generation. ***/
   /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/
@@ -125,8 +133,8 @@ void System_Init(void)
 //	FTM_DRV_Init(FSL_TIMER1,&Timer1_InitConfig0);
 //	FTM_DRV_SetTimeOverflowIntCmd(FSL_TIMER1,true);
 //	FTM_DRV_SetFaultIntCmd(FSL_TIMER1,false);
-	FTM_DRV_CounterStart(FSL_TIMER1, kCounting_FTM_UP, 1, 375, TRUE);		//Set FTM overflow period to 500uS when core clock is 96MHz.
-	FTM_HAL_SetClockPs(FSL_TIMER1, kFtmDividedBy128);
+//	FTM_DRV_CounterStart(FSL_TIMER1, kCounting_FTM_UP, 1, 48000, TRUE);		//Set FTM overflow period to 500uS when core clock is 96MHz.
+//	FTM_HAL_SetClockPs(FSL_TIMER1, kFtmDividedBy128);
 
 }
 
@@ -137,11 +145,13 @@ void vADC( void *pvParameters )
 	uint16_t Result, ptr;
 
 	ptr=0;
+	ADC_CNT=0;
+	FTM_DRV_CounterStart(FSL_TIMER1, kCounting_FTM_UP, 1, 24000, TRUE);		//Set FTM overflow period to 1000uS when bus clock is 48MHz.
 
 	for(;;)
 	{
 		//Wait for trigger notification from Timer1.
-		while(xTaskNotifyWait(0, 0, &NotifyValue, pdMS_TO_TICKS(100))==pdFALSE){
+		while(xTaskNotifyWait(0, 0, &NotifyValue, pdMS_TO_TICKS(500))==pdFALSE){
 			debug_printf("\r\nADC trigger time out!\r\n");
 		}
 
@@ -163,13 +173,14 @@ void vADC( void *pvParameters )
 		Result=FTM_DRV_CounterRead(FSL_TIMER1);									//Read Timer1 to see how long time passed.
 
 		ptr++;
+		ADC_CNT++;
 		if(ptr==100){
 			ptr=0;
-			GPIO_DRV_TogglePinOutput(LED_RED);
+			GPIO_DRV_TogglePinOutput(LED_GREEN);
 		}
 
 		if(MainTimer%2000 == 0){
-			debug_printf("\r\nV_In: %05d, %05d, %05d, N:%X, C:%d\r\n", V_A[0], V_B[0], V_C[0], NotifyValue, Result);
+			debug_printf("\r\nV_In: %05d, %05d, %05d, N:%X, A:%X, C:%d\r\n", V_A[0], V_B[0], V_C[0], NotifyValue, ADC_CNT, Result);
 		}
 	}
 }
@@ -209,7 +220,8 @@ void vDummy2( void *pvParameters )
 	}
 }
 
-void vMonitorTasks( void *pvParameters )
+#if configGENERATE_RUN_TIME_STATS
+	void vMonitorTasks( void *pvParameters )
 {
 	uint16_t i=0;
 
@@ -226,7 +238,7 @@ void vMonitorTasks( void *pvParameters )
 		debug_printf("*************************************\r\n");
 	}
 }
-
+#endif
 
 /*!
 ** @}

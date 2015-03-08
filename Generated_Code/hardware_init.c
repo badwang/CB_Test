@@ -6,7 +6,7 @@
 **     Component   : PinSettings
 **     Version     : Component 01.007, Driver 1.3, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-06, 14:56, # CodeGen: 46
+**     Date/Time   : 2015-03-07, 14:09, # CodeGen: 47
 **     Abstract    :
 **
 **     Settings    :
