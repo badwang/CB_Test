@@ -36,7 +36,14 @@
 **********************************************************/
 void ILI9163B_init(void)
 { 	
-    ILI9163B_write_command(0x11);       		  	//关闭睡眠，振荡器工作
+
+	vTaskDelay(1);
+	GPIO_DRV_WritePinOutput(ILI9163_RESET, 0);
+	vTaskDelay(1);
+	GPIO_DRV_WritePinOutput(ILI9163_RESET, 1);
+	vTaskDelay(1);
+
+	ILI9163B_write_command(0x11);       		  	//关闭睡眠，振荡器工作
     vTaskDelay(20);									//Delay 100mS
     
     ILI9163B_write_command(0x3a);       		  	//每次传送16位数据(VIPF3-0=0101)，每个像素16位(IFPF2-0=101)
@@ -125,6 +132,7 @@ void ILI9163B_init(void)
     ILI9163B_write_command(0x29);   		  	//开启屏幕显示
     ILI9163B_write_command(0x2c);   			//设置为LCD接收数据/命令模式
   
+	vTaskDelay(1);
 }
 
 

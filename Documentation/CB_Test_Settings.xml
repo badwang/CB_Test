@@ -2458,7 +2458,7 @@ PE_DEBUGHALT();
                     <Output_logic v="0" />
                     <group name="Electrical features">
                       <Slew_rate v="Fast" />
-                      <Drive_strength v="High" />
+                      <Drive_strength v="Low" />
                       <Open_drain v="Disabled" />
                     </group>
                   </boolgroup>

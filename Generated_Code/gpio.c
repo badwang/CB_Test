@@ -6,7 +6,7 @@
 **     Component   : fsl_gpio
 **     Version     : Component 01.000, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-07, 17:44, # CodeGen: 50
+**     Date/Time   : 2015-03-08, 22:14, # CodeGen: 56
 **
 **     Copyright : 1997 - 2014 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -71,8 +71,8 @@ const gpio_output_pin_user_config_t gpio_OutConfig0[] = {
     .pinName = ILI9163_SDA,
     .config.outputLogic = 0,
     .config.slewRate = kPortFastSlewRate,
-    .config.isOpenDrainEnabled = true,
-    .config.driveStrength = kPortHighDriveStrength,
+    .config.isOpenDrainEnabled = false,
+    .config.driveStrength = kPortLowDriveStrength,
   },
   {
     .pinName = ILI9163_SCK,

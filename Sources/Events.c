@@ -143,11 +143,12 @@ void FTM0_IRQHandler(void)
 
   MainTimer++;
   //Send notification to task vADC to trigger ADC conversion.
-  tmp=pdTRUE;
-  xTaskNotifyFromISR(hADC, 0, eIncrement, &tmp);
+  tmp=pdFALSE;
+  xTaskNotifyFromISR(hADC, 0, eNoAction, &tmp);
 
   //Force a context switch.
-  portYIELD();
+  //portYIELD();
+  portEND_SWITCHING_ISR(tmp);
 
 }
 

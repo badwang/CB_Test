@@ -6,7 +6,7 @@
 **     Component   : PinSettings
 **     Version     : Component 01.007, Driver 1.3, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-07, 14:09, # CodeGen: 47
+**     Date/Time   : 2015-03-08, 21:14, # CodeGen: 55
 **     Abstract    :
 **
 **     Settings    :
@@ -97,10 +97,10 @@ void configure_gpio_pins(uint32_t instance)
       PORT_HAL_SetMuxMode(PORTC_BASE,7u,kPortMuxAsGpio);
       /* Affects PORTC_PCR10 register */
       PORT_HAL_SetSlewRateMode(PORTC_BASE,10u,kPortFastSlewRate);
+      PORT_HAL_SetOpenDrainCmd(PORTC_BASE,10u,false);
       PORT_HAL_SetMuxMode(PORTC_BASE,10u,kPortMuxAsGpio);
       PORT_HAL_SetPullMode(PORTC_BASE,10u,kPortPullUp);
       PORT_HAL_SetPullCmd(PORTC_BASE,10u,true);
-      PORT_HAL_SetOpenDrainCmd(PORTC_BASE,10u,true);
       break;
     default:
       break;
