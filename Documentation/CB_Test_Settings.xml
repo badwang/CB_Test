@@ -2240,7 +2240,7 @@ PE_DEBUGHALT();
             <boolgroup name="Configuration 0" v="Enabled">
               <Configuration_name v="ADC0_InitConfig0" />
               <Interrupts v="Disabled" />
-              <Low_power_mode v="Disabled" />
+              <Low_power_mode v="Enabled" />
               <Resolution v="12 bit in single mode" />
               <Clock_source v="Asynchrounous" />
               <Clock_divider v="1" />

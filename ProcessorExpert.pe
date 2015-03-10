@@ -3,8 +3,8 @@
   <Header>
     <Name>CB_Test</Name>
     <SavedBy>BaD</SavedBy>
-    <ModificationStamp>47</ModificationStamp>
-    <Date>2015-03-08</Date>
+    <ModificationStamp>49</ModificationStamp>
+    <Date>2015-03-11</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.10.1.RT6_b1444-1070</PEversion>
   </Header>
@@ -29,7 +29,7 @@
     <UseExistingModules>true</UseExistingModules>
     <RenamePeripheries>false</RenamePeripheries>
     <Autodependency>true</Autodependency>
-    <ProjectCompNumb>105</ProjectCompNumb>
+    <ProjectCompNumb>107</ProjectCompNumb>
     <DelUnusedPreviouslyGenFiles>true</DelUnusedPreviouslyGenFiles>
     <GeneratedCodeFrozen>false</GeneratedCodeFrozen>
     <AssignInitComponentNameToPrph>true</AssignInitComponentNameToPrph>
@@ -26572,8 +26572,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>1</Index>
-        <EnumSymbVal>false</EnumSymbVal>
+        <Index>0</Index>
+        <EnumSymbVal>true</EnumSymbVal>
       </ItemState>
       <ItemState>
         <ItemSymbol>Resolution0</ItemSymbol>

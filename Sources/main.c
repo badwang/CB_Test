@@ -156,28 +156,28 @@ void vADC( void *pvParameters )
 			debug_printf("\r\nADC trigger time out!\r\n");
 		}
 
-		tt1=FTM_DRV_CounterRead(FSL_TIMER1);									//Read Timer1 to see how long time passed.
+//		tt1=FTM_DRV_CounterRead(FSL_TIMER1);									//Read Timer1 to see how long time passed.
 
 		ADC16_DRV_ConfigConvChn(FSL_ADC0, 0U, &ADC0_ChnConfig0);			//Start ADC on channel1
 		ADC16_DRV_WaitConvDone(FSL_ADC0, 0U);								//Wait until ADC complete.
 		Result = ADC16_DRV_GetConvValueRAW(FSL_ADC0, 0U);					//Get ADC result.
 		V_A[ptr]=Result;
 
-		tt2=FTM_DRV_CounterRead(FSL_TIMER1);									//Read Timer1 to see how long time passed.
+//		tt2=FTM_DRV_CounterRead(FSL_TIMER1);									//Read Timer1 to see how long time passed.
 
 		ADC16_DRV_ConfigConvChn(FSL_ADC0, 0U, &ADC0_ChnConfig1);			//Start ADC on channel2
 		ADC16_DRV_WaitConvDone(FSL_ADC0, 0U);								//Wait until ADC complete.
 		Result = ADC16_DRV_GetConvValueRAW(FSL_ADC0, 0U);					//Get ADC result.
 		V_B[ptr]=Result;
 
-		tt3=FTM_DRV_CounterRead(FSL_TIMER1);									//Read Timer1 to see how long time passed.
+//		tt3=FTM_DRV_CounterRead(FSL_TIMER1);									//Read Timer1 to see how long time passed.
 
 		ADC16_DRV_ConfigConvChn(FSL_ADC0, 0U, &ADC0_ChnConfig2);			//Start ADC on channel3
 		ADC16_DRV_WaitConvDone(FSL_ADC0, 0U);								//Wait until ADC complete.
 		Result = ADC16_DRV_GetConvValueRAW(FSL_ADC0, 0U);					//Get ADC result.
 		V_C[ptr]=Result;
 
-		tt4=FTM_DRV_CounterRead(FSL_TIMER1);									//Read Timer1 to see how long time passed.
+//		tt4=FTM_DRV_CounterRead(FSL_TIMER1);									//Read Timer1 to see how long time passed.
 
 		ptr++;
 		ADC_CNT++;
@@ -187,7 +187,6 @@ void vADC( void *pvParameters )
 		}
 
 		if(MainTimer%2000 == 0){
-			debug_printf("V_In: %05d, %05d, %05d, %d, %d, %d, %d\r\n", V_A[0], V_B[0], V_C[0], tt1, tt2, tt3, tt4);
 		}
 	}
 }
@@ -205,8 +204,8 @@ void vUI( void *pvParameters )
 		ILI9163B_display_full(BLUE);
 		vTaskDelay(10);
 
-		ILI9163B_draw_part(0, 0, 29, 29, RED);
-		vTaskDelay(1000);
+		debug_printf("V_In: %05d, %05d, %05d\r\n", V_A[0], V_B[0], V_C[0]);
+		vTaskDelay(200);
 /*
 		vTaskDelay(pdMS_TO_TICKS(1000));
 		LCD_prints16(0, 0, "Welcome to Shanghai!", RED, BLACK);

@@ -743,7 +743,7 @@
     </GenFiles>
     <SignalListFile />
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>47</ProjectModificationStamp>
+    <ProjectModificationStamp>49</ProjectModificationStamp>
   </Options>
   <CpuID_20>
     <Generated>true</Generated>
@@ -4661,7 +4661,7 @@
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1180934760</HeaderAge>
-    <CodeAge>1181263273</CodeAge>
+    <CodeAge>1181417547</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>18</GenNumMethods>
     <ADC16_DRV_GetAutoCalibrationParam>true</ADC16_DRV_GetAutoCalibrationParam>

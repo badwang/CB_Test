@@ -6,7 +6,7 @@
 **     Component   : fsl_adc16
 **     Version     : Component 01.000, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-08, 20:45, # CodeGen: 53
+**     Date/Time   : 2015-03-11, 00:02, # CodeGen: 58
 **
 **     Copyright : 1997 - 2014 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -55,7 +55,7 @@
 
 adc16_user_config_t ADC0_InitConfig0 = {
   .intEnable            = false,
-  .lowPowerEnable       = false,
+  .lowPowerEnable       = true,
   .resolutionMode       = kAdcResolutionBitOfSingleEndAs12,
   .clkSrcMode           = kAdcClkSrcOfAsynClk,
   .clkDividerMode       = kAdcClkDividerInputOf1,

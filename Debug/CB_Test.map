@@ -372,6 +372,10 @@ Discarded input sections
  .text          0x00000000        0x0 ./Sources/LQ_SGP18T.o
  .data          0x00000000        0x0 ./Sources/LQ_SGP18T.o
  .bss           0x00000000        0x0 ./Sources/LQ_SGP18T.o
+ .text.ILI9163B_SetPos
+                0x00000000       0x60 ./Sources/LQ_SGP18T.o
+ .text.ILI9163B_draw_part
+                0x00000000       0x5c ./Sources/LQ_SGP18T.o
  .text.ILI9163B_draw_rectangle
                 0x00000000       0x54 ./Sources/LQ_SGP18T.o
  .text.ILI9163B_draw_circle
@@ -2787,6 +2791,8 @@ Discarded input sections
                 0x00000000       0x34 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_HAL_GetClockPs
                 0x00000000       0x20 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+ .text.FTM_HAL_GetCounter
+                0x00000000       0x1c ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_HAL_SetChnCountVal
                 0x00000000       0x4c ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_HAL_SetQuadPhaseAFilterCmd
@@ -2809,6 +2815,8 @@ Discarded input sections
                 0x00000000       0x3c ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_DRV_CounterStop
                 0x00000000       0x48 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+ .text.FTM_DRV_CounterRead
+                0x00000000       0x4c ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_DRV_PwmStop
                 0x00000000       0xf4 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_DRV_PwmStart
@@ -2819,6 +2827,8 @@ Discarded input sections
                 0x00000000       0x14 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .rodata.__func__.13333
                 0x00000000       0x18 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+ .rodata.__func__.13357
+                0x00000000       0x14 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .rodata.__func__.13363
                 0x00000000       0x10 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .rodata.__func__.13374
@@ -5712,7 +5722,7 @@ LOAD d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v
  .FlashConfig   0x00000400       0x10 ./SDK/platform/startup/MK22F51212/gcc/startup_MK22F51212.o
                 0x00000410                . = ALIGN (0x4)
 
-.text           0x00000410     0x7eb8
+.text           0x00000410     0x7d20
                 0x00000410                . = ALIGN (0x4)
  *(.text)
  .text          0x00000410      0x120 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16/crt0.o
@@ -5858,944 +5868,931 @@ LOAD d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v
  .text.ILI9163B_write_para16
                 0x000009b0       0xc8 ./Sources/LQ_SGP18T.o
                 0x000009b0                ILI9163B_write_para16
- .text.ILI9163B_SetPos
-                0x00000a78       0x60 ./Sources/LQ_SGP18T.o
-                0x00000a78                ILI9163B_SetPos
  .text.ILI9163B_address_rst
-                0x00000ad8       0x48 ./Sources/LQ_SGP18T.o
-                0x00000ad8                ILI9163B_address_rst
+                0x00000a78       0x48 ./Sources/LQ_SGP18T.o
+                0x00000a78                ILI9163B_address_rst
  .text.ILI9163B_display_full
-                0x00000b20       0x40 ./Sources/LQ_SGP18T.o
-                0x00000b20                ILI9163B_display_full
- .text.ILI9163B_draw_part
-                0x00000b60       0x5c ./Sources/LQ_SGP18T.o
-                0x00000b60                ILI9163B_draw_part
- .text.main     0x00000bbc       0xa4 ./Sources/main.o
-                0x00000bbc                main
+                0x00000ac0       0x40 ./Sources/LQ_SGP18T.o
+                0x00000ac0                ILI9163B_display_full
+ .text.main     0x00000b00       0xa4 ./Sources/main.o
+                0x00000b00                main
  .text.System_Init
-                0x00000c60       0x18 ./Sources/main.o
-                0x00000c60                System_Init
- .text.vADC     0x00000c78      0x1a8 ./Sources/main.o
- .text.vUI      0x00000e20       0x38 ./Sources/main.o
- .text.vDummy2  0x00000e58       0x1c ./Sources/main.o
+                0x00000ba4       0x18 ./Sources/main.o
+                0x00000ba4                System_Init
+ .text.vADC     0x00000bbc      0x13c ./Sources/main.o
+ .text.vUI      0x00000cf8       0x54 ./Sources/main.o
+ .text.vDummy2  0x00000d4c       0x1c ./Sources/main.o
  .text.UART_HAL_EnableTransmitter
-                0x00000e74       0x24 ./SDK/platform/utilities/src/fsl_debug_console.o
+                0x00000d68       0x24 ./SDK/platform/utilities/src/fsl_debug_console.o
  .text.UART_HAL_EnableReceiver
-                0x00000e98       0x24 ./SDK/platform/utilities/src/fsl_debug_console.o
+                0x00000d8c       0x24 ./SDK/platform/utilities/src/fsl_debug_console.o
  .text.UART_HAL_SetBitCountPerChar
-                0x00000ebc       0x28 ./SDK/platform/utilities/src/fsl_debug_console.o
+                0x00000db0       0x28 ./SDK/platform/utilities/src/fsl_debug_console.o
  .text.LPUART_HAL_SetTransmitterCmd
-                0x00000ee4       0x28 ./SDK/platform/utilities/src/fsl_debug_console.o
+                0x00000dd8       0x28 ./SDK/platform/utilities/src/fsl_debug_console.o
  .text.LPUART_HAL_SetReceiverCmd
-                0x00000f0c       0x28 ./SDK/platform/utilities/src/fsl_debug_console.o
+                0x00000e00       0x28 ./SDK/platform/utilities/src/fsl_debug_console.o
  .text.LPUART_HAL_SetStopBitCount
-                0x00000f34       0x24 ./SDK/platform/utilities/src/fsl_debug_console.o
+                0x00000e28       0x24 ./SDK/platform/utilities/src/fsl_debug_console.o
  .text.SIM_HAL_EnableClock
-                0x00000f58       0x44 ./SDK/platform/utilities/src/fsl_debug_console.o
+                0x00000e4c       0x44 ./SDK/platform/utilities/src/fsl_debug_console.o
  .text.CLOCK_SYS_EnableLpuartClock
-                0x00000f9c       0x1c ./SDK/platform/utilities/src/fsl_debug_console.o
+                0x00000e90       0x1c ./SDK/platform/utilities/src/fsl_debug_console.o
  .text.DbgConsole_Init
-                0x00000fb8      0x1c0 ./SDK/platform/utilities/src/fsl_debug_console.o
-                0x00000fb8                DbgConsole_Init
- .text._write   0x00001178       0x68 ./SDK/platform/utilities/src/fsl_debug_console.o
-                0x00001178                _write
- .text._read    0x000011e0       0x54 ./SDK/platform/utilities/src/fsl_debug_console.o
-                0x000011e0                _read
+                0x00000eac      0x1c0 ./SDK/platform/utilities/src/fsl_debug_console.o
+                0x00000eac                DbgConsole_Init
+ .text._write   0x0000106c       0x68 ./SDK/platform/utilities/src/fsl_debug_console.o
+                0x0000106c                _write
+ .text._read    0x000010d4       0x54 ./SDK/platform/utilities/src/fsl_debug_console.o
+                0x000010d4                _read
  .text.debug_printf
-                0x00001234       0x38 ./SDK/platform/utilities/src/fsl_debug_console.o
-                0x00001234                debug_printf
+                0x00001128       0x38 ./SDK/platform/utilities/src/fsl_debug_console.o
+                0x00001128                debug_printf
  .text.debug_putc
-                0x0000126c       0x3c ./SDK/platform/utilities/src/fsl_debug_console.o
+                0x00001160       0x3c ./SDK/platform/utilities/src/fsl_debug_console.o
  .text._doprint
-                0x000012a8      0x750 ./SDK/platform/utilities/src/print_scan.o
-                0x000012a8                _doprint
+                0x0000119c      0x750 ./SDK/platform/utilities/src/print_scan.o
+                0x0000119c                _doprint
  .text.mknumstr
-                0x000019f8      0x110 ./SDK/platform/utilities/src/print_scan.o
+                0x000018ec      0x110 ./SDK/platform/utilities/src/print_scan.o
  .text.fput_pad
-                0x00001b08       0x40 ./SDK/platform/utilities/src/print_scan.o
+                0x000019fc       0x40 ./SDK/platform/utilities/src/print_scan.o
  .text.SIM_HAL_EnableClock
-                0x00001b48       0x44 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00001a3c       0x44 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
  .text.CLOCK_HAL_GetLpuartSrc
-                0x00001b8c       0x28 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00001a80       0x28 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
  .text.CLOCK_HAL_GetPllfllSel
-                0x00001bb4       0x28 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00001aa8       0x28 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
  .text.CLOCK_HAL_GetOutDiv1
-                0x00001bdc       0x24 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00001ad0       0x24 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
  .text.CLOCK_HAL_GetOutDiv2
-                0x00001c00       0x28 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00001af4       0x28 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
  .text.CLOCK_SYS_GetSystemClockFreq
-                0x00001c28       0x2c ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
-                0x00001c28                CLOCK_SYS_GetSystemClockFreq
+                0x00001b1c       0x2c ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00001b1c                CLOCK_SYS_GetSystemClockFreq
  .text.CLOCK_SYS_GetBusClockFreq
-                0x00001c54       0x2c ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
-                0x00001c54                CLOCK_SYS_GetBusClockFreq
+                0x00001b48       0x2c ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00001b48                CLOCK_SYS_GetBusClockFreq
  .text.CLOCK_SYS_GetPllFllClockFreq
-                0x00001c80       0x60 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
-                0x00001c80                CLOCK_SYS_GetPllFllClockFreq
+                0x00001b74       0x60 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00001b74                CLOCK_SYS_GetPllFllClockFreq
  .text.CLOCK_SYS_GetOsc0ExternalRefClockUndivFreq
-                0x00001ce0       0x2c ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
-                0x00001ce0                CLOCK_SYS_GetOsc0ExternalRefClockUndivFreq
+                0x00001bd4       0x2c ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00001bd4                CLOCK_SYS_GetOsc0ExternalRefClockUndivFreq
  .text.CLOCK_SYS_GetOsc0ExternalRefClockFreq
-                0x00001d0c       0x24 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
-                0x00001d0c                CLOCK_SYS_GetOsc0ExternalRefClockFreq
+                0x00001c00       0x24 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00001c00                CLOCK_SYS_GetOsc0ExternalRefClockFreq
  .text.CLOCK_SYS_GetLpuartFreq
-                0x00001d30       0x58 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
-                0x00001d30                CLOCK_SYS_GetLpuartFreq
+                0x00001c24       0x58 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00001c24                CLOCK_SYS_GetLpuartFreq
  .text.CLOCK_SYS_GetUartFreq
-                0x00001d88       0x34 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
-                0x00001d88                CLOCK_SYS_GetUartFreq
+                0x00001c7c       0x34 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00001c7c                CLOCK_SYS_GetUartFreq
  .text.CLOCK_SYS_EnablePortClock
-                0x00001dbc       0x50 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
-                0x00001dbc                CLOCK_SYS_EnablePortClock
+                0x00001cb0       0x50 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00001cb0                CLOCK_SYS_EnablePortClock
  .text.CLOCK_SYS_EnableAdcClock
-                0x00001e0c       0x50 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
-                0x00001e0c                CLOCK_SYS_EnableAdcClock
+                0x00001d00       0x50 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00001d00                CLOCK_SYS_EnableAdcClock
  .text.CLOCK_SYS_EnableFtmClock
-                0x00001e5c       0x50 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
-                0x00001e5c                CLOCK_SYS_EnableFtmClock
+                0x00001d50       0x50 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00001d50                CLOCK_SYS_EnableFtmClock
  .text.CLOCK_SYS_EnableUartClock
-                0x00001eac       0x50 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
-                0x00001eac                CLOCK_SYS_EnableUartClock
+                0x00001da0       0x50 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00001da0                CLOCK_SYS_EnableUartClock
  .text.SystemInit
-                0x00001efc      0x2ac ./SDK/platform/startup/MK22F51212/system_MK22F51212.o
-                0x00001efc                SystemInit
+                0x00001df0      0x2ac ./SDK/platform/startup/MK22F51212/system_MK22F51212.o
+                0x00001df0                SystemInit
  .text.init_data_bss
-                0x000021a8       0xfc ./SDK/platform/startup/startup.o
-                0x000021a8                init_data_bss
+                0x0000209c       0xfc ./SDK/platform/startup/startup.o
+                0x0000209c                init_data_bss
  .text.UART_HAL_IsTxDataRegEmpty
-                0x000022a4       0x30 ./SDK/platform/hal/src/uart/fsl_uart_hal.o
+                0x00002198       0x30 ./SDK/platform/hal/src/uart/fsl_uart_hal.o
  .text.UART_HAL_IsRxDataRegFull
-                0x000022d4       0x30 ./SDK/platform/hal/src/uart/fsl_uart_hal.o
+                0x000021c8       0x30 ./SDK/platform/hal/src/uart/fsl_uart_hal.o
  .text.UART_HAL_SetBaudRate
-                0x00002304       0xa4 ./SDK/platform/hal/src/uart/fsl_uart_hal.o
-                0x00002304                UART_HAL_SetBaudRate
+                0x000021f8       0xa4 ./SDK/platform/hal/src/uart/fsl_uart_hal.o
+                0x000021f8                UART_HAL_SetBaudRate
  .text.UART_HAL_SetParityMode
-                0x000023a8       0x40 ./SDK/platform/hal/src/uart/fsl_uart_hal.o
-                0x000023a8                UART_HAL_SetParityMode
+                0x0000229c       0x40 ./SDK/platform/hal/src/uart/fsl_uart_hal.o
+                0x0000229c                UART_HAL_SetParityMode
  .text.UART_HAL_Putchar
-                0x000023e8       0x24 ./SDK/platform/hal/src/uart/fsl_uart_hal.o
-                0x000023e8                UART_HAL_Putchar
+                0x000022dc       0x24 ./SDK/platform/hal/src/uart/fsl_uart_hal.o
+                0x000022dc                UART_HAL_Putchar
  .text.UART_HAL_Getchar
-                0x0000240c       0x28 ./SDK/platform/hal/src/uart/fsl_uart_hal.o
-                0x0000240c                UART_HAL_Getchar
+                0x00002300       0x28 ./SDK/platform/hal/src/uart/fsl_uart_hal.o
+                0x00002300                UART_HAL_Getchar
  .text.UART_HAL_SendDataPolling
-                0x00002434       0x44 ./SDK/platform/hal/src/uart/fsl_uart_hal.o
-                0x00002434                UART_HAL_SendDataPolling
+                0x00002328       0x44 ./SDK/platform/hal/src/uart/fsl_uart_hal.o
+                0x00002328                UART_HAL_SendDataPolling
  .text.UART_HAL_ReceiveDataPolling
-                0x00002478       0x6c ./SDK/platform/hal/src/uart/fsl_uart_hal.o
-                0x00002478                UART_HAL_ReceiveDataPolling
+                0x0000236c       0x6c ./SDK/platform/hal/src/uart/fsl_uart_hal.o
+                0x0000236c                UART_HAL_ReceiveDataPolling
  .text.OSC_HAL_GetExternalRefClkCmd
-                0x000024e4       0x2c ./SDK/platform/hal/src/osc/fsl_osc_hal.o
-                0x000024e4                OSC_HAL_GetExternalRefClkCmd
+                0x000023d8       0x2c ./SDK/platform/hal/src/osc/fsl_osc_hal.o
+                0x000023d8                OSC_HAL_GetExternalRefClkCmd
  .text.OSC_HAL_GetExternalRefClkDivCmd
-                0x00002510       0x20 ./SDK/platform/hal/src/osc/fsl_osc_hal.o
-                0x00002510                OSC_HAL_GetExternalRefClkDivCmd
+                0x00002404       0x20 ./SDK/platform/hal/src/osc/fsl_osc_hal.o
+                0x00002404                OSC_HAL_GetExternalRefClkDivCmd
  .text.CLOCK_HAL_GetClkSrcMode
-                0x00002530       0x20 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x00002424       0x20 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
  .text.CLOCK_HAL_GetFllExternalRefDiv
-                0x00002550       0x24 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x00002444       0x24 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
  .text.CLOCK_HAL_GetInternalRefSelMode
-                0x00002574       0x24 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x00002468       0x24 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
  .text.CLOCK_HAL_GetInternalClkCmd
-                0x00002598       0x2c ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x0000248c       0x2c ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
  .text.CLOCK_HAL_GetRange0Mode
-                0x000025c4       0x24 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x000024b8       0x24 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
  .text.CLOCK_HAL_GetInternalRefClkSelMode
-                0x000025e8       0x24 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x000024dc       0x24 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
  .text.CLOCK_HAL_GetDmx32
-                0x0000260c       0x24 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x00002500       0x24 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
  .text.CLOCK_HAL_GetDcoRangeMode
-                0x00002630       0x24 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x00002524       0x24 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
  .text.CLOCK_HAL_GetPllExternalRefDiv0
-                0x00002654       0x20 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x00002548       0x20 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
  .text.CLOCK_HAL_GetPllSelMode
-                0x00002674       0x24 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x00002568       0x24 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
  .text.CLOCK_HAL_GetVoltCtrlOscDiv0
-                0x00002698       0x20 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x0000258c       0x20 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
  .text.CLOCK_HAL_GetFastClkInternalRefDiv
-                0x000026b8       0x24 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x000025ac       0x24 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
  .text.CLOCK_HAL_GetOscselMode
-                0x000026dc       0x20 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x000025d0       0x20 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
  .text.CLOCK_HAL_TestOscFreq
-                0x000026fc       0x58 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
-                0x000026fc                CLOCK_HAL_TestOscFreq
+                0x000025f0       0x58 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x000025f0                CLOCK_HAL_TestOscFreq
  .text.CLOCK_HAL_GetMcgExternalClkFreq
-                0x00002754       0x24 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x00002648       0x24 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
  .text.CLOCK_HAL_TestFllExternalRefFreq
-                0x00002778       0x94 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
-                0x00002778                CLOCK_HAL_TestFllExternalRefFreq
+                0x0000266c       0x94 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x0000266c                CLOCK_HAL_TestFllExternalRefFreq
  .text.CLOCK_HAL_GetFllRefClk
-                0x0000280c       0x60 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
-                0x0000280c                CLOCK_HAL_GetFllRefClk
+                0x00002700       0x60 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x00002700                CLOCK_HAL_GetFllRefClk
  .text.CLOCK_HAL_TestFllFreq
-                0x0000286c       0x60 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
-                0x0000286c                CLOCK_HAL_TestFllFreq
+                0x00002760       0x60 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x00002760                CLOCK_HAL_TestFllFreq
  .text.CLOCK_HAL_GetFllClk
-                0x000028cc       0x44 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
-                0x000028cc                CLOCK_HAL_GetFllClk
+                0x000027c0       0x44 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x000027c0                CLOCK_HAL_GetFllClk
  .text.CLOCK_HAL_GetPll0RefFreq
-                0x00002910       0x18 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
-                0x00002910                CLOCK_HAL_GetPll0RefFreq
+                0x00002804       0x18 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x00002804                CLOCK_HAL_GetPll0RefFreq
  .text.CLOCK_HAL_GetPll0Clk
-                0x00002928       0x48 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
-                0x00002928                CLOCK_HAL_GetPll0Clk
+                0x0000281c       0x48 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x0000281c                CLOCK_HAL_GetPll0Clk
  .text.CLOCK_HAL_GetInternalRefClk
-                0x00002970       0x5c ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
-                0x00002970                CLOCK_HAL_GetInternalRefClk
+                0x00002864       0x5c ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x00002864                CLOCK_HAL_GetInternalRefClk
  .text.CLOCK_HAL_GetOutClk
-                0x000029cc       0x64 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
-                0x000029cc                CLOCK_HAL_GetOutClk
+                0x000028c0       0x64 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x000028c0                CLOCK_HAL_GetOutClk
  .text.LPUART_HAL_Putchar
-                0x00002a30       0x20 ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
+                0x00002924       0x20 ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
  .text.LPUART_HAL_Getchar
-                0x00002a50       0x20 ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
+                0x00002944       0x20 ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
  .text.LPUART_HAL_IsTxDataRegEmpty
-                0x00002a70       0x2c ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
+                0x00002964       0x2c ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
  .text.LPUART_HAL_IsRxDataRegFull
-                0x00002a9c       0x2c ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
+                0x00002990       0x2c ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
  .text.LPUART_HAL_SetBaudRate
-                0x00002ac8      0x124 ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
-                0x00002ac8                LPUART_HAL_SetBaudRate
+                0x000029bc      0x124 ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
+                0x000029bc                LPUART_HAL_SetBaudRate
  .text.LPUART_HAL_SetBitCountPerChar
-                0x00002bec       0x4c ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
-                0x00002bec                LPUART_HAL_SetBitCountPerChar
+                0x00002ae0       0x4c ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
+                0x00002ae0                LPUART_HAL_SetBitCountPerChar
  .text.LPUART_HAL_SetParityMode
-                0x00002c38       0x3c ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
-                0x00002c38                LPUART_HAL_SetParityMode
+                0x00002b2c       0x3c ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
+                0x00002b2c                LPUART_HAL_SetParityMode
  .text.LPUART_HAL_SendDataPolling
-                0x00002c74       0x44 ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
-                0x00002c74                LPUART_HAL_SendDataPolling
+                0x00002b68       0x44 ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
+                0x00002b68                LPUART_HAL_SendDataPolling
  .text.LPUART_HAL_ReceiveDataPolling
-                0x00002cb8       0x70 ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
-                0x00002cb8                LPUART_HAL_ReceiveDataPolling
+                0x00002bac       0x70 ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
+                0x00002bac                LPUART_HAL_ReceiveDataPolling
  .text.GPIO_HAL_SetPinDir
-                0x00002d28       0x70 ./SDK/platform/hal/src/gpio/fsl_gpio_hal.o
-                0x00002d28                GPIO_HAL_SetPinDir
+                0x00002c1c       0x70 ./SDK/platform/hal/src/gpio/fsl_gpio_hal.o
+                0x00002c1c                GPIO_HAL_SetPinDir
  .text.GPIO_HAL_WritePinOutput
-                0x00002d98       0x5c ./SDK/platform/hal/src/gpio/fsl_gpio_hal.o
-                0x00002d98                GPIO_HAL_WritePinOutput
+                0x00002c8c       0x5c ./SDK/platform/hal/src/gpio/fsl_gpio_hal.o
+                0x00002c8c                GPIO_HAL_WritePinOutput
  .text.FTM_HAL_SetClockPs
-                0x00002df4       0x2c ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00002ce8       0x2c ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .text.FTM_HAL_Enable
-                0x00002e20       0x54 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00002d14       0x54 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .text.FTM_HAL_SetOutmaskPwmSyncModeCmd
-                0x00002e74       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00002d68       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .text.FTM_HAL_SetDualChnPwmSyncCmd
-                0x00002e9c       0x78 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00002d90       0x78 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .text.FTM_HAL_SetSwoctrlHardwareSyncModeCmd
-                0x00002f14       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00002e08       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .text.FTM_HAL_SetInvctrlHardwareSyncModeCmd
-                0x00002f3c       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00002e30       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .text.FTM_HAL_SetOutmaskHardwareSyncModeCmd
-                0x00002f64       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00002e58       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .text.FTM_HAL_SetModCntinCvHardwareSyncModeCmd
-                0x00002f8c       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00002e80       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .text.FTM_HAL_SetCounterHardwareSyncModeCmd
-                0x00002fb4       0x24 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00002ea8       0x24 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .text.FTM_HAL_SetSwoctrlSoftwareSyncModeCmd
-                0x00002fd8       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00002ecc       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .text.FTM_HAL_SetInvctrlSoftwareSyncModeCmd
-                0x00003000       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00002ef4       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .text.FTM_HAL_SetOutmaskSoftwareSyncModeCmd
-                0x00003028       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00002f1c       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .text.FTM_HAL_SetModCntinCvSoftwareSyncModeCmd
-                0x00003050       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00002f44       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .text.FTM_HAL_SetCounterSoftwareSyncModeCmd
-                0x00003078       0x24 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00002f6c       0x24 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .text.FTM_HAL_SetPwmSyncModeCmd
-                0x0000309c       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00002f90       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .text.FTM_HAL_SetSwoctrlPwmSyncModeCmd
-                0x000030c4       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00002fb8       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .text.FTM_HAL_SetInvctrlPwmSyncModeCmd
-                0x000030ec       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00002fe0       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .text.FTM_HAL_SetCntinPwmSyncModeCmd
-                0x00003114       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00003008       0x28 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .text.FTM_HAL_Init
-                0x0000313c       0x20 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
-                0x0000313c                FTM_HAL_Init
+                0x00003030       0x20 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00003030                FTM_HAL_Init
  .text.FTM_HAL_SetSyncMode
-                0x0000315c      0x138 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
-                0x0000315c                FTM_HAL_SetSyncMode
+                0x00003050      0x138 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00003050                FTM_HAL_SetSyncMode
  .text.FTM_HAL_Reset
-                0x00003294       0xc0 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
-                0x00003294                FTM_HAL_Reset
+                0x00003188       0xc0 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00003188                FTM_HAL_Reset
  .text.ADC16_HAL_Init
-                0x00003354       0x44 ./SDK/platform/hal/src/adc16/fsl_adc16_hal.o
-                0x00003354                ADC16_HAL_Init
+                0x00003248       0x44 ./SDK/platform/hal/src/adc16/fsl_adc16_hal.o
+                0x00003248                ADC16_HAL_Init
  .text.NVIC_EnableIRQ
-                0x00003398       0x34 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x0000328c       0x34 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .text.PORT_HAL_SetPullMode
-                0x000033cc       0x4c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x000032c0       0x4c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .text.PORT_HAL_SetPullCmd
-                0x00003418       0x4c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x0000330c       0x4c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .text.PORT_HAL_SetSlewRateMode
-                0x00003464       0x4c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x00003358       0x4c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .text.PORT_HAL_SetPassiveFilterCmd
-                0x000034b0       0x4c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x000033a4       0x4c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .text.PORT_HAL_SetOpenDrainCmd
-                0x000034fc       0x4c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x000033f0       0x4c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .text.PORT_HAL_SetDriveStrengthMode
-                0x00003548       0x4c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x0000343c       0x4c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .text.PORT_HAL_SetDigitalFilterCmd
-                0x00003594       0x50 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x00003488       0x50 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .text.PORT_HAL_SetPinIntMode
-                0x000035e4       0x5c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x000034d8       0x5c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .text.GPIO_HAL_TogglePinOutput
-                0x00003640       0x44 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x00003534       0x44 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .text.INT_SYS_EnableIRQ
-                0x00003684       0x68 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x00003578       0x68 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .text.GPIO_DRV_Init
-                0x000036ec       0x50 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
-                0x000036ec                GPIO_DRV_Init
+                0x000035e0       0x50 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x000035e0                GPIO_DRV_Init
  .text.GPIO_DRV_InputPinInit
-                0x0000373c       0xc8 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
-                0x0000373c                GPIO_DRV_InputPinInit
+                0x00003630       0xc8 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x00003630                GPIO_DRV_InputPinInit
  .text.GPIO_DRV_OutputPinInit
-                0x00003804       0x88 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
-                0x00003804                GPIO_DRV_OutputPinInit
+                0x000036f8       0x88 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x000036f8                GPIO_DRV_OutputPinInit
  .text.GPIO_DRV_WritePinOutput
-                0x0000388c       0x34 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
-                0x0000388c                GPIO_DRV_WritePinOutput
+                0x00003780       0x34 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x00003780                GPIO_DRV_WritePinOutput
  .text.GPIO_DRV_TogglePinOutput
-                0x000038c0       0x30 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
-                0x000038c0                GPIO_DRV_TogglePinOutput
+                0x000037b4       0x30 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x000037b4                GPIO_DRV_TogglePinOutput
  .text.NVIC_EnableIRQ
-                0x000038f0       0x34 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x000037e4       0x34 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.NVIC_ClearPendingIRQ
-                0x00003924       0x34 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00003818       0x34 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_HAL_SetClockSource
-                0x00003958       0x2c ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x0000384c       0x2c ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_HAL_EnableTimerOverflowInt
-                0x00003984       0x20 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00003878       0x20 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_HAL_DisableTimerOverflowInt
-                0x000039a4       0x20 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00003898       0x20 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_HAL_IsOverflowIntEnabled
-                0x000039c4       0x2c ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x000038b8       0x2c ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_HAL_ClearTimerOverflow
-                0x000039f0       0x20 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x000038e4       0x20 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_HAL_SetCpwms
-                0x00003a10       0x48 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00003904       0x48 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_HAL_SetCounter
-                0x00003a58       0x2c ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
- .text.FTM_HAL_GetCounter
-                0x00003a84       0x1c ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x0000394c       0x2c ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_HAL_SetMod
-                0x00003aa0       0x2c ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00003978       0x2c ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_HAL_SetCounterInitVal
-                0x00003acc       0x2c ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x000039a4       0x2c ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_HAL_SetChnEdgeLevel
-                0x00003af8       0x84 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x000039d0       0x84 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_HAL_EnableFaultInt
-                0x00003b7c       0x24 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00003a54       0x24 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_HAL_DisableFaultInt
-                0x00003ba0       0x24 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00003a78       0x24 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_HAL_SetWriteProtectionCmd
-                0x00003bc4       0x40 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00003a9c       0x40 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_HAL_SetQuadDecoderCmd
-                0x00003c04       0x24 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00003adc       0x24 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_HAL_SetBdmMode
-                0x00003c28       0x30 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00003b00       0x30 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_HAL_SetTofFreq
-                0x00003c58       0x30 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00003b30       0x30 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.INT_SYS_EnableIRQ
-                0x00003c88       0x68 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00003b60       0x68 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .text.FTM_DRV_Init
-                0x00003cf0      0x140 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
-                0x00003cf0                FTM_DRV_Init
+                0x00003bc8      0x140 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00003bc8                FTM_DRV_Init
  .text.FTM_DRV_SetFaultIntCmd
-                0x00003e30       0x44 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
-                0x00003e30                FTM_DRV_SetFaultIntCmd
+                0x00003d08       0x44 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00003d08                FTM_DRV_SetFaultIntCmd
  .text.FTM_DRV_SetTimeOverflowIntCmd
-                0x00003e74       0x44 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
-                0x00003e74                FTM_DRV_SetTimeOverflowIntCmd
+                0x00003d4c       0x44 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00003d4c                FTM_DRV_SetTimeOverflowIntCmd
  .text.FTM_DRV_CounterStart
-                0x00003eb8      0x108 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
-                0x00003eb8                FTM_DRV_CounterStart
- .text.FTM_DRV_CounterRead
-                0x00003fc0       0x4c ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
-                0x00003fc0                FTM_DRV_CounterRead
+                0x00003d90      0x108 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00003d90                FTM_DRV_CounterStart
  .text.FTM_DRV_IRQHandler
-                0x0000400c       0x34 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
-                0x0000400c                FTM_DRV_IRQHandler
+                0x00003e98       0x34 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00003e98                FTM_DRV_IRQHandler
  .text.NVIC_EnableIRQ
-                0x00004040       0x34 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00003ecc       0x34 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.NVIC_DisableIRQ
-                0x00004074       0x34 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00003f00       0x34 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.ADC16_HAL_ConfigChn
-                0x000040a8       0x68 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00003f34       0x68 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.ADC16_HAL_GetChnConvCompletedCmd
-                0x00004110       0x54 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00003f9c       0x54 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.ADC16_HAL_SetLowPowerCmd
-                0x00004164       0x34 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00003ff0       0x34 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.ADC16_HAL_SetClkDividerMode
-                0x00004198       0x30 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00004024       0x30 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.ADC16_HAL_SetLongSampleCmd
-                0x000041c8       0x34 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00004054       0x34 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.ADC16_HAL_SetResolutionMode
-                0x000041fc       0x30 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00004088       0x30 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.ADC16_HAL_SetClkSrcMode
-                0x0000422c       0x30 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x000040b8       0x30 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.ADC16_HAL_SetChnMuxMode
-                0x0000425c       0x30 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x000040e8       0x30 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.ADC16_HAL_GetChnMuxMode
-                0x0000428c       0x24 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00004118       0x24 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.ADC16_HAL_SetAsyncClkCmd
-                0x000042b0       0x34 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x0000413c       0x34 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.ADC16_HAL_SetHighSpeedCmd
-                0x000042e4       0x34 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00004170       0x34 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.ADC16_HAL_SetLongSampleCycleMode
-                0x00004318       0x30 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x000041a4       0x30 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.ADC16_HAL_GetChnConvValueRAW
-                0x00004348       0x48 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x000041d4       0x48 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.ADC16_HAL_SetHwTriggerCmd
-                0x00004390       0x34 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x0000421c       0x34 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.ADC16_HAL_SetDmaCmd
-                0x000043c4       0x34 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00004250       0x34 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.ADC16_HAL_SetRefVoltSrcMode
-                0x000043f8       0x30 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00004284       0x30 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.ADC16_HAL_SetContinuousConvCmd
-                0x00004428       0x34 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x000042b4       0x34 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.ADC16_HAL_SetHwAverageCmd
-                0x0000445c       0x34 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x000042e8       0x34 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.ADC16_HAL_SetHwAverageMode
-                0x00004490       0x30 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x0000431c       0x30 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.INT_SYS_EnableIRQ
-                0x000044c0       0x68 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x0000434c       0x68 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.INT_SYS_DisableIRQ
-                0x00004528       0x68 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x000043b4       0x68 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .text.ADC16_DRV_Init
-                0x00004590      0x10c ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
-                0x00004590                ADC16_DRV_Init
+                0x0000441c      0x10c ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x0000441c                ADC16_DRV_Init
  .text.ADC16_DRV_EnableLongSample
-                0x0000469c       0x5c ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
-                0x0000469c                ADC16_DRV_EnableLongSample
+                0x00004528       0x5c ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00004528                ADC16_DRV_EnableLongSample
  .text.ADC16_DRV_EnableHwAverage
-                0x000046f8       0x5c ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
-                0x000046f8                ADC16_DRV_EnableHwAverage
+                0x00004584       0x5c ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00004584                ADC16_DRV_EnableHwAverage
  .text.ADC16_DRV_ConfigConvChn
-                0x00004754       0x8c ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
-                0x00004754                ADC16_DRV_ConfigConvChn
+                0x000045e0       0x8c ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x000045e0                ADC16_DRV_ConfigConvChn
  .text.ADC16_DRV_WaitConvDone
-                0x000047e0       0x5c ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
-                0x000047e0                ADC16_DRV_WaitConvDone
+                0x0000466c       0x5c ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x0000466c                ADC16_DRV_WaitConvDone
  .text.ADC16_DRV_GetConvValueRAW
-                0x0000483c       0x54 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
-                0x0000483c                ADC16_DRV_GetConvValueRAW
+                0x000046c8       0x54 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x000046c8                ADC16_DRV_GetConvValueRAW
  .text.NVIC_SetPriority
-                0x00004890       0x58 ./Generated_Code/Cpu.o
+                0x0000471c       0x58 ./Generated_Code/Cpu.o
  .text.Components_Init
-                0x000048e8       0x6c ./Generated_Code/Cpu.o
-                0x000048e8                Components_Init
+                0x00004774       0x6c ./Generated_Code/Cpu.o
+                0x00004774                Components_Init
  .text.hardware_init
-                0x00004954       0x5c ./Generated_Code/hardware_init.o
-                0x00004954                hardware_init
+                0x000047e0       0x5c ./Generated_Code/hardware_init.o
+                0x000047e0                hardware_init
  .text.pvPortMalloc
-                0x000049b0      0x144 ./Generated_Code/heap_2.o
-                0x000049b0                pvPortMalloc
+                0x0000483c      0x144 ./Generated_Code/heap_2.o
+                0x0000483c                pvPortMalloc
  .text.vPortFree
-                0x00004af4       0x7c ./Generated_Code/heap_2.o
-                0x00004af4                vPortFree
+                0x00004980       0x7c ./Generated_Code/heap_2.o
+                0x00004980                vPortFree
  .text.prvHeapInit
-                0x00004b70       0x68 ./Generated_Code/heap_2.o
+                0x000049fc       0x68 ./Generated_Code/heap_2.o
  .text.vListInitialise
-                0x00004bd8       0x40 ./Generated_Code/list.o
-                0x00004bd8                vListInitialise
+                0x00004a64       0x40 ./Generated_Code/list.o
+                0x00004a64                vListInitialise
  .text.vListInitialiseItem
-                0x00004c18       0x18 ./Generated_Code/list.o
-                0x00004c18                vListInitialiseItem
+                0x00004aa4       0x18 ./Generated_Code/list.o
+                0x00004aa4                vListInitialiseItem
  .text.vListInsertEnd
-                0x00004c30       0x48 ./Generated_Code/list.o
-                0x00004c30                vListInsertEnd
+                0x00004abc       0x48 ./Generated_Code/list.o
+                0x00004abc                vListInsertEnd
  .text.vListInsert
-                0x00004c78       0x70 ./Generated_Code/list.o
-                0x00004c78                vListInsert
+                0x00004b04       0x70 ./Generated_Code/list.o
+                0x00004b04                vListInsert
  .text.uxListRemove
-                0x00004ce8       0x54 ./Generated_Code/list.o
-                0x00004ce8                uxListRemove
+                0x00004b74       0x54 ./Generated_Code/list.o
+                0x00004b74                uxListRemove
  .text.PORT_HAL_SetPullMode
-                0x00004d3c       0x4c ./Generated_Code/pin_init.o
+                0x00004bc8       0x4c ./Generated_Code/pin_init.o
  .text.PORT_HAL_SetPullCmd
-                0x00004d88       0x4c ./Generated_Code/pin_init.o
+                0x00004c14       0x4c ./Generated_Code/pin_init.o
  .text.PORT_HAL_SetSlewRateMode
-                0x00004dd4       0x4c ./Generated_Code/pin_init.o
+                0x00004c60       0x4c ./Generated_Code/pin_init.o
  .text.PORT_HAL_SetOpenDrainCmd
-                0x00004e20       0x4c ./Generated_Code/pin_init.o
+                0x00004cac       0x4c ./Generated_Code/pin_init.o
  .text.PORT_HAL_SetDriveStrengthMode
-                0x00004e6c       0x4c ./Generated_Code/pin_init.o
+                0x00004cf8       0x4c ./Generated_Code/pin_init.o
  .text.PORT_HAL_SetMuxMode
-                0x00004eb8       0x5c ./Generated_Code/pin_init.o
+                0x00004d44       0x5c ./Generated_Code/pin_init.o
  .text.configure_gpio_pins
-                0x00004f14      0x1a0 ./Generated_Code/pin_init.o
-                0x00004f14                configure_gpio_pins
+                0x00004da0      0x1a0 ./Generated_Code/pin_init.o
+                0x00004da0                configure_gpio_pins
  .text.configure_jtag_pins
-                0x000050b4       0x30 ./Generated_Code/pin_init.o
-                0x000050b4                configure_jtag_pins
+                0x00004f40       0x30 ./Generated_Code/pin_init.o
+                0x00004f40                configure_jtag_pins
  .text.configure_llwu_pins
-                0x000050e4       0xb0 ./Generated_Code/pin_init.o
-                0x000050e4                configure_llwu_pins
+                0x00004f70       0xb0 ./Generated_Code/pin_init.o
+                0x00004f70                configure_llwu_pins
  .text.configure_osc_pins
-                0x00005194       0x30 ./Generated_Code/pin_init.o
-                0x00005194                configure_osc_pins
+                0x00005020       0x30 ./Generated_Code/pin_init.o
+                0x00005020                configure_osc_pins
  .text.configure_uart_pins
-                0x000051c4       0x38 ./Generated_Code/pin_init.o
-                0x000051c4                configure_uart_pins
+                0x00005050       0x38 ./Generated_Code/pin_init.o
+                0x00005050                configure_uart_pins
  .text.pxPortInitialiseStack
-                0x000051fc       0x60 ./Generated_Code/port.o
-                0x000051fc                pxPortInitialiseStack
+                0x00005088       0x60 ./Generated_Code/port.o
+                0x00005088                pxPortInitialiseStack
  .text.vPortInitTickTimer
-                0x0000525c       0x60 ./Generated_Code/port.o
-                0x0000525c                vPortInitTickTimer
+                0x000050e8       0x60 ./Generated_Code/port.o
+                0x000050e8                vPortInitTickTimer
  .text.vPortStartTickTimer
-                0x000052bc       0x18 ./Generated_Code/port.o
-                0x000052bc                vPortStartTickTimer
+                0x00005148       0x18 ./Generated_Code/port.o
+                0x00005148                vPortStartTickTimer
  .text.vPortStopTickTimer
-                0x000052d4       0x18 ./Generated_Code/port.o
-                0x000052d4                vPortStopTickTimer
+                0x00005160       0x18 ./Generated_Code/port.o
+                0x00005160                vPortStopTickTimer
  .text.vPortEnableVFP
-                0x000052ec       0x1c ./Generated_Code/port.o
-                0x000052ec                vPortEnableVFP
+                0x00005178       0x1c ./Generated_Code/port.o
+                0x00005178                vPortEnableVFP
  .text.xPortStartScheduler
-                0x00005308       0x6c ./Generated_Code/port.o
-                0x00005308                xPortStartScheduler
+                0x00005194       0x6c ./Generated_Code/port.o
+                0x00005194                xPortStartScheduler
  .text.vPortEnterCritical
-                0x00005374       0x34 ./Generated_Code/port.o
-                0x00005374                vPortEnterCritical
+                0x00005200       0x34 ./Generated_Code/port.o
+                0x00005200                vPortEnterCritical
  .text.vPortExitCritical
-                0x000053a8       0x38 ./Generated_Code/port.o
-                0x000053a8                vPortExitCritical
+                0x00005234       0x38 ./Generated_Code/port.o
+                0x00005234                vPortExitCritical
  .text.vPortYieldFromISR
-                0x000053e0       0x24 ./Generated_Code/port.o
-                0x000053e0                vPortYieldFromISR
+                0x0000526c       0x24 ./Generated_Code/port.o
+                0x0000526c                vPortYieldFromISR
  .text.SysTick_Handler
-                0x00005404       0x24 ./Generated_Code/port.o
-                0x00005404                SysTick_Handler
+                0x00005290       0x24 ./Generated_Code/port.o
+                0x00005290                SysTick_Handler
  .text.vPortStartFirstTask
-                0x00005428       0x20 ./Generated_Code/port.o
-                0x00005428                vPortStartFirstTask
+                0x000052b4       0x20 ./Generated_Code/port.o
+                0x000052b4                vPortStartFirstTask
  .text.SVC_Handler
-                0x00005448       0x1c ./Generated_Code/port.o
-                0x00005448                SVC_Handler
+                0x000052d4       0x1c ./Generated_Code/port.o
+                0x000052d4                SVC_Handler
  .text.PendSV_Handler
-                0x00005464       0x50 ./Generated_Code/port.o
-                0x00005464                PendSV_Handler
+                0x000052f0       0x50 ./Generated_Code/port.o
+                0x000052f0                PendSV_Handler
  .text.xTaskGenericCreate
-                0x000054b4      0x1b0 ./Generated_Code/tasks.o
-                0x000054b4                xTaskGenericCreate
+                0x00005340      0x1b0 ./Generated_Code/tasks.o
+                0x00005340                xTaskGenericCreate
  .text.vTaskDelay
-                0x00005664       0x6c ./Generated_Code/tasks.o
-                0x00005664                vTaskDelay
+                0x000054f0       0x6c ./Generated_Code/tasks.o
+                0x000054f0                vTaskDelay
  .text.vTaskStartScheduler
-                0x000056d0       0x74 ./Generated_Code/tasks.o
-                0x000056d0                vTaskStartScheduler
+                0x0000555c       0x74 ./Generated_Code/tasks.o
+                0x0000555c                vTaskStartScheduler
  .text.vTaskSuspendAll
-                0x00005744       0x24 ./Generated_Code/tasks.o
-                0x00005744                vTaskSuspendAll
+                0x000055d0       0x24 ./Generated_Code/tasks.o
+                0x000055d0                vTaskSuspendAll
  .text.xTaskResumeAll
-                0x00005768      0x15c ./Generated_Code/tasks.o
-                0x00005768                xTaskResumeAll
+                0x000055f4      0x15c ./Generated_Code/tasks.o
+                0x000055f4                xTaskResumeAll
  .text.xTaskIncrementTick
-                0x000058c4      0x1f4 ./Generated_Code/tasks.o
-                0x000058c4                xTaskIncrementTick
+                0x00005750      0x1f4 ./Generated_Code/tasks.o
+                0x00005750                xTaskIncrementTick
  .text.vTaskSwitchContext
-                0x00005ab8      0x150 ./Generated_Code/tasks.o
-                0x00005ab8                vTaskSwitchContext
+                0x00005944      0x150 ./Generated_Code/tasks.o
+                0x00005944                vTaskSwitchContext
  .text.prvIdleTask
-                0x00005c08       0x24 ./Generated_Code/tasks.o
+                0x00005a94       0x24 ./Generated_Code/tasks.o
  .text.prvInitialiseTCBVariables
-                0x00005c2c       0xa4 ./Generated_Code/tasks.o
+                0x00005ab8       0xa4 ./Generated_Code/tasks.o
  .text.prvInitialiseTaskLists
-                0x00005cd0       0x8c ./Generated_Code/tasks.o
+                0x00005b5c       0x8c ./Generated_Code/tasks.o
  .text.prvCheckTasksWaitingTermination
-                0x00005d5c        0xc ./Generated_Code/tasks.o
+                0x00005be8        0xc ./Generated_Code/tasks.o
  .text.prvAddCurrentTaskToDelayedList
-                0x00005d68       0x88 ./Generated_Code/tasks.o
+                0x00005bf4       0x88 ./Generated_Code/tasks.o
  .text.prvAllocateTCBAndStack
-                0x00005df0       0x70 ./Generated_Code/tasks.o
+                0x00005c7c       0x70 ./Generated_Code/tasks.o
  .text.prvResetNextTaskUnblockTime
-                0x00005e60       0x58 ./Generated_Code/tasks.o
+                0x00005cec       0x58 ./Generated_Code/tasks.o
  .text.xTaskNotifyWait
-                0x00005eb8      0x110 ./Generated_Code/tasks.o
-                0x00005eb8                xTaskNotifyWait
+                0x00005d44      0x110 ./Generated_Code/tasks.o
+                0x00005d44                xTaskNotifyWait
  .text.xTaskNotifyFromISR
-                0x00005fc8      0x154 ./Generated_Code/tasks.o
-                0x00005fc8                xTaskNotifyFromISR
+                0x00005e54      0x154 ./Generated_Code/tasks.o
+                0x00005e54                xTaskNotifyFromISR
  .text.__assert_func
-                0x0000611c       0x38 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-assert.o)
-                0x0000611c                __assert_func
- .text.atexit   0x00006154        0xc d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-atexit.o)
-                0x00006154                atexit
- .text.exit     0x00006160       0x2c d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-exit.o)
-                0x00006160                exit
+                0x00005fa8       0x38 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-assert.o)
+                0x00005fa8                __assert_func
+ .text.atexit   0x00005fe0        0xc d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-atexit.o)
+                0x00005fe0                atexit
+ .text.exit     0x00005fec       0x2c d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-exit.o)
+                0x00005fec                exit
  .text.__libc_fini_array
-                0x0000618c       0x28 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-fini.o)
-                0x0000618c                __libc_fini_array
- .text.fprintf  0x000061b4       0x24 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-fprintf.o)
-                0x000061b4                fiprintf
-                0x000061b4                fprintf
- .text.memcmp   0x000061d8       0x1e d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-memcmp.o)
-                0x000061d8                memcmp
- .text.memset   0x000061f6       0x10 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-memset.o)
-                0x000061f6                memset
- *fill*         0x00006206        0x2 
- .text.setvbuf  0x00006208       0xe8 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-setvbuf.o)
-                0x00006208                setvbuf
- .text.strlen   0x000062f0       0x10 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-strlen.o)
-                0x000062f0                strlen
+                0x00006018       0x28 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-fini.o)
+                0x00006018                __libc_fini_array
+ .text.fprintf  0x00006040       0x24 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-fprintf.o)
+                0x00006040                fiprintf
+                0x00006040                fprintf
+ .text.memcmp   0x00006064       0x1e d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-memcmp.o)
+                0x00006064                memcmp
+ .text.memset   0x00006082       0x10 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-memset.o)
+                0x00006082                memset
+ *fill*         0x00006092        0x2 
+ .text.setvbuf  0x00006094       0xe8 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-setvbuf.o)
+                0x00006094                setvbuf
+ .text.strlen   0x0000617c       0x10 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-strlen.o)
+                0x0000617c                strlen
  .text.invalid_fd
-                0x00006300       0x1c d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
- .text.error    0x0000631c       0x1c d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
+                0x0000618c       0x1c d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
+ .text.error    0x000061a8       0x1c d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
  .text.findslot.part.0
-                0x00006338       0x1c d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
+                0x000061c4       0x1c d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
  .text.initialise_monitor_handles
-                0x00006354       0x80 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
+                0x000061e0       0x80 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
  .text._swilseek
-                0x000063d4       0xa0 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
-                0x000063d4                _swilseek
- .text._lseek   0x00006474       0x14 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
-                0x00006474                _lseek
+                0x00006260       0xa0 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
+                0x00006260                _swilseek
+ .text._lseek   0x00006300       0x14 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
+                0x00006300                _lseek
  .text._swiclose
-                0x00006488       0x48 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
-                0x00006488                _swiclose
- .text._close   0x000064d0       0x14 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
-                0x000064d0                _close
- .text._kill    0x000064e4       0x20 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
-                0x000064e4                _kill
- .text._exit    0x00006504        0xc d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
-                0x00006504                _exit
- .text._getpid  0x00006510        0x4 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
-                0x00006510                _getpid
- .text._sbrk    0x00006514       0x38 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
-                0x00006514                _sbrk
- .text._fstat   0x0000654c       0x1e d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
-                0x0000654c                _fstat
- *fill*         0x0000656a        0x2 
- .text._isatty  0x0000656c       0x40 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
-                0x0000656c                _isatty
+                0x00006314       0x48 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
+                0x00006314                _swiclose
+ .text._close   0x0000635c       0x14 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
+                0x0000635c                _close
+ .text._kill    0x00006370       0x20 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
+                0x00006370                _kill
+ .text._exit    0x00006390        0xc d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
+                0x00006390                _exit
+ .text._getpid  0x0000639c        0x4 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
+                0x0000639c                _getpid
+ .text._sbrk    0x000063a0       0x38 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
+                0x000063a0                _sbrk
+ .text._fstat   0x000063d8       0x1e d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
+                0x000063d8                _fstat
+ *fill*         0x000063f6        0x2 
+ .text._isatty  0x000063f8       0x40 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
+                0x000063f8                _isatty
  .text.__sfputc_r
-                0x000065ac       0x2c d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-vfprintf.o)
-                0x000065ac                __sfputc_r
+                0x00006438       0x2c d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-vfprintf.o)
+                0x00006438                __sfputc_r
  .text._vfprintf_r
-                0x000065d8      0x1f8 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-vfprintf.o)
-                0x000065d8                _vfprintf_r
-                0x000065d8                _vfiprintf_r
+                0x00006464      0x1f8 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-vfprintf.o)
+                0x00006464                _vfprintf_r
+                0x00006464                _vfiprintf_r
  .text._printf_common
-                0x000067d0       0xe2 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-vfprintf_i.o)
-                0x000067d0                _printf_common
- *fill*         0x000068b2        0x2 
+                0x0000665c       0xe2 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-vfprintf_i.o)
+                0x0000665c                _printf_common
+ *fill*         0x0000673e        0x2 
  .text._printf_i
-                0x000068b4      0x22c d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-vfprintf_i.o)
-                0x000068b4                _printf_i
+                0x00006740      0x22c d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-vfprintf_i.o)
+                0x00006740                _printf_i
  .text.__swbuf_r
-                0x00006ae0       0x86 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-wbuf.o)
-                0x00006ae0                __swbuf_r
- *fill*         0x00006b66        0x2 
+                0x0000696c       0x86 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-wbuf.o)
+                0x0000696c                __swbuf_r
+ *fill*         0x000069f2        0x2 
  .text.__swsetup_r
-                0x00006b68       0xa8 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-wsetup.o)
-                0x00006b68                __swsetup_r
+                0x000069f4       0xa8 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-wsetup.o)
+                0x000069f4                __swsetup_r
  .text.__do_register_exitproc
-                0x00006c10       0x78 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-__atexit.o)
-                0x00006c10                __do_register_exitproc
+                0x00006a9c       0x78 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-__atexit.o)
+                0x00006a9c                __do_register_exitproc
  .text.__call_exitprocs
-                0x00006c88       0xa4 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-__call_atexit.o)
-                0x00006c88                __call_exitprocs
- .text.abort    0x00006d2c        0xe d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-abort.o)
-                0x00006d2c                abort
- *fill*         0x00006d3a        0x2 
- .text.__errno  0x00006d3c        0xc d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-errno.o)
-                0x00006d3c                __errno
+                0x00006b14       0xa4 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-__call_atexit.o)
+                0x00006b14                __call_exitprocs
+ .text.abort    0x00006bb8        0xe d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-abort.o)
+                0x00006bb8                abort
+ *fill*         0x00006bc6        0x2 
+ .text.__errno  0x00006bc8        0xc d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-errno.o)
+                0x00006bc8                __errno
  .text._fflush_r
-                0x00006d48      0x10c d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-fflush.o)
-                0x00006d48                _fflush_r
+                0x00006bd4      0x10c d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-fflush.o)
+                0x00006bd4                _fflush_r
  .text._cleanup_r
-                0x00006e54       0x32 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-findfp.o)
-                0x00006e54                _cleanup_r
- *fill*         0x00006e86        0x2 
- .text.__sinit  0x00006e88       0xec d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-findfp.o)
-                0x00006e88                __sinit
- .text._free_r  0x00006f74       0x88 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-freer.o)
-                0x00006f74                _free_r
+                0x00006ce0       0x32 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-findfp.o)
+                0x00006ce0                _cleanup_r
+ *fill*         0x00006d12        0x2 
+ .text.__sinit  0x00006d14       0xec d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-findfp.o)
+                0x00006d14                __sinit
+ .text._free_r  0x00006e00       0x88 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-freer.o)
+                0x00006e00                _free_r
  .text.__smakebuf_r
-                0x00006ffc       0x9c d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-makebuf.o)
-                0x00006ffc                __smakebuf_r
- .text.malloc   0x00007098       0x10 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-malloc.o)
-                0x00007098                malloc
- .text.free     0x000070a8       0x10 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-malloc.o)
-                0x000070a8                free
+                0x00006e88       0x9c d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-makebuf.o)
+                0x00006e88                __smakebuf_r
+ .text.malloc   0x00006f24       0x10 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-malloc.o)
+                0x00006f24                malloc
+ .text.free     0x00006f34       0x10 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-malloc.o)
+                0x00006f34                free
  .text._malloc_r
-                0x000070b8       0x98 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-mallocr.o)
-                0x000070b8                _malloc_r
- .text.memchr   0x00007150       0x1e d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-memchr.o)
-                0x00007150                memchr
- *fill*         0x0000716e        0x2 
- .text._sbrk_r  0x00007170       0x20 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-sbrkr.o)
-                0x00007170                _sbrk_r
+                0x00006f44       0x98 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-mallocr.o)
+                0x00006f44                _malloc_r
+ .text.memchr   0x00006fdc       0x1e d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-memchr.o)
+                0x00006fdc                memchr
+ *fill*         0x00006ffa        0x2 
+ .text._sbrk_r  0x00006ffc       0x20 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-sbrkr.o)
+                0x00006ffc                _sbrk_r
  .text._raise_r
-                0x00007190       0x52 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-signal.o)
-                0x00007190                _raise_r
- *fill*         0x000071e2        0x2 
- .text.raise    0x000071e4       0x10 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-signal.o)
-                0x000071e4                raise
- .text._kill_r  0x000071f4       0x24 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-signalr.o)
-                0x000071f4                _kill_r
+                0x0000701c       0x52 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-signal.o)
+                0x0000701c                _raise_r
+ *fill*         0x0000706e        0x2 
+ .text.raise    0x00007070       0x10 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-signal.o)
+                0x00007070                raise
+ .text._kill_r  0x00007080       0x24 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-signalr.o)
+                0x00007080                _kill_r
  .text._getpid_r
-                0x00007218        0x4 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-signalr.o)
-                0x00007218                _getpid_r
- .text.__sread  0x0000721c       0x22 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-stdio.o)
-                0x0000721c                __sread
+                0x000070a4        0x4 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-signalr.o)
+                0x000070a4                _getpid_r
+ .text.__sread  0x000070a8       0x22 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-stdio.o)
+                0x000070a8                __sread
  .text.__swrite
-                0x0000723e       0x38 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-stdio.o)
-                0x0000723e                __swrite
- .text.__sseek  0x00007276       0x24 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-stdio.o)
-                0x00007276                __sseek
+                0x000070ca       0x38 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-stdio.o)
+                0x000070ca                __swrite
+ .text.__sseek  0x00007102       0x24 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-stdio.o)
+                0x00007102                __sseek
  .text.__sclose
-                0x0000729a        0x8 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-stdio.o)
-                0x0000729a                __sclose
- *fill*         0x000072a2        0x2 
+                0x00007126        0x8 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-stdio.o)
+                0x00007126                __sclose
+ *fill*         0x0000712e        0x2 
  .text._write_r
-                0x000072a4       0x24 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-writer.o)
-                0x000072a4                _write_r
+                0x00007130       0x24 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-writer.o)
+                0x00007130                _write_r
  .text._close_r
-                0x000072c8       0x20 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-closer.o)
-                0x000072c8                _close_r
+                0x00007154       0x20 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-closer.o)
+                0x00007154                _close_r
  .text._fstat_r
-                0x000072e8       0x24 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-fstatr.o)
-                0x000072e8                _fstat_r
+                0x00007174       0x24 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-fstatr.o)
+                0x00007174                _fstat_r
  .text._isatty_r
-                0x0000730c       0x20 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-isattyr.o)
-                0x0000730c                _isatty_r
+                0x00007198       0x20 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-isattyr.o)
+                0x00007198                _isatty_r
  .text._lseek_r
-                0x0000732c       0x24 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-lseekr.o)
-                0x0000732c                _lseek_r
- .text._read_r  0x00007350       0x24 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-readr.o)
-                0x00007350                _read_r
+                0x000071b8       0x24 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-lseekr.o)
+                0x000071b8                _lseek_r
+ .text._read_r  0x000071dc       0x24 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-readr.o)
+                0x000071dc                _read_r
  *(.rodata)
- .rodata        0x00007374       0x54 ./Sources/Events.o
- .rodata        0x000073c8       0x70 ./Sources/main.o
- .rodata        0x00007438        0xc ./SDK/platform/utilities/src/fsl_debug_console.o
- .rodata        0x00007444      0x1e4 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
- .rodata        0x00007628       0x38 ./SDK/platform/hal/src/gpio/fsl_gpio_hal.o
- .rodata        0x00007660      0x184 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
- .rodata        0x000077e4      0x12c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
- .rodata        0x00007910      0x268 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
- .rodata        0x00007b78      0x164 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
- .rodata        0x00007cdc       0x50 ./Generated_Code/pin_init.o
- .rodata        0x00007d2c        0x8 ./Generated_Code/tasks.o
+ .rodata        0x00007200       0x54 ./Sources/Events.o
+ .rodata        0x00007254       0x60 ./Sources/main.o
+ .rodata        0x000072b4        0xc ./SDK/platform/utilities/src/fsl_debug_console.o
+ .rodata        0x000072c0      0x1e4 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+ .rodata        0x000074a4       0x38 ./SDK/platform/hal/src/gpio/fsl_gpio_hal.o
+ .rodata        0x000074dc      0x184 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+ .rodata        0x00007660      0x12c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+ .rodata        0x0000778c      0x268 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+ .rodata        0x000079f4      0x164 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+ .rodata        0x00007b58       0x50 ./Generated_Code/pin_init.o
+ .rodata        0x00007ba8        0x8 ./Generated_Code/tasks.o
  *(.rodata*)
  .rodata.portGateTable
-                0x00007d34        0x8 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00007bb0        0x8 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
  .rodata.adcGateTable
-                0x00007d3c        0x4 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00007bb8        0x4 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
  .rodata.ftmGateTable
-                0x00007d40        0x4 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00007bbc        0x4 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
  .rodata.uartGateTable
-                0x00007d44        0x4 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00007bc0        0x4 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
  .rodata.__func__.13018
-                0x00007d48       0x1c ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00007bc4       0x1c ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
  .rodata.__func__.13031
-                0x00007d64       0x1c ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00007be0       0x1c ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
  .rodata.__func__.13057
-                0x00007d80       0x1c ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00007bfc       0x1c ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
  .rodata.__func__.13096
-                0x00007d9c       0x1c ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+                0x00007c18       0x1c ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
  .rodata.g_oscBaseAddr
-                0x00007db8        0x4 ./SDK/platform/system/src/clock/fsl_clock_manager_common.o
-                0x00007db8                g_oscBaseAddr
+                0x00007c34        0x4 ./SDK/platform/system/src/clock/fsl_clock_manager_common.o
+                0x00007c34                g_oscBaseAddr
  .rodata.fllFactorTable.11585
-                0x00007dbc       0x10 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+                0x00007c38       0x10 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
  .rodata.__func__.11119
-                0x00007dcc       0x14 ./SDK/platform/hal/src/gpio/fsl_gpio_hal.o
+                0x00007c48       0x14 ./SDK/platform/hal/src/gpio/fsl_gpio_hal.o
  .rodata.__func__.11125
-                0x00007de0       0x18 ./SDK/platform/hal/src/gpio/fsl_gpio_hal.o
+                0x00007c5c       0x18 ./SDK/platform/hal/src/gpio/fsl_gpio_hal.o
  .rodata.__func__.11323
-                0x00007df8       0x10 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00007c74       0x10 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .rodata.__func__.11601
-                0x00007e08       0x14 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00007c84       0x14 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .rodata.__func__.11369
-                0x00007e1c       0x20 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+                0x00007c98       0x20 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
  .rodata.g_gpioBaseAddr
-                0x00007e3c       0x14 ./SDK/platform/drivers/src/gpio/fsl_gpio_common.o
-                0x00007e3c                g_gpioBaseAddr
+                0x00007cb8       0x14 ./SDK/platform/drivers/src/gpio/fsl_gpio_common.o
+                0x00007cb8                g_gpioBaseAddr
  .rodata.g_portBaseAddr
-                0x00007e50       0x14 ./SDK/platform/drivers/src/gpio/fsl_gpio_common.o
-                0x00007e50                g_portBaseAddr
+                0x00007ccc       0x14 ./SDK/platform/drivers/src/gpio/fsl_gpio_common.o
+                0x00007ccc                g_portBaseAddr
  .rodata.g_portIrqId
-                0x00007e64        0x8 ./SDK/platform/drivers/src/gpio/fsl_gpio_common.o
-                0x00007e64                g_portIrqId
+                0x00007ce0        0x8 ./SDK/platform/drivers/src/gpio/fsl_gpio_common.o
+                0x00007ce0                g_portIrqId
  .rodata.__func__.11103
-                0x00007e6c       0x14 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x00007ce8       0x14 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .rodata.__func__.11097
-                0x00007e80       0x18 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x00007cfc       0x18 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .rodata.__func__.11115
-                0x00007e98       0x20 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x00007d14       0x20 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .rodata.__func__.11145
-                0x00007eb8       0x20 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x00007d34       0x20 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .rodata.__func__.11167
-                0x00007ed8       0x18 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x00007d54       0x18 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .rodata.__func__.12964
-                0x00007ef0       0x14 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x00007d6c       0x14 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .rodata.__func__.11109
-                0x00007f04       0x1c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x00007d80       0x1c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .rodata.__func__.11127
-                0x00007f20       0x20 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x00007d9c       0x20 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .rodata.__func__.11121
-                0x00007f40       0x1c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x00007dbc       0x1c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .rodata.__func__.11241
-                0x00007f5c       0x1c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+                0x00007dd8       0x1c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
  .rodata.g_ftmBaseAddr
-                0x00007f78       0x10 ./SDK/platform/drivers/src/ftm/fsl_ftm_common.o
-                0x00007f78                g_ftmBaseAddr
+                0x00007df4       0x10 ./SDK/platform/drivers/src/ftm/fsl_ftm_common.o
+                0x00007df4                g_ftmBaseAddr
  .rodata.g_ftmIrqId
-                0x00007f88        0x4 ./SDK/platform/drivers/src/ftm/fsl_ftm_common.o
-                0x00007f88                g_ftmIrqId
+                0x00007e04        0x4 ./SDK/platform/drivers/src/ftm/fsl_ftm_common.o
+                0x00007e04                g_ftmIrqId
  .rodata.__func__.13308
-                0x00007f8c       0x10 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00007e08       0x10 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .rodata.__func__.11614
-                0x00007f9c       0x14 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00007e18       0x14 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .rodata.__func__.13345
-                0x00007fb0       0x18 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00007e2c       0x18 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .rodata.__func__.11210
-                0x00007fc8       0x18 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00007e44       0x18 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .rodata.__func__.11177
-                0x00007fe0       0x14 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
- .rodata.__func__.13357
-                0x00007ff4       0x14 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+                0x00007e5c       0x14 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
  .rodata.g_adcBaseAddr
-                0x00008008        0x8 ./SDK/platform/drivers/src/adc16/fsl_adc16_common.o
-                0x00008008                g_adcBaseAddr
+                0x00007e70        0x8 ./SDK/platform/drivers/src/adc16/fsl_adc16_common.o
+                0x00007e70                g_adcBaseAddr
  .rodata.g_adcIrqId
-                0x00008010        0x4 ./SDK/platform/drivers/src/adc16/fsl_adc16_common.o
-                0x00008010                g_adcIrqId
+                0x00007e78        0x4 ./SDK/platform/drivers/src/adc16/fsl_adc16_common.o
+                0x00007e78                g_adcIrqId
  .rodata.__func__.11141
-                0x00008014       0x24 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00007e7c       0x24 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .rodata.__func__.11188
-                0x00008038       0x20 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00007ea0       0x20 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .rodata.__func__.13044
-                0x00008058       0x10 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00007ec0       0x10 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .rodata.__func__.13012
-                0x00008068       0x14 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00007ed0       0x14 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .rodata.__func__.13016
-                0x0000807c       0x14 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00007ee4       0x14 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .rodata.__func__.13053
-                0x00008090       0x1c ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00007ef8       0x1c ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .rodata.__func__.13075
-                0x000080ac       0x1c ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00007f14       0x1c ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .rodata.__func__.13087
-                0x000080c8       0x18 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00007f30       0x18 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .rodata.__func__.11131
-                0x000080e0       0x14 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00007f48       0x14 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .rodata.__func__.13093
-                0x000080f4       0x18 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00007f5c       0x18 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .rodata.__func__.13108
-                0x0000810c       0x1c ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+                0x00007f74       0x1c ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
  .rodata.gpio_OutConfig0
-                0x00008128       0x60 ./Generated_Code/gpio.o
-                0x00008128                gpio_OutConfig0
+                0x00007f90       0x60 ./Generated_Code/gpio.o
+                0x00007f90                gpio_OutConfig0
  .rodata.__func__.11127
-                0x00008188       0x20 ./Generated_Code/pin_init.o
+                0x00007ff0       0x20 ./Generated_Code/pin_init.o
  .rodata.__func__.11109
-                0x000081a8       0x1c ./Generated_Code/pin_init.o
+                0x00008010       0x1c ./Generated_Code/pin_init.o
  .rodata.__func__.11121
-                0x000081c4       0x1c ./Generated_Code/pin_init.o
+                0x0000802c       0x1c ./Generated_Code/pin_init.o
  .rodata.__func__.11133
-                0x000081e0       0x14 ./Generated_Code/pin_init.o
+                0x00008048       0x14 ./Generated_Code/pin_init.o
  .rodata.__func__.11097
-                0x000081f4       0x18 ./Generated_Code/pin_init.o
+                0x0000805c       0x18 ./Generated_Code/pin_init.o
  .rodata.__func__.11103
-                0x0000820c       0x14 ./Generated_Code/pin_init.o
+                0x00008074       0x14 ./Generated_Code/pin_init.o
  .rodata.ucExpectedStackBytes.15928
-                0x00008220       0x14 ./Generated_Code/tasks.o
+                0x00008088       0x14 ./Generated_Code/tasks.o
  .rodata.str1.1
-                0x00008234       0x3c d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-assert.o)
+                0x0000809c       0x3c d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-assert.o)
                                  0x3d (size before relaxing)
  .rodata.str1.1
-                0x00008270        0x2 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-impure.o)
- *fill*         0x00008272        0x2 
+                0x000080d8        0x2 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-impure.o)
+ *fill*         0x000080da        0x2 
  .rodata._global_impure_ptr
-                0x00008274        0x4 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-impure.o)
-                0x00008274                _global_impure_ptr
+                0x000080dc        0x4 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-impure.o)
+                0x000080dc                _global_impure_ptr
  .rodata.str1.1
-                0x00008278        0x4 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
+                0x000080e0        0x4 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-syscalls.o)
  .rodata.str1.1
-                0x0000827c       0x11 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-vfprintf.o)
+                0x000080e4       0x11 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-vfprintf.o)
  .rodata.str1.1
-                0x0000828d       0x22 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-vfprintf_i.o)
+                0x000080f5       0x22 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-vfprintf_i.o)
  *(.glue_7)
  .glue_7        0x00000000        0x0 linker stubs
  *(.glue_7t)
  .glue_7t       0x00000000        0x0 linker stubs
  *(.eh_frame)
- *fill*         0x000082af        0x1 
- .eh_frame      0x000082b0        0x0 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crtbegin.o
+ *fill*         0x00008117        0x1 
+ .eh_frame      0x00008118        0x0 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crtbegin.o
  *(.init)
- .init          0x000082b0        0x4 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crti.o
-                0x000082b0                _init
- .init          0x000082b4        0x8 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crtn.o
+ .init          0x00008118        0x4 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crti.o
+                0x00008118                _init
+ .init          0x0000811c        0x8 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crtn.o
  *(.fini)
- .fini          0x000082bc        0x4 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crti.o
-                0x000082bc                _fini
- .fini          0x000082c0        0x8 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crtn.o
-                0x000082c8                . = ALIGN (0x4)
+ .fini          0x00008124        0x4 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crti.o
+                0x00008124                _fini
+ .fini          0x00008128        0x8 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crtn.o
+                0x00008130                . = ALIGN (0x4)
 
-.vfp11_veneer   0x000082c8        0x0
+.vfp11_veneer   0x00008130        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x000082c8        0x0
+.v4_bx          0x00008130        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x000082c8        0x0
+.iplt           0x00008130        0x0
  .iplt          0x00000000        0x0 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crtbegin.o
 
-.rel.dyn        0x000082c8        0x0
+.rel.dyn        0x00008130        0x0
  .rel.iplt      0x00000000        0x0 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x000082c8        0x0
-                0x000082c8                __exidx_start = .
+.ARM            0x00008130        0x0
+                0x00008130                __exidx_start = .
  *(.ARM.exidx*)
-                0x000082c8                __exidx_end = .
+                0x00008130                __exidx_end = .
 
-.ctors          0x000082c8        0x0
-                0x000082c8                __CTOR_LIST__ = .
+.ctors          0x00008130        0x0
+                0x00008130                __CTOR_LIST__ = .
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
  *(SORT(.ctors.*))
  *(.ctors)
-                0x000082c8                __CTOR_END__ = .
+                0x00008130                __CTOR_END__ = .
 
-.dtors          0x000082c8        0x0
-                0x000082c8                __DTOR_LIST__ = .
+.dtors          0x00008130        0x0
+                0x00008130                __DTOR_LIST__ = .
  *crtbegin.o(.dtors)
  *crtbegin?.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .dtors)
  *(SORT(.dtors.*))
  *(.dtors)
-                0x000082c8                __DTOR_END__ = .
+                0x00008130                __DTOR_END__ = .
 
-.preinit_array  0x000082c8        0x0
-                0x000082c8                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x00008130        0x0
+                0x00008130                PROVIDE (__preinit_array_start, .)
  *(.preinit_array*)
-                0x000082c8                PROVIDE (__preinit_array_end, .)
+                0x00008130                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x000082c8        0x4
-                0x000082c8                PROVIDE (__init_array_start, .)
+.init_array     0x00008130        0x4
+                0x00008130                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array*)
- .init_array    0x000082c8        0x4 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crtbegin.o
-                0x000082cc                PROVIDE (__init_array_end, .)
+ .init_array    0x00008130        0x4 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crtbegin.o
+                0x00008134                PROVIDE (__init_array_end, .)
 
-.fini_array     0x000082cc        0x4
-                0x000082cc                PROVIDE (__fini_array_start, .)
+.fini_array     0x00008134        0x4
+                0x00008134                PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x000082cc        0x4 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crtbegin.o
-                0x000082d0                PROVIDE (__fini_array_end, .)
-                0x000082d0                __etext = .
-                0x000082d0                __DATA_ROM = .
+ .fini_array    0x00008134        0x4 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crtbegin.o
+                0x00008138                PROVIDE (__fini_array_end, .)
+                0x00008138                __etext = .
+                0x00008138                __DATA_ROM = .
 
-.data           0x1fff0400      0x2e8 load address 0x000082d0
+.data           0x1fff0400      0x2e8 load address 0x00008138
                 0x1fff0400                . = ALIGN (0x4)
                 0x1fff0400                __DATA_RAM = .
                 0x1fff0400                __data_start__ = .
@@ -6839,21 +6836,21 @@ LOAD d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v
  .jcr           0x1fff06e4        0x4 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crtend.o
                 0x1fff06e8                . = ALIGN (0x4)
                 0x1fff06e8                __data_end__ = .
-                0x000085b8                __DATA_END = (__DATA_ROM + (__data_end__ - __data_start__))
-                0x000085b8                __m_interrupts_ram_ROMStart = (__DATA_ROM + SIZEOF (.data))
+                0x00008420                __DATA_END = (__DATA_ROM + (__data_end__ - __data_start__))
+                0x00008420                __m_interrupts_ram_ROMStart = (__DATA_ROM + SIZEOF (.data))
 
 .tm_clone_table
-                0x1fff06e8        0x0 load address 0x000085b8
+                0x1fff06e8        0x0 load address 0x00008420
  .tm_clone_table
                 0x1fff06e8        0x0 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crtbegin.o
  .tm_clone_table
                 0x1fff06e8        0x0 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crtend.o
 
-.igot.plt       0x1fff06e8        0x0 load address 0x000085b8
+.igot.plt       0x1fff06e8        0x0 load address 0x00008420
  .igot.plt      0x00000000        0x0 d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crtbegin.o
 
 .m_interrupts_ram
-                0x1fff0000      0x400 load address 0x000085b8
+                0x1fff0000      0x400 load address 0x00008420
                 0x1fff0000                . = ALIGN (0x4)
                 0x1fff0000                __m_interrupts_ram_RAMStart = .
  *(.m_interrupts_ram)
@@ -6863,9 +6860,9 @@ LOAD d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v
                 0x1fff0400                . = ALIGN (0x4)
                 0x00000400                __m_interrupts_ram_ROMSize = (__m_interrupts_ram_RAMEnd - __m_interrupts_ram_RAMStart)
                 0x00000400                __RAM_VECTOR_TABLE_SIZE_BYTES = (__m_interrupts_ram_RAMEnd - __m_interrupts_ram_RAMStart)
-                0x000089b8                __m_data_2_ROMStart = (__m_interrupts_ram_ROMStart + SIZEOF (.m_interrupts_ram))
+                0x00008820                __m_data_2_ROMStart = (__m_interrupts_ram_ROMStart + SIZEOF (.m_interrupts_ram))
 
-.m_data_2       0x20000000        0x0 load address 0x000089b8
+.m_data_2       0x20000000        0x0 load address 0x00008820
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                __m_data_2_RAMStart = .
  *(.m_data_2)
@@ -6873,7 +6870,7 @@ LOAD d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v
                 0x20000000                . = ALIGN (0x4)
                 0x00000000                __m_data_2_ROMSize = (__m_data_2_RAMEnd - __m_data_2_RAMStart)
 
-.bss            0x1fff06e8     0x456c load address 0x000085b8
+.bss            0x1fff06e8     0x456c load address 0x00008420
                 0x1fff06e8                . = ALIGN (0x4)
                 0x1fff06e8                __START_BSS = .
                 0x1fff06e8                __bss_start__ = .
@@ -7215,41 +7212,41 @@ OUTPUT(CB_Test.elf elf32-littlearm)
  .comment       0x00000000       0x2b d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/m4/fp/v4-sp-d16\libg_s.a(lib_a-reent.o)
  .comment       0x00000000       0x2b d:/freescale/kds_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/m4/fp/v4-sp-d16/crtend.o
 
-.debug_info     0x00000000    0x1360a
+.debug_info     0x00000000    0x135fe
  .debug_info    0x00000000      0x110 ./Static_Code/System/PE_low_level_init.o
  .debug_info    0x00000110      0x1e9 ./Sources/Events.o
  .debug_info    0x000002f9      0x8fb ./Sources/LQ_SGP18T.o
- .debug_info    0x00000bf4      0x402 ./Sources/main.o
- .debug_info    0x00000ff6     0x1262 ./SDK/platform/utilities/src/fsl_debug_console.o
- .debug_info    0x00002258      0x5bd ./SDK/platform/utilities/src/print_scan.o
- .debug_info    0x00002815     0x1ba3 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
- .debug_info    0x000043b8       0xef ./SDK/platform/system/src/clock/fsl_clock_manager_common.o
- .debug_info    0x000044a7       0x89 ./SDK/platform/startup/MK22F51212/gcc/startup_MK22F51212.o
- .debug_info    0x00004530      0xa96 ./SDK/platform/startup/MK22F51212/system_MK22F51212.o
- .debug_info    0x00004fc6      0x386 ./SDK/platform/startup/startup.o
- .debug_info    0x0000534c     0x138d ./SDK/platform/hal/src/uart/fsl_uart_hal.o
- .debug_info    0x000066d9      0x2c7 ./SDK/platform/hal/src/osc/fsl_osc_hal.o
- .debug_info    0x000069a0     0x1305 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
- .debug_info    0x00007ca5     0x110f ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
- .debug_info    0x00008db4      0x275 ./SDK/platform/hal/src/gpio/fsl_gpio_hal.o
- .debug_info    0x00009029     0x1cd1 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
- .debug_info    0x0000acfa      0x9a9 ./SDK/platform/hal/src/adc16/fsl_adc16_hal.o
- .debug_info    0x0000b6a3      0x36f ./SDK/platform/drivers/src/gpio/fsl_gpio_common.o
- .debug_info    0x0000ba12     0x1293 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
- .debug_info    0x0000cca5      0x359 ./SDK/platform/drivers/src/ftm/fsl_ftm_common.o
- .debug_info    0x0000cffe     0x152a ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
- .debug_info    0x0000e528      0x359 ./SDK/platform/drivers/src/adc16/fsl_adc16_common.o
- .debug_info    0x0000e881     0x1b9f ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
- .debug_info    0x00010420      0x31c ./Generated_Code/ADC0.o
- .debug_info    0x0001073c      0x9f5 ./Generated_Code/Cpu.o
- .debug_info    0x00011131      0x17a ./Generated_Code/Timer1.o
- .debug_info    0x000112ab      0x1c6 ./Generated_Code/gpio.o
- .debug_info    0x00011471      0x10b ./Generated_Code/hardware_init.o
- .debug_info    0x0001157c      0x326 ./Generated_Code/heap_2.o
- .debug_info    0x000118a2      0x296 ./Generated_Code/list.o
- .debug_info    0x00011b38      0x575 ./Generated_Code/pin_init.o
- .debug_info    0x000120ad      0x2e5 ./Generated_Code/port.o
- .debug_info    0x00012392     0x1278 ./Generated_Code/tasks.o
+ .debug_info    0x00000bf4      0x3f6 ./Sources/main.o
+ .debug_info    0x00000fea     0x1262 ./SDK/platform/utilities/src/fsl_debug_console.o
+ .debug_info    0x0000224c      0x5bd ./SDK/platform/utilities/src/print_scan.o
+ .debug_info    0x00002809     0x1ba3 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+ .debug_info    0x000043ac       0xef ./SDK/platform/system/src/clock/fsl_clock_manager_common.o
+ .debug_info    0x0000449b       0x89 ./SDK/platform/startup/MK22F51212/gcc/startup_MK22F51212.o
+ .debug_info    0x00004524      0xa96 ./SDK/platform/startup/MK22F51212/system_MK22F51212.o
+ .debug_info    0x00004fba      0x386 ./SDK/platform/startup/startup.o
+ .debug_info    0x00005340     0x138d ./SDK/platform/hal/src/uart/fsl_uart_hal.o
+ .debug_info    0x000066cd      0x2c7 ./SDK/platform/hal/src/osc/fsl_osc_hal.o
+ .debug_info    0x00006994     0x1305 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+ .debug_info    0x00007c99     0x110f ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
+ .debug_info    0x00008da8      0x275 ./SDK/platform/hal/src/gpio/fsl_gpio_hal.o
+ .debug_info    0x0000901d     0x1cd1 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+ .debug_info    0x0000acee      0x9a9 ./SDK/platform/hal/src/adc16/fsl_adc16_hal.o
+ .debug_info    0x0000b697      0x36f ./SDK/platform/drivers/src/gpio/fsl_gpio_common.o
+ .debug_info    0x0000ba06     0x1293 ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+ .debug_info    0x0000cc99      0x359 ./SDK/platform/drivers/src/ftm/fsl_ftm_common.o
+ .debug_info    0x0000cff2     0x152a ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+ .debug_info    0x0000e51c      0x359 ./SDK/platform/drivers/src/adc16/fsl_adc16_common.o
+ .debug_info    0x0000e875     0x1b9f ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+ .debug_info    0x00010414      0x31c ./Generated_Code/ADC0.o
+ .debug_info    0x00010730      0x9f5 ./Generated_Code/Cpu.o
+ .debug_info    0x00011125      0x17a ./Generated_Code/Timer1.o
+ .debug_info    0x0001129f      0x1c6 ./Generated_Code/gpio.o
+ .debug_info    0x00011465      0x10b ./Generated_Code/hardware_init.o
+ .debug_info    0x00011570      0x326 ./Generated_Code/heap_2.o
+ .debug_info    0x00011896      0x296 ./Generated_Code/list.o
+ .debug_info    0x00011b2c      0x575 ./Generated_Code/pin_init.o
+ .debug_info    0x000120a1      0x2e5 ./Generated_Code/port.o
+ .debug_info    0x00012386     0x1278 ./Generated_Code/tasks.o
 
 .debug_abbrev   0x00000000     0x2ffe
  .debug_abbrev  0x00000000       0x8d ./Static_Code/System/PE_low_level_init.o
@@ -7502,41 +7499,41 @@ OUTPUT(CB_Test.elf elf32-littlearm)
  .debug_macro   0x00029f36      0x4ca ./Generated_Code/tasks.o
  .debug_macro   0x0002a400       0x17 ./Generated_Code/tasks.o
 
-.debug_line     0x00000000    0x101a1
+.debug_line     0x00000000    0x1019f
  .debug_line    0x00000000      0x97e ./Static_Code/System/PE_low_level_init.o
  .debug_line    0x0000097e      0x974 ./Sources/Events.o
  .debug_line    0x000012f2      0xcec ./Sources/LQ_SGP18T.o
- .debug_line    0x00001fde      0x9b9 ./Sources/main.o
- .debug_line    0x00002997      0x9da ./SDK/platform/utilities/src/fsl_debug_console.o
- .debug_line    0x00003371      0x606 ./SDK/platform/utilities/src/print_scan.o
- .debug_line    0x00003977      0xc94 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
- .debug_line    0x0000460b      0x3ea ./SDK/platform/system/src/clock/fsl_clock_manager_common.o
- .debug_line    0x000049f5       0x81 ./SDK/platform/startup/MK22F51212/gcc/startup_MK22F51212.o
- .debug_line    0x00004a76      0x4a8 ./SDK/platform/startup/MK22F51212/system_MK22F51212.o
- .debug_line    0x00004f1e      0x41e ./SDK/platform/startup/startup.o
- .debug_line    0x0000533c      0x7a4 ./SDK/platform/hal/src/uart/fsl_uart_hal.o
- .debug_line    0x00005ae0      0x4d4 ./SDK/platform/hal/src/osc/fsl_osc_hal.o
- .debug_line    0x00005fb4      0x826 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
- .debug_line    0x000067da      0x77e ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
- .debug_line    0x00006f58      0x46f ./SDK/platform/hal/src/gpio/fsl_gpio_hal.o
- .debug_line    0x000073c7      0x7ce ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
- .debug_line    0x00007b95      0x4fb ./SDK/platform/hal/src/adc16/fsl_adc16_hal.o
- .debug_line    0x00008090      0x3e1 ./SDK/platform/drivers/src/gpio/fsl_gpio_common.o
- .debug_line    0x00008471      0x8fb ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
- .debug_line    0x00008d6c      0x3df ./SDK/platform/drivers/src/ftm/fsl_ftm_common.o
- .debug_line    0x0000914b      0xada ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
- .debug_line    0x00009c25      0x3e3 ./SDK/platform/drivers/src/adc16/fsl_adc16_common.o
- .debug_line    0x0000a008      0xc8b ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
- .debug_line    0x0000ac93      0x92d ./Generated_Code/ADC0.o
- .debug_line    0x0000b5c0      0x965 ./Generated_Code/Cpu.o
- .debug_line    0x0000bf25      0x931 ./Generated_Code/Timer1.o
- .debug_line    0x0000c856      0x48f ./Generated_Code/gpio.o
- .debug_line    0x0000cce5      0x5a7 ./Generated_Code/hardware_init.o
- .debug_line    0x0000d28c      0xa10 ./Generated_Code/heap_2.o
- .debug_line    0x0000dc9c      0x2fe ./Generated_Code/list.o
- .debug_line    0x0000df9a      0x5de ./Generated_Code/pin_init.o
- .debug_line    0x0000e578      0x9ec ./Generated_Code/port.o
- .debug_line    0x0000ef64     0x123d ./Generated_Code/tasks.o
+ .debug_line    0x00001fde      0x9b7 ./Sources/main.o
+ .debug_line    0x00002995      0x9da ./SDK/platform/utilities/src/fsl_debug_console.o
+ .debug_line    0x0000336f      0x606 ./SDK/platform/utilities/src/print_scan.o
+ .debug_line    0x00003975      0xc94 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+ .debug_line    0x00004609      0x3ea ./SDK/platform/system/src/clock/fsl_clock_manager_common.o
+ .debug_line    0x000049f3       0x81 ./SDK/platform/startup/MK22F51212/gcc/startup_MK22F51212.o
+ .debug_line    0x00004a74      0x4a8 ./SDK/platform/startup/MK22F51212/system_MK22F51212.o
+ .debug_line    0x00004f1c      0x41e ./SDK/platform/startup/startup.o
+ .debug_line    0x0000533a      0x7a4 ./SDK/platform/hal/src/uart/fsl_uart_hal.o
+ .debug_line    0x00005ade      0x4d4 ./SDK/platform/hal/src/osc/fsl_osc_hal.o
+ .debug_line    0x00005fb2      0x826 ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+ .debug_line    0x000067d8      0x77e ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
+ .debug_line    0x00006f56      0x46f ./SDK/platform/hal/src/gpio/fsl_gpio_hal.o
+ .debug_line    0x000073c5      0x7ce ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+ .debug_line    0x00007b93      0x4fb ./SDK/platform/hal/src/adc16/fsl_adc16_hal.o
+ .debug_line    0x0000808e      0x3e1 ./SDK/platform/drivers/src/gpio/fsl_gpio_common.o
+ .debug_line    0x0000846f      0x8fb ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+ .debug_line    0x00008d6a      0x3df ./SDK/platform/drivers/src/ftm/fsl_ftm_common.o
+ .debug_line    0x00009149      0xada ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+ .debug_line    0x00009c23      0x3e3 ./SDK/platform/drivers/src/adc16/fsl_adc16_common.o
+ .debug_line    0x0000a006      0xc8b ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+ .debug_line    0x0000ac91      0x92d ./Generated_Code/ADC0.o
+ .debug_line    0x0000b5be      0x965 ./Generated_Code/Cpu.o
+ .debug_line    0x0000bf23      0x931 ./Generated_Code/Timer1.o
+ .debug_line    0x0000c854      0x48f ./Generated_Code/gpio.o
+ .debug_line    0x0000cce3      0x5a7 ./Generated_Code/hardware_init.o
+ .debug_line    0x0000d28a      0xa10 ./Generated_Code/heap_2.o
+ .debug_line    0x0000dc9a      0x2fe ./Generated_Code/list.o
+ .debug_line    0x0000df98      0x5de ./Generated_Code/pin_init.o
+ .debug_line    0x0000e576      0x9ec ./Generated_Code/port.o
+ .debug_line    0x0000ef62     0x123d ./Generated_Code/tasks.o
 
 .debug_str      0x00000000    0xf92ff
  .debug_str     0x00000000    0xed46e ./Static_Code/System/PE_low_level_init.o
@@ -7606,30 +7603,30 @@ OUTPUT(CB_Test.elf elf32-littlearm)
  .debug_str     0x000f80f1     0x120e ./Generated_Code/tasks.o
                               0xee9ee (size before relaxing)
 
-.debug_frame    0x00000000     0x39d0
+.debug_frame    0x00000000     0x39cc
  .debug_frame   0x00000000       0x48 ./Static_Code/System/PE_low_level_init.o
  .debug_frame   0x00000048       0xb4 ./Sources/Events.o
  .debug_frame   0x000000fc      0x288 ./Sources/LQ_SGP18T.o
- .debug_frame   0x00000384       0xb0 ./Sources/main.o
- .debug_frame   0x00000434      0x2a0 ./SDK/platform/utilities/src/fsl_debug_console.o
- .debug_frame   0x000006d4       0xc4 ./SDK/platform/utilities/src/print_scan.o
- .debug_frame   0x00000798      0x848 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
- .debug_frame   0x00000fe0       0x44 ./SDK/platform/startup/MK22F51212/system_MK22F51212.o
- .debug_frame   0x00001024       0x2c ./SDK/platform/startup/startup.o
- .debug_frame   0x00001050      0x34c ./SDK/platform/hal/src/uart/fsl_uart_hal.o
- .debug_frame   0x0000139c       0xf0 ./SDK/platform/hal/src/osc/fsl_osc_hal.o
- .debug_frame   0x0000148c      0x4bc ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
- .debug_frame   0x00001948      0x2f4 ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
- .debug_frame   0x00001c3c       0x50 ./SDK/platform/hal/src/gpio/fsl_gpio_hal.o
- .debug_frame   0x00001c8c      0x3e8 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
- .debug_frame   0x00002074       0xbc ./SDK/platform/hal/src/adc16/fsl_adc16_hal.o
- .debug_frame   0x00002130      0x38c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
- .debug_frame   0x000024bc      0x4d0 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
- .debug_frame   0x0000298c      0x614 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
- .debug_frame   0x00002fa0       0x48 ./Generated_Code/Cpu.o
- .debug_frame   0x00002fe8       0x2c ./Generated_Code/hardware_init.o
- .debug_frame   0x00003014       0x9c ./Generated_Code/heap_2.o
- .debug_frame   0x000030b0       0x9c ./Generated_Code/list.o
- .debug_frame   0x0000314c      0x170 ./Generated_Code/pin_init.o
- .debug_frame   0x000032bc      0x194 ./Generated_Code/port.o
- .debug_frame   0x00003450      0x580 ./Generated_Code/tasks.o
+ .debug_frame   0x00000384       0xac ./Sources/main.o
+ .debug_frame   0x00000430      0x2a0 ./SDK/platform/utilities/src/fsl_debug_console.o
+ .debug_frame   0x000006d0       0xc4 ./SDK/platform/utilities/src/print_scan.o
+ .debug_frame   0x00000794      0x848 ./SDK/platform/system/src/clock/MK22F51212/fsl_clock_MK22F51212.o
+ .debug_frame   0x00000fdc       0x44 ./SDK/platform/startup/MK22F51212/system_MK22F51212.o
+ .debug_frame   0x00001020       0x2c ./SDK/platform/startup/startup.o
+ .debug_frame   0x0000104c      0x34c ./SDK/platform/hal/src/uart/fsl_uart_hal.o
+ .debug_frame   0x00001398       0xf0 ./SDK/platform/hal/src/osc/fsl_osc_hal.o
+ .debug_frame   0x00001488      0x4bc ./SDK/platform/hal/src/mcg/fsl_mcg_hal.o
+ .debug_frame   0x00001944      0x2f4 ./SDK/platform/hal/src/lpuart/fsl_lpuart_hal.o
+ .debug_frame   0x00001c38       0x50 ./SDK/platform/hal/src/gpio/fsl_gpio_hal.o
+ .debug_frame   0x00001c88      0x3e8 ./SDK/platform/hal/src/ftm/fsl_ftm_hal.o
+ .debug_frame   0x00002070       0xbc ./SDK/platform/hal/src/adc16/fsl_adc16_hal.o
+ .debug_frame   0x0000212c      0x38c ./SDK/platform/drivers/src/gpio/fsl_gpio_driver.o
+ .debug_frame   0x000024b8      0x4d0 ./SDK/platform/drivers/src/ftm/fsl_ftm_driver.o
+ .debug_frame   0x00002988      0x614 ./SDK/platform/drivers/src/adc16/fsl_adc16_driver.o
+ .debug_frame   0x00002f9c       0x48 ./Generated_Code/Cpu.o
+ .debug_frame   0x00002fe4       0x2c ./Generated_Code/hardware_init.o
+ .debug_frame   0x00003010       0x9c ./Generated_Code/heap_2.o
+ .debug_frame   0x000030ac       0x9c ./Generated_Code/list.o
+ .debug_frame   0x00003148      0x170 ./Generated_Code/pin_init.o
+ .debug_frame   0x000032b8      0x194 ./Generated_Code/port.o
+ .debug_frame   0x0000344c      0x580 ./Generated_Code/tasks.o
